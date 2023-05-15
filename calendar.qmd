@@ -1,0 +1,63 @@
+---
+title: "Calendar"
+---
+
+## Fall 2023
+
+- [x] Reserve location. K3YV.
+
+## March/April 2023
+
+- [x] Add info to ARRL Field Day website. W3TM.
+
+## May 2023
+
+- [ ] Create Field Day budget.
+    - [ ] Food & drink budget.
+    - [ ] Porta-Potty estimate.
+    - [ ] Equipment estimate.
+    - [ ] PR and supply estimate.
+    - [ ] Truck rental.
+- [ ] Secure NARC BoD budget approval. W3TM & K3YV.
+
+## June 2023
+
+### 4 weeks out (May 28 - June 3)
+
+- [ ] Add event to web-based activity calendars.
+- [ ] Draft and send invitations to elected officials.
+- [ ] Reserve Porta-Potty.
+
+### 3 weeks out (June 4 - June 10)
+
+- [ ] Draft press release and send to media outlets.
+
+### 2 weeks out (June 11 - June 17)
+
+### Week of event (June 18 - June 22)
+
+- [ ] Confirm Porta-Potty delivery details. ????
+
+### Field Day (June 23 - 25)
+
+#### Friday, June 23
+
+- [ ] Pick-up U-Haul. N3LI.
+- [ ] Pack equipment at mountaintop station and load into truck.
+- [ ] Set up antennas
+    - [ ] 80/10m MyAntennas EFWH oriented roughly East/West
+    - [ ] 80/10m MyAntennas EFWH oriented roughly East/West
+- [ ] Test antennas.
+
+#### Saturday, June 24
+
+- [ ] Set up radio gear.
+- [ ] Set up power.
+- [ ] Set up computers and network.
+- [ ] Set up food & drink.
+- [ ] Set up info table.
+
+**2:00 PM EDT (1800 UTC) Field Day begins**
+
+#### Sunday, June 25
+
