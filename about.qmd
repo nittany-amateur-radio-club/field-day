@@ -1,9 +1,13 @@
 ---
 title: "About"
+number-sections: true
 ---
 
-About this site
+Field Day is an event organized by the [American Radio Relay League (ARRL)](https://arrl.org), the membership organization for amateur radio operators (hams) in the U.S.
 
-```{r}
-1 + 1
-```
+Field Day is an open house to show-off amateur radio to the public, an exercise in portable or field radio operations, and a contest to see which stations can earn the most points.
+
+NARC will operate under the club callsign [W3YA](https://qrz.com/db/w3ya) with two high frequency (HF) transmitters capable of long-distance communication and a bonus VHF+ station, making this a class 2A (two alpha) operation.
+The location will be the Pleasant Gap Fire Company training grounds at 475 Robinson Lane in Pleasant Gap, PA.
+
+![W3YA Field Day location from <http://www.arrl.org/field-day-locator>.](img/w3ya-field-day-map.png){fig-align="center"}

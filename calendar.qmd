@@ -1,14 +1,19 @@
 ---
 title: "Calendar"
+number-sections: true
 ---
 
-## Fall 2023
+Here is a link to the Google doc:
 
-- [x] Reserve location. K3YV.
+<https://docs.google.com/document/d/1AT3f4egvd98MGMu3RWlehmllep89HMRYQFrhlksZyms/edit?usp=sharing>
 
-## March/April 2023
+## Fall 2022
 
-- [x] Add info to ARRL Field Day website. W3TM.
+- [x] Reserve location. [K3YV](people.qmd#K3YV)
+
+## Spring 2023
+
+- [x] Add info to ARRL Field Day website. [W3TM](people.qmd#W3TM)
 
 ## May 2023
 
@@ -17,47 +22,57 @@ title: "Calendar"
     - [ ] Porta-Potty estimate.
     - [ ] Equipment estimate.
     - [ ] PR and supply estimate.
-    - [ ] Truck rental.
-- [ ] Secure NARC BoD budget approval. W3TM & K3YV.
+    - [ ] Truck rental. [N3LI](people.qmd#N3LI)
+- [ ] Secure NARC BoD budget approval. [W3TM](people.qmd#W3TM) & [K3YV](people.qmd#K3YV).
 
 ## June 2023
 
 ### 4 weeks out (May 28 - June 3)
 
-- [ ] Add event to web-based activity calendars.
-- [ ] Draft and send invitations to elected officials.
-- [ ] Reserve Porta-Potty.
+- [ ] Add event to web-based activity calendars. H3LP.
+- [ ] Draft and send invitations to elected officials. H3LP.
+- [ ] Reserve Porta-Potty. H3LP. 
 
 ### 3 weeks out (June 4 - June 10)
 
-- [ ] Draft press release and send to media outlets.
+- [ ] Draft press release and send to media outlets. H3LP.
 
 ### 2 weeks out (June 11 - June 17)
 
 ### Week of event (June 18 - June 22)
 
-- [ ] Confirm Porta-Potty delivery details. ????
+- [ ] Confirm Porta-Potty delivery details. H3LP.
 
 ### Field Day (June 23 - 25)
 
 #### Friday, June 23
 
-- [ ] Pick-up U-Haul. N3LI.
+- [ ] Pick-up U-Haul. [N3LI](people.qmd#N3LI).
 - [ ] Pack equipment at mountaintop station and load into truck.
-- [ ] Set up antennas
-    - [ ] 80/10m MyAntennas EFWH oriented roughly East/West
-    - [ ] 80/10m MyAntennas EFWH oriented roughly East/West
+- [ ] Set up antennas. H3LP.
+    - [ ] 80/10m MyAntennas EFWH oriented roughly East/West.
+    - [ ] 80/10m MyAntennas EFWH oriented roughly East/West.
 - [ ] Test antennas.
 
 #### Saturday, June 24
 
-- [ ] Set up radio gear.
-- [ ] Set up power.
-- [ ] Set up computers and network.
-- [ ] Set up food & drink.
-- [ ] Set up info table.
+- [ ] Set up radio gear. H3LP.
+- [ ] Set up power. H3LP.
+- [ ] Set up computers and network. [N3LI](people.qmd#N3LI).
+- [ ] Set up food & drink. H3LP.
+- [ ] Set up info table. H3LP.
 
+
+::: {.callout-warning}
 **2:00 PM EDT (1800 UTC) Field Day begins**
+:::
 
 #### Sunday, June 25
 
+::: {.callout-warning}
+**2:00 PM EDT (1800 UTC) Field Day ends**
+:::
+
+### Week after
+
+- [ ] Clean logs and submit to ARRL. H3LP.

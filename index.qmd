@@ -1,11 +1,17 @@
 ---
 title: "Field Day 2023"
+number-sections: true
 ---
 
-This is a Quarto website.
+This is a website that describes planning for the [ARRL](https://arrl.org) [Field Day](http://www.arrl.org/field-day) operation conducted by the [Nittany Amateur Radio Club (NARC)](https://nittany-arc.net).
+Rick Gilmore [W3TM](people.qmd#W3TM) created and maintains the site.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Please see separate pages that describe what Field Day is [about](about.qmd), the [people](people.qmd) who are involved, [what they do when](calendar.qmd) to make Field Day happen, and some of the [material items](things.qmd) needed to pull-off an event like this.
 
-```{r}
-1 + 1
-```
+![Antennas at sunset.](img/field-day-sunset-antenna-640-480.jpg){fig-align="center"}
+
+::: {.callout-note}
+Field Day 2023 is on Saturday, June 24, 2023 to Sunday, June 25, 2023. The event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday.
+:::
+
+

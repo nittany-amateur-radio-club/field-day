@@ -1,8 +1,14 @@
 project:
   type: website
+  render:
+    - index.qmd
+    - about.qmd
+    - calendar.qmd
+    - people.qmd
+    - things.qmd
 
 website:
-  title: "field-day"
+  title: "NARC Field Day 2023"
   navbar:
     left:
       - href: index.qmd
@@ -10,7 +16,8 @@ website:
       - about.qmd
       - calendar.qmd
       - people.qmd
-
+      - things.qmd
+      
 format:
   html:
     theme: cosmo
