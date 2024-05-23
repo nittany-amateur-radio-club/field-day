@@ -19,7 +19,7 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: include/css/styles.css
     toc: true
 
 editor: source

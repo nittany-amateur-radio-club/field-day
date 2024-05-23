@@ -8,10 +8,12 @@ Rick Gilmore [W3TM](people.qmd#W3TM) created and maintains the site.
 
 Please see separate pages that describe what Field Day is [about](about.qmd), the [people](people.qmd) who are involved, [what they do when](calendar.qmd) to make Field Day happen, and some of the [material items](things.qmd) needed to pull-off an event like this.
 
-![Antennas at sunset.](img/field-day-sunset-antenna-640-480.jpg){fig-align="center"}
+![Antennas at sunset.](include/img/field-day-sunset-antenna-640-480.jpg){fig-align="center"}
 
 ::: {.callout-note}
-Field Day 2024 is on Saturday, June 22, 2024 to Sunday, June 23, 2023. The event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday.
+Field Day 2024 is on Saturday, June 22, 2024 to Sunday, June 23, 2023. 
+
+The event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday.
 :::
 
 
