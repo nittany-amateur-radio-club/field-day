@@ -1,0 +1,140 @@
+---
+title: "Planning"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+params:
+  update_data: true
+  survey_data_fn: narc-fd-2024-survey.csv
+  survey_sheet_fn: "Field Day 2024 volunteer sign-up (Responses)"
+---
+
+## About
+
+This page documents some of our planning process.
+
+## Member Survey
+
+W3TM drafted a member survey using a Google Form.
+
+Here are some of the preliminary results.
+
+### Set-up
+
+We source some packages to make calls to their functions more convenient.
+
+```{r}
+library(ggplot2)
+```
+
+### Gathering
+
+The Google Form application saves the survey responses as a Google Sheet:
+
+https://docs.google.com/spreadsheets/d/1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg/edit?resourcekey#gid=283208367
+
+```{r}
+if (!dir.exists('csv')) {
+  message("Creating missing `csv/`.")
+  dir.create("csv")
+}
+
+update_figs = TRUE
+
+full_survey_data_fn <- file.path("csv", params$survey_data_fn)
+
+if (params$update_data) {
+  options(gargle_oauth_email = Sys.getenv("GMAIL_SURVEY"))
+  googledrive::drive_auth()
+  
+  new_fn <- file.path("csv", paste0("_", params$survey_data_fn))
+  googledrive::drive_download(
+    params$survey_sheet_fn,
+    path = full_survey_data_fn,
+    type = "csv",
+    overwrite = TRUE
+  )
+  message("Data updated.")
+} else {
+  if (!file.exists(full_survey_data_fn)) {
+    warning("File not found: '", full_survey_data_fn, "'.")
+    update_figs = FALSE
+  } else {
+    message("Using previously stored data.")
+  }
+}
+```
+
+Now, we load the downloaded CSV
+
+```{r load-survey-data}
+if (update_figs) {
+  survey_resps <-
+    readr::read_csv(full_survey_data_fn, show_col_types = FALSE)
+}
+
+names(survey_resps)
+```
+
+### Clean
+
+Then we clean the data by renaming the variables, parsing variables with multiple values, and conforming some values so that they are easier to visualize.
+
+```{r rename-variables}
+survey_resps <- survey_resps |>
+  dplyr::rename(
+    timestamp = "Timestamp",
+    name = "Your Name",
+    callsign = "Callsign",
+    phone = "Phone",
+    email = "Email",
+    attend = "Do you plan to attend NARC's Field Day 2024?",
+    operate = "Do you plan to operate on Field Day?",
+    overnight = "Are you a night owl and want to operate late into the night or camp out to snag some rare DX?",
+help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",
+comments = "Comments or suggestions"
+  )
+
+names(survey_resps)[9] <- "modes"
+```
+
+```{r recode-variables}
+survey_resps <- survey_resps |>
+  # Change timestamp to proper date and time
+  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = "America/New_York")) |>
+  # Change values for 'attend' to make them more easily readable
+  dplyr::mutate(
+    attend = dplyr::recode(
+      attend,
+      'Yes, on Saturday June 22' = "sat",
+      'Yes, on Sunday June 23' = "sun",
+      'Yes, on Saturday June 22, Yes, on Sunday June 23' = "sat_sun",
+      'Not this year' = "no"
+    )
+  ) |>
+  # Change values for 'operate' to make them lower case
+  dplyr::mutate(operate = tolower(operate)) |>
+  # Change values for 'overnight'
+  dplyr::mutate(
+    overnight = dplyr::recode(overnight,
+                              'Yes, absolutely' = "yes",
+                              'Heck no' = "no")
+  ) |>
+  # Create new variable for each mode
+  dplyr::mutate(phone = stringr::str_detect(modes, "Phone"),
+                cw = stringr::str_detect(modes, "CW"),
+                ft8 = stringr::str_detect(modes, "FT8/FT4"),
+                varac = stringr::str_detect(modes, "VarAC"),
+                fldigi = stringr::str_detect(modes, "fldigi"),
+                js8call = stringr::str_detect(modes, "JS8Call"),
+                sstv = stringr::str_detect(modes, "SSTV"))
+```
+
+Let's export the cleaned file.
+
+```{r}
+readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_data_fn)))
+```
+

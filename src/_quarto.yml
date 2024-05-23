@@ -6,9 +6,9 @@ project:
     - calendar.qmd
     - people.qmd
     - things.qmd
-
+  output-dir: "../docs"
 website:
-  title: "NARC Field Day 2023"
+  title: "NARC Field Day"
   navbar:
     left:
       - href: index.qmd
@@ -17,6 +17,7 @@ website:
       - calendar.qmd
       - people.qmd
       - things.qmd
+      - planning.qmd
       
 format:
   html:
