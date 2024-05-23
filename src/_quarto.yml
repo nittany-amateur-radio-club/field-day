@@ -4,8 +4,7 @@ project:
     - index.qmd
     - about.qmd
     - calendar.qmd
-    - people.qmd
-    - things.qmd
+    - planning.qmd
   output-dir: "../docs"
 website:
   title: "NARC Field Day"
@@ -15,8 +14,6 @@ website:
         text: Home
       - about.qmd
       - calendar.qmd
-      - people.qmd
-      - things.qmd
       - planning.qmd
       
 format:

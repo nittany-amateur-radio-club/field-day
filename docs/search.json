@@ -1,38 +1,38 @@
 [
   {
-    "objectID": "things.html",
-    "href": "things.html",
-    "title": "Things",
+    "objectID": "planning.html",
+    "href": "planning.html",
+    "title": "Planning",
     "section": "",
-    "text": "This document provides a list of the material items we need to bring to Field Day.\nHere is a link to the Google doc that is being phased out as we develop this site:\nhttps://docs.google.com/document/d/1AT3f4egvd98MGMu3RWlehmllep89HMRYQFrhlksZyms/edit?usp=sharing"
+    "text": "This page documents some of the steps in our planning process."
   },
   {
-    "objectID": "things.html#gear",
-    "href": "things.html#gear",
-    "title": "Things",
-    "section": "Gear",
-    "text": "Gear\n\nRadios\n\nICOM IC-7610. NARC1.\nFlexRadio Flex 6400M. NARC.\nRF power meters. NARC or BUY2.\n2x Morse key/paddles. NARC.\n\n\n\nComputers\n\n3x HP all-in-ones. NARC.\n3x USB cables. NARC.\n3x wireless keyboards & mice. NARC.\n3x mousepads. NARC or BUY.\n\n\n\nAntennas\n\n1x MyAntennas 80/10m EFHW. NARC.\n1x MyAntennas 80/10m EFHW. BORROW3. K3YV\n2x military mast to reduce mid-antenna sag. BORROW. K3YV & W3TM.\n\n\n\nPower\nPresuming operation from generator and mains at pavilion.\n\n2x Astron 12 V power supplies.\n\nBring power for bonus VHF+ station? W3SWL?.\n\n3x power strips. NARC or BUY.\nExtension cords. NARC or BUY.\nGenerator. BORROW. W3TM to ask Dan K9SDW.\n\nFuel.\n\n\n\n\nFurniture\n\n8x folding tables. NARC.\n6-8x rolling chairs. NARC.\n2x pop-up tents. BORROW. W3EDP?\n3x table-top shelves. NARC.\n\n\n\nCables\n\n50-75’ of RG-213 coax with PL-259s."
+    "objectID": "planning.html#about",
+    "href": "planning.html#about",
+    "title": "Planning",
+    "section": "",
+    "text": "This page documents some of the steps in our planning process."
   },
   {
-    "objectID": "things.html#supplies",
-    "href": "things.html#supplies",
-    "title": "Things",
-    "section": "Supplies",
-    "text": "Supplies\n\nHygiene\n\nGarbage bags. NARC or BUY.\nPaper towels. NARC or BUY.\nHand sanitizer. NARC or BUY.\nToilet paper. NARC or BUY.\nSpray cleaner. NARC or BUY.\n\n\n\nSafety/comfort\n\nBug spray. NARC or BUY\nFirst aid kit. NARC or BUY.\n\n\n\nWriting\n\nLegal pads. NARC or BUY.\nPens. NARC or BUY."
+    "objectID": "planning.html#member-survey",
+    "href": "planning.html#member-survey",
+    "title": "Planning",
+    "section": "Member Survey",
+    "text": "Member Survey\nW3TM drafted a member survey using a Google Form.\nHere are some of the preliminary results.\n\nSet-up\nWe source some packages to make calls to their functions more convenient.\n\nlibrary(ggplot2)\n\n\n\nGathering\nThe Google Form application saves the survey responses as a Google Sheet:\nhttps://docs.google.com/spreadsheets/d/1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg/edit?resourcekey#gid=283208367\n\nif (!dir.exists('csv')) {\n  message(\"Creating missing `csv/`.\")\n  dir.create(\"csv\")\n}\n\nupdate_figs = TRUE\n\nfull_survey_data_fn &lt;- file.path(\"csv\", params$survey_data_fn)\n\nif (params$update_data) {\n  options(gargle_oauth_email = Sys.getenv(\"GMAIL_SURVEY\"))\n  googledrive::drive_auth()\n  \n  new_fn &lt;- file.path(\"csv\", paste0(\"_\", params$survey_data_fn))\n  googledrive::drive_download(\n    params$survey_sheet_fn,\n    path = full_survey_data_fn,\n    type = \"csv\",\n    overwrite = TRUE\n  )\n  message(\"Data updated.\")\n} else {\n  if (!file.exists(full_survey_data_fn)) {\n    warning(\"File not found: '\", full_survey_data_fn, \"'.\")\n    update_figs = FALSE\n  } else {\n    message(\"Using previously stored data.\")\n  }\n}\n\nFile downloaded:\n\n\n• 'Field Day 2024 volunteer sign-up (Responses)'\n  &lt;id: 1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg&gt;\n\n\nSaved locally as:\n\n\n• 'csv/narc-fd-2024-survey.csv'\n\n\nData updated.\n\n\nNow, we load the downloaded CSV\n\nif (update_figs) {\n  survey_resps &lt;-\n    readr::read_csv(full_survey_data_fn, show_col_types = FALSE)\n}\n\nnames(survey_resps)\n\n [1] \"Timestamp\"                                                                                                                                                                                                                          \n [2] \"Your Name\"                                                                                                                                                                                                                          \n [3] \"Callsign\"                                                                                                                                                                                                                           \n [4] \"Phone\"                                                                                                                                                                                                                              \n [5] \"Email\"                                                                                                                                                                                                                              \n [6] \"Do you plan to attend NARC's Field Day 2024?\"                                                                                                                                                                                       \n [7] \"Do you plan to operate on Field Day?\"                                                                                                                                                                                               \n [8] \"Are you a night owl and want to operate late into the night or camp out to snag some rare DX?\"                                                                                                                                      \n [9] \"If you plan to operate, which of the following mode(s) would interest you? \\n\\nNote: We will have knowledgeable helpers for all modes we use on Field Day, so you are encouraged to try a new mode and will have help if you do so.\"\n[10] \"I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...\"                                                                                                                    \n[11] \"Comments or suggestions\"                                                                                                                                                                                                            \n\n\n\n\nCleaning\nThen we clean the data by renaming the variables.\n\nsurvey_resps &lt;- survey_resps |&gt;\n  dplyr::rename(\n    timestamp = \"Timestamp\",\n    name = \"Your Name\",\n    callsign = \"Callsign\",\n    phone = \"Phone\",\n    email = \"Email\",\n    attend = \"Do you plan to attend NARC's Field Day 2024?\",\n    operate = \"Do you plan to operate on Field Day?\",\n    overnight = \"Are you a night owl and want to operate late into the night or camp out to snag some rare DX?\",\nhelp_with = \"I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...\",\ncomments = \"Comments or suggestions\"\n  )\n\nnames(survey_resps)[9] &lt;- \"modes\"\n\nThen we parse variables with multiple values, and conforming some values so that they are easier to visualize.\n\nsurvey_resps &lt;- survey_resps |&gt;\n  # Change timestamp to proper date and time\n  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = \"America/New_York\")) |&gt;\n  # Change values for 'attend' to make them more easily readable\n  dplyr::mutate(\n    attend = dplyr::recode(\n      attend,\n      'Yes, on Saturday June 22' = \"sat\",\n      'Yes, on Sunday June 23' = \"sun\",\n      'Yes, on Saturday June 22, Yes, on Sunday June 23' = \"sat_sun\",\n      'Not this year' = \"no\"\n    )\n  ) |&gt;\n  # Change values for 'operate' to make them lower case\n  dplyr::mutate(operate = tolower(operate)) |&gt;\n  # Change values for 'overnight'\n  dplyr::mutate(\n    overnight = dplyr::recode(overnight,\n                              'Yes, absolutely' = \"yes\",\n                              'Heck no' = \"no\")\n  ) |&gt;\n  # Create new variable for each mode\n  dplyr::mutate(phone = stringr::str_detect(modes, \"Phone\"),\n                cw = stringr::str_detect(modes, \"CW\"),\n                ft8 = stringr::str_detect(modes, \"FT8/FT4\"),\n                varac = stringr::str_detect(modes, \"VarAC\"),\n                fldigi = stringr::str_detect(modes, \"fldigi\"),\n                js8call = stringr::str_detect(modes, \"JS8Call\"),\n                sstv = stringr::str_detect(modes, \"SSTV\"))\n\nIt will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.\n\nsurvey_resps &lt;- survey_resps |&gt;\n  dplyr::mutate(\n    attend_sat = stringr::str_detect(attend, \"sat\"),\n    attend_sun = stringr::str_detect(attend, \"sun\")\n  )\n\nFinally, we export the cleaned file.\n\nreadr::write_csv(survey_resps, file.path(\"csv\", paste0(\"clean_\", params$survey_data_fn)))\n\n\n\nVisualizing\nAs of 2024-05-23, we’ve had 2 responses.\nHere are the number of respondents who plan to attend and their plans to operate.\n\nxtabs(formula = ~ attend + operate, data = survey_resps)\n\n         operate\nattend    yes\n  sat_sun   2\n\n\nHere are respondents’ plans to operate overnight:\n\nxtabs(formula = ~ overnight, data = survey_resps)\n\novernight\n no yes \n  1   1 \n\n\nHere are respondents’ interests by mode:\n\nxtabs(formula = ~ phone, data = survey_resps)\n\nphone\nTRUE \n   2 \n\n\n\nxtabs(formula = ~ cw, data = survey_resps)\n\ncw\nTRUE \n   2 \n\n\n\nxtabs(formula = ~ ft8, data = survey_resps)\n\nft8\nFALSE  TRUE \n    1     1 \n\n\n\nxtabs(formula = ~ varac, data = survey_resps)\n\nvarac\nFALSE  TRUE \n    1     1 \n\n\n\nxtabs(formula = ~ fldigi, data = survey_resps)\n\nfldigi\nFALSE  TRUE \n    1     1 \n\n\n\nxtabs(formula = ~ js8call, data = survey_resps)\n\njs8call\nFALSE  TRUE \n    1     1 \n\n\n\nxtabs(formula = ~ sstv, data = survey_resps)\n\nsstv\nFALSE  TRUE \n    1     1"
   },
   {
-    "objectID": "things.html#nourishment",
-    "href": "things.html#nourishment",
-    "title": "Things",
-    "section": "Nourishment",
-    "text": "Nourishment\n\nSupplies\n\nPlates. BUY.\nNapkins. BUY.\nUtensils. BUY.\nCups (hot & cold). BUY.\nCooler. BORROW. ????.\n\n\n\nDrinks\n\nWater. BUY.\nSoft drinks. BUY.\nCoffee. BUY.\n\nCoffee maker. BORROW. ????.\n\n\n\n\nFood\n\nSaturday lunch\n\nSandwich tray?\n\n\n\nSaturday dinner\n\nPizza?\n\n\n\nSunday breakfast\n\nBagels, fruit, yogurt?\n\n\n\nSunday lunch"
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Field Day is an event organized by the American Radio Relay League (ARRL), the membership organization for amateur radio operators (hams) in the U.S.\nField Day is an open house to show-off amateur radio to the public, an exercise in portable or field radio operations, and a contest to see which stations can earn the most points.\nNARC will operate under the club callsign W3YA with two high frequency (HF) transmitters capable of long-distance communication and a bonus VHF+ station, making this a class 2A (two alpha) operation. The location will be the Pleasant Gap Fire Company training grounds at 475 Robinson Lane in Pleasant Gap, PA.\n\n\n\nW3YA Field Day location from http://www.arrl.org/field-day-locator."
   },
   {
-    "objectID": "things.html#footnotes",
-    "href": "things.html#footnotes",
-    "title": "Things",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nRefers to items available at the NARC clubhouse that we will pack and bring to Field Day.↩︎\nItems we are likely to have to purchase.↩︎\nItems we should be able to borrow from a club member.↩︎"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Field Day 2024",
+    "section": "",
+    "text": "This is a website that describes planning for the ARRL Field Day operation conducted by the Nittany Amateur Radio Club (NARC). Rick Gilmore W3TM created and maintains the site.\nPlease see separate pages that describe what Field Day is about, the people who are involved, what they do when to make Field Day happen, and some of the material items needed to pull-off an event like this.\n\n\n\nAntennas at sunset.\n\n\n\n\n\n\n\n\nNote\n\n\n\nField Day 2024 is on Saturday, June 22, 2024 to Sunday, June 23, 2023. The event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday."
   },
   {
     "objectID": "calendar.html",
@@ -68,40 +68,5 @@
     "title": "Calendar",
     "section": "4 June 2023",
     "text": "4 June 2023\n\n4.1 4 weeks out (May 28 - June 3)\n\nAdd event to web-based activity calendars. H3LP.\nDraft and send invitations to elected officials. H3LP.\nReserve Porta-Potty. H3LP.\n\n\n\n4.2 3 weeks out (June 4 - June 10)\n\nDraft press release and send to media outlets. H3LP.\n\n\n\n4.3 2 weeks out (June 11 - June 17)\n\n\n4.4 Week of event (June 18 - June 22)\n\nConfirm Porta-Potty delivery details. H3LP.\n\n\n\n4.5 Field Day (June 23 - 25)\n\n4.5.1 Friday, June 23\n\nPick-up U-Haul. N3LI.\nPack equipment at mountaintop station and load into truck.\nSet up antennas. H3LP.\n\n80/10m MyAntennas EFWH oriented roughly East/West.\n80/10m MyAntennas EFWH oriented roughly East/West.\n\nTest antennas.\n\n\n\n4.5.2 Saturday, June 24\n\nSet up radio gear. H3LP.\nSet up power. H3LP.\nSet up computers and network. N3LI.\nSet up food & drink. H3LP.\nSet up info table. H3LP.\n\n\n\n\n\n\n\nWarning\n\n\n\n2:00 PM EDT (1800 UTC) Field Day begins\n\n\n\n\n4.5.3 Sunday, June 25\n\n\n\n\n\n\nWarning\n\n\n\n2:00 PM EDT (1800 UTC) Field Day ends\n\n\n\n\n\n4.6 Week after\n\nClean logs and submit to ARRL. H3LP."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Field Day 2024",
-    "section": "",
-    "text": "This is a website that describes planning for the ARRL Field Day operation conducted by the Nittany Amateur Radio Club (NARC). Rick Gilmore W3TM created and maintains the site.\nPlease see separate pages that describe what Field Day is about, the people who are involved, what they do when to make Field Day happen, and some of the material items needed to pull-off an event like this.\n\n\n\nAntennas at sunset.\n\n\n\n\n\n\n\n\nNote\n\n\n\nField Day 2024 is on Saturday, June 22, 2024 to Sunday, June 23, 2023. The event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Field Day is an event organized by the American Radio Relay League (ARRL), the membership organization for amateur radio operators (hams) in the U.S.\nField Day is an open house to show-off amateur radio to the public, an exercise in portable or field radio operations, and a contest to see which stations can earn the most points.\nNARC will operate under the club callsign W3YA with two high frequency (HF) transmitters capable of long-distance communication and a bonus VHF+ station, making this a class 2A (two alpha) operation. The location will be the Pleasant Gap Fire Company training grounds at 475 Robinson Lane in Pleasant Gap, PA.\n\n\n\nW3YA Field Day location from http://www.arrl.org/field-day-locator."
-  },
-  {
-    "objectID": "people.html",
-    "href": "people.html",
-    "title": "People",
-    "section": "",
-    "text": "This page describes the people who are involved with Field Day."
-  },
-  {
-    "objectID": "people.html#organizing-committee",
-    "href": "people.html#organizing-committee",
-    "title": "People",
-    "section": "1 Organizing Committee",
-    "text": "1 Organizing Committee\n\n1.1 Woody Brem K3YV\n\n\n1.2 Rick Gilmore W3TM\n\n\n1.3 Mike Coslo N3LI\n\n\n1.4 Brett Saylor W3SWL"
-  },
-  {
-    "objectID": "people.html#special-roles",
-    "href": "people.html#special-roles",
-    "title": "People",
-    "section": "2 Special Roles",
-    "text": "2 Special Roles\n\n2.1 Safety Officer\n\nJohn Guss N3GU has served in this role in the past.\n\n\n\n2.2 Publicity\n\n\n2.3 Food & Drink"
   }
 ]

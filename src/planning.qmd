@@ -2,7 +2,7 @@
 title: "Planning"
 format:
   html:
-    code-fold: true
+    code-fold: false
     code-tools: true
     toc: true
 params:
@@ -13,7 +13,7 @@ params:
 
 ## About
 
-This page documents some of our planning process.
+This page documents some of the steps in our planning process.
 
 ## Member Survey
 
@@ -78,9 +78,9 @@ if (update_figs) {
 names(survey_resps)
 ```
 
-### Clean
+### Cleaning
 
-Then we clean the data by renaming the variables, parsing variables with multiple values, and conforming some values so that they are easier to visualize.
+Then we clean the data by renaming the variables.
 
 ```{r rename-variables}
 survey_resps <- survey_resps |>
@@ -99,6 +99,8 @@ comments = "Comments or suggestions"
 
 names(survey_resps)[9] <- "modes"
 ```
+
+Then we parse variables with multiple values, and conforming some values so that they are easier to visualize.
 
 ```{r recode-variables}
 survey_resps <- survey_resps |>
@@ -132,9 +134,65 @@ survey_resps <- survey_resps |>
                 sstv = stringr::str_detect(modes, "SSTV"))
 ```
 
-Let's export the cleaned file.
+It will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.
+
+```{r}
+survey_resps <- survey_resps |>
+  dplyr::mutate(
+    attend_sat = stringr::str_detect(attend, "sat"),
+    attend_sun = stringr::str_detect(attend, "sun")
+  )
+```
+
+Finally, we export the cleaned file.
 
 ```{r}
 readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_data_fn)))
+```
+
+### Visualizing
+
+As of `{r} Sys.Date()`, we've had `{r} dim(survey_resps)[1]` responses.
+
+Here are the number of respondents who plan to attend and their plans to operate.
+
+```{r}
+xtabs(formula = ~ attend + operate, data = survey_resps)
+```
+
+Here are respondents' plans to operate overnight:
+
+```{r}
+xtabs(formula = ~ overnight, data = survey_resps)
+```
+
+Here are respondents' interests by mode:
+
+```{r}
+xtabs(formula = ~ phone, data = survey_resps)
+```
+
+```{r}
+xtabs(formula = ~ cw, data = survey_resps)
+```
+
+```{r}
+xtabs(formula = ~ ft8, data = survey_resps)
+```
+
+```{r}
+xtabs(formula = ~ varac, data = survey_resps)
+```
+
+```{r}
+xtabs(formula = ~ fldigi, data = survey_resps)
+```
+
+```{r}
+xtabs(formula = ~ js8call, data = survey_resps)
+```
+
+```{r}
+xtabs(formula = ~ sstv, data = survey_resps)
 ```
 

@@ -1,0 +1,115 @@
+---
+title: "Things"
+---
+
+This document provides a list of the material items we need to bring to Field Day.
+
+Here is a link to the Google doc that is being phased out as we develop this site:
+
+<https://docs.google.com/document/d/1AT3f4egvd98MGMu3RWlehmllep89HMRYQFrhlksZyms/edit?usp=sharing>
+
+## Gear
+
+### Radios
+
+- [ ] ICOM IC-7610. NARC[^1].
+- [ ] FlexRadio Flex 6400M. NARC.
+- [ ] RF power meters. NARC or BUY[^2].
+- [ ] 2x Morse key/paddles. NARC.
+
+### Computers
+
+- [ ] 3x HP all-in-ones. NARC.
+- [ ] 3x USB cables. NARC.
+- [ ] 3x wireless keyboards & mice. NARC.
+- [ ] 3x mousepads. NARC or BUY.
+
+### Antennas
+
+- [ ] 1x MyAntennas 80/10m EFHW. NARC.
+- [ ] 1x MyAntennas 80/10m EFHW. BORROW[^3]. [K3YV](people.qmd#K3YV)
+- [ ] 2x military mast to reduce mid-antenna sag. BORROW. [K3YV](people.qmd#K3YV) & [W3TM](people.qmd#W3TM).
+
+### Power
+
+*Presuming operation from generator and mains at pavilion.*
+
+- [ ] 2x Astron 12 V power supplies.
+    - Bring power for bonus VHF+ station? [W3SWL](people.qmd#W3SWL)?.
+- [ ] 3x power strips. NARC or BUY.
+- [ ] Extension cords. NARC or BUY.
+- [ ] Generator. BORROW. [W3TM](people.qmd#W3TM) to ask Dan K9SDW.
+    - [ ] Fuel.
+
+### Furniture
+
+- [ ] 8x folding tables. NARC.
+- [ ] 6-8x rolling chairs. NARC.
+- [ ] 2x pop-up tents. BORROW. W3EDP?
+- [ ] 3x table-top shelves. NARC. 
+
+### Cables
+
+- [ ] 50-75' of RG-213 coax with PL-259s.
+-
+
+## Supplies
+
+### Hygiene
+
+- [ ] Garbage bags. NARC or BUY.
+- [ ] Paper towels. NARC or BUY.
+- [ ] Hand sanitizer. NARC or BUY.
+- [ ] Toilet paper. NARC or BUY.
+- [ ] Spray cleaner. NARC or BUY.
+
+### Safety/comfort
+
+- [ ] Bug spray. NARC or BUY
+- [ ] First aid kit. NARC or BUY. 
+
+### Writing
+
+- [ ] Legal pads. NARC or BUY. 
+- [ ] Pens. NARC or BUY. 
+
+## Nourishment
+
+### Supplies
+
+- [ ] Plates. BUY.
+- [ ] Napkins. BUY.
+- [ ] Utensils. BUY.
+- [ ] Cups (hot & cold). BUY.
+- [ ] Cooler. BORROW. ????.
+
+### Drinks
+
+- [ ] Water. BUY.
+- [ ] Soft drinks. BUY.
+- [ ] Coffee. BUY.
+    - [ ] Coffee maker. BORROW. ????.
+
+### Food
+
+#### Saturday lunch
+
+- Sandwich tray?
+
+#### Saturday dinner
+
+- Pizza?
+
+#### Sunday breakfast
+
+- Bagels, fruit, yogurt?
+
+#### Sunday lunch
+
+---
+
+[^1]: Refers to items available at the NARC clubhouse that we will pack and bring to Field Day.
+
+[^2]: Items we are likely to have to purchase.
+
+[^3]: Items we should be able to borrow from a club member.
