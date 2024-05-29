@@ -326,7 +326,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>                <span class="at">varac =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(modes, <span class="st">"VarAC"</span>),</span>
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">fldigi =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(modes, <span class="st">"fldigi"</span>),</span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">js8call =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(modes, <span class="st">"JS8Call"</span>),</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">sstv =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(modes, <span class="st">"SSTV"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>                <span class="at">sstv =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(modes, <span class="st">"SSTV"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new variables for each volunteer role</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pr =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"PR"</span>),</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">info_table =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"table"</span>),</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>                <span class="at">satellite =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"satellite"</span>),</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>                <span class="at">mode_expert =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"expert"</span>),</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>                <span class="at">ed_activity =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"Educational"</span>),</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">invite_elected =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"elected"</span>),</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">youth =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"youth"</span>),</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>                <span class="at">food =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"food"</span>),</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>                <span class="at">clean_up =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"clean-up"</span>),</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>                <span class="at">test_equipment =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(help_with, <span class="st">"equipment"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.</p>
 <div class="cell">
@@ -336,93 +347,779 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">attend_sun =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(attend, <span class="st">"sun"</span>)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>We make all the callsigns uppercase for consistency.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="ot">&lt;-</span> survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">callsign =</span> <span class="fu">toupper</span>(callsign))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Finally, we export the cleaned file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(survey_resps, <span class="fu">file.path</span>(<span class="st">"csv"</span>, <span class="fu">paste0</span>(<span class="st">"clean_"</span>, params<span class="sc">$</span>survey_data_fn)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(survey_resps, <span class="fu">file.path</span>(<span class="st">"csv"</span>, <span class="fu">paste0</span>(<span class="st">"clean_"</span>, params<span class="sc">$</span>survey_data_fn)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="visualizing" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing">Visualizing</h3>
-<p>As of 2024-05-23, we’ve had 2 responses.</p>
+<p>As of 2024-05-29, we’ve had 9 responses.</p>
+<section id="attending-and-operating" class="level4">
+<h4 class="anchored" data-anchor-id="attending-and-operating">Attending and operating</h4>
 <p>Here are the number of respondents who plan to attend and their plans to operate.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> attend <span class="sc">+</span> operate, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> attend <span class="sc">+</span> operate, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         operate
-attend    yes
-  sat_sun   2</code></pre>
+attend    maybe no yes
+  no          0  4   0
+  sat         1  0   0
+  sat_sun     0  0   4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, attend_sat) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(attend_sat <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">attend_sat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3YV</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">W3SWL</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">KC2VCK</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, attend_sun) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(attend_sun <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">attend_sun</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3YV</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">W3SWL</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <p>Here are respondents’ plans to operate overnight:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> overnight, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> overnight, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>overnight
  no yes 
-  1   1 </code></pre>
+  6   1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, overnight) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(overnight <span class="sc">==</span> <span class="st">'yes'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">overnight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">yes</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
+</section>
+<section id="modes" class="level4">
+<h4 class="anchored" data-anchor-id="modes">Modes</h4>
 <p>Here are respondents’ interests by mode:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> phone, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> phone, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>phone
-TRUE 
-   2 </code></pre>
+FALSE  TRUE 
+    2     3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, phone) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(phone <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">phone</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3YV</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> cw, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> cw, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>cw
-TRUE 
-   2 </code></pre>
+FALSE  TRUE 
+    3     2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, cw) <span class="sc">|&gt;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(cw <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">cw</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3YV</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> ft8, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> ft8, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ft8
 FALSE  TRUE 
-    1     1 </code></pre>
+    1     4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, ft8) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ft8 <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ft8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W3SWL</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KC2VCK</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> varac, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> varac, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>varac
 FALSE  TRUE 
-    1     1 </code></pre>
+    4     1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, varac) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(varac <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">varac</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> fldigi, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> fldigi, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>fldigi
 FALSE  TRUE 
-    1     1 </code></pre>
+    1     4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, fldigi) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(fldigi <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">fldigi</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W3SWL</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">KC2VCK</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> js8call, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> js8call, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>js8call
 FALSE  TRUE 
-    1     1 </code></pre>
+    2     3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, js8call) <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(js8call <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">js8call</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">KC2VCK</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> sstv, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> sstv, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sstv
 FALSE  TRUE 
-    1     1 </code></pre>
+    3     2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, sstv) <span class="sc">|&gt;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sstv <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">sstv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="volunteering" class="level4">
+<h4 class="anchored" data-anchor-id="volunteering">Volunteering</h4>
+<p>And here are respondents’ interests in volunteering:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> pr, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pr
+FALSE  TRUE 
+    4     1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, pr) <span class="sc">|&gt;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pr <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">pr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> info_table, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>info_table
+FALSE  TRUE 
+    3     2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, info_table) <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(info_table <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">info_table</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> satellite, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>satellite
+FALSE 
+    5 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, satellite) <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(satellite <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">satellite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th></th>
+<th></th>
+</tr>
+
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> mode_expert, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>mode_expert
+FALSE  TRUE 
+    4     1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, mode_expert) <span class="sc">|&gt;</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(mode_expert <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">mode_expert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> ed_activity, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ed_activity
+FALSE  TRUE 
+    2     3 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, ed_activity) <span class="sc">|&gt;</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ed_activity <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ed_activity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K3YV</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> invite_elected, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>invite_elected
+FALSE  TRUE 
+    4     1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, invite_elected) <span class="sc">|&gt;</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(invite_elected <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">invite_elected</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> youth, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>youth
+FALSE  TRUE 
+    4     1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, youth) <span class="sc">|&gt;</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(youth <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">youth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> food, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>food
+FALSE  TRUE 
+    3     2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, food) <span class="sc">|&gt;</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(food <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">food</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> clean_up, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>clean_up
+FALSE  TRUE 
+    1     4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, clean_up) <span class="sc">|&gt;</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(clean_up <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">clean_up</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">W3SWL</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K0LO</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> test_equipment, <span class="at">data =</span> survey_resps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>test_equipment
+FALSE  TRUE 
+    3     2 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, test_equipment) <span class="sc">|&gt;</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(test_equipment <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">test_equipment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">W3TM</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="comments" class="level4">
+<h4 class="anchored" data-anchor-id="comments">Comments</h4>
+<p>And here are the comments:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, comments) <span class="sc">|&gt;</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(comments)) <span class="sc">|&gt;</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">callsign</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">K3YV</td>
+<td style="text-align: left;">Operate from ac line. Have a thunder storm plan of action.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K9SDW</td>
+<td style="text-align: left;">Leverage me as needed, I've cleared my schedule that weekend for field day</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">K3IWI</td>
+<td style="text-align: left;">Sorry - wish I could be there this year... but family schedules have us triple booked that weekend.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">K0LO</td>
+<td style="text-align: left;">Willing to help with any network-related setup issues before Field Day. Rotor controllers? Green Heron Server and client?</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 
 
 <!-- -->
 
+</section>
 </section>
 </section>
 
@@ -865,203 +1562,381 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Planning"</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">  update_data: true</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">  survey_data_fn: narc-fd-2024-survey.csv</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">  survey_sheet_fn: "Field Day 2024 volunteer sign-up (Responses)"</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## About</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>This page documents some of the steps in our planning process.</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Member Survey</span></span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>W3TM drafted a member survey using a Google Form.</span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>Here are some of the preliminary results.</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Set-up</span></span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>We source some packages to make calls to their functions more convenient.</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gathering</span></span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>The Google Form application saves the survey responses as a Google Sheet:</span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>https://docs.google.com/spreadsheets/d/1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg/edit?resourcekey#gid=283208367</span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">'csv'</span>)) {</span>
-<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Creating missing `csv/`."</span>)</span>
-<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">"csv"</span>)</span>
-<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>update_figs <span class="ot">=</span> <span class="cn">TRUE</span></span>
-<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>full_survey_data_fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"csv"</span>, params<span class="sc">$</span>survey_data_fn)</span>
-<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (params<span class="sc">$</span>update_data) {</span>
-<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">gargle_oauth_email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"GMAIL_SURVEY"</span>))</span>
-<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>  googledrive<span class="sc">::</span><span class="fu">drive_auth</span>()</span>
-<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>  new_fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"csv"</span>, <span class="fu">paste0</span>(<span class="st">"_"</span>, params<span class="sc">$</span>survey_data_fn))</span>
-<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>  googledrive<span class="sc">::</span><span class="fu">drive_download</span>(</span>
-<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>    params<span class="sc">$</span>survey_sheet_fn,</span>
-<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">path =</span> full_survey_data_fn,</span>
-<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"csv"</span>,</span>
-<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span></span>
-<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Data updated."</span>)</span>
-<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(full_survey_data_fn)) {</span>
-<span id="cb32-66"><a href="#cb32-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"File not found: '"</span>, full_survey_data_fn, <span class="st">"'."</span>)</span>
-<span id="cb32-67"><a href="#cb32-67" aria-hidden="true" tabindex="-1"></a>    update_figs <span class="ot">=</span> <span class="cn">FALSE</span></span>
-<span id="cb32-68"><a href="#cb32-68" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb32-69"><a href="#cb32-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Using previously stored data."</span>)</span>
-<span id="cb32-70"><a href="#cb32-70" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb32-71"><a href="#cb32-71" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a>Now, we load the downloaded CSV</span>
-<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-76"><a href="#cb32-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load-survey-data}</span></span>
-<span id="cb32-77"><a href="#cb32-77" aria-hidden="true" tabindex="-1"></a><span class="in">if (update_figs) {</span></span>
-<span id="cb32-78"><a href="#cb32-78" aria-hidden="true" tabindex="-1"></a><span class="in">  survey_resps &lt;-</span></span>
-<span id="cb32-79"><a href="#cb32-79" aria-hidden="true" tabindex="-1"></a><span class="in">    readr::read_csv(full_survey_data_fn, show_col_types = FALSE)</span></span>
-<span id="cb32-80"><a href="#cb32-80" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb32-81"><a href="#cb32-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-82"><a href="#cb32-82" aria-hidden="true" tabindex="-1"></a><span class="in">names(survey_resps)</span></span>
-<span id="cb32-83"><a href="#cb32-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-84"><a href="#cb32-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-85"><a href="#cb32-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cleaning</span></span>
-<span id="cb32-86"><a href="#cb32-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-87"><a href="#cb32-87" aria-hidden="true" tabindex="-1"></a>Then we clean the data by renaming the variables.</span>
-<span id="cb32-88"><a href="#cb32-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-89"><a href="#cb32-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r rename-variables}</span></span>
-<span id="cb32-90"><a href="#cb32-90" aria-hidden="true" tabindex="-1"></a><span class="in">survey_resps &lt;- survey_resps |&gt;</span></span>
-<span id="cb32-91"><a href="#cb32-91" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::rename(</span></span>
-<span id="cb32-92"><a href="#cb32-92" aria-hidden="true" tabindex="-1"></a><span class="in">    timestamp = "Timestamp",</span></span>
-<span id="cb32-93"><a href="#cb32-93" aria-hidden="true" tabindex="-1"></a><span class="in">    name = "Your Name",</span></span>
-<span id="cb32-94"><a href="#cb32-94" aria-hidden="true" tabindex="-1"></a><span class="in">    callsign = "Callsign",</span></span>
-<span id="cb32-95"><a href="#cb32-95" aria-hidden="true" tabindex="-1"></a><span class="in">    phone = "Phone",</span></span>
-<span id="cb32-96"><a href="#cb32-96" aria-hidden="true" tabindex="-1"></a><span class="in">    email = "Email",</span></span>
-<span id="cb32-97"><a href="#cb32-97" aria-hidden="true" tabindex="-1"></a><span class="in">    attend = "Do you plan to attend NARC's Field Day 2024?",</span></span>
-<span id="cb32-98"><a href="#cb32-98" aria-hidden="true" tabindex="-1"></a><span class="in">    operate = "Do you plan to operate on Field Day?",</span></span>
-<span id="cb32-99"><a href="#cb32-99" aria-hidden="true" tabindex="-1"></a><span class="in">    overnight = "Are you a night owl and want to operate late into the night or camp out to snag some rare DX?",</span></span>
-<span id="cb32-100"><a href="#cb32-100" aria-hidden="true" tabindex="-1"></a><span class="in">help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",</span></span>
-<span id="cb32-101"><a href="#cb32-101" aria-hidden="true" tabindex="-1"></a><span class="in">comments = "Comments or suggestions"</span></span>
-<span id="cb32-102"><a href="#cb32-102" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
-<span id="cb32-103"><a href="#cb32-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-104"><a href="#cb32-104" aria-hidden="true" tabindex="-1"></a><span class="in">names(survey_resps)[9] &lt;- "modes"</span></span>
-<span id="cb32-105"><a href="#cb32-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-106"><a href="#cb32-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-107"><a href="#cb32-107" aria-hidden="true" tabindex="-1"></a>Then we parse variables with multiple values, and conforming some values so that they are easier to visualize.</span>
-<span id="cb32-108"><a href="#cb32-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-109"><a href="#cb32-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r recode-variables}</span></span>
-<span id="cb32-110"><a href="#cb32-110" aria-hidden="true" tabindex="-1"></a><span class="in">survey_resps &lt;- survey_resps |&gt;</span></span>
-<span id="cb32-111"><a href="#cb32-111" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change timestamp to proper date and time</span></span>
-<span id="cb32-112"><a href="#cb32-112" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = "America/New_York")) |&gt;</span></span>
-<span id="cb32-113"><a href="#cb32-113" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change values for 'attend' to make them more easily readable</span></span>
-<span id="cb32-114"><a href="#cb32-114" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(</span></span>
-<span id="cb32-115"><a href="#cb32-115" aria-hidden="true" tabindex="-1"></a><span class="in">    attend = dplyr::recode(</span></span>
-<span id="cb32-116"><a href="#cb32-116" aria-hidden="true" tabindex="-1"></a><span class="in">      attend,</span></span>
-<span id="cb32-117"><a href="#cb32-117" aria-hidden="true" tabindex="-1"></a><span class="in">      'Yes, on Saturday June 22' = "sat",</span></span>
-<span id="cb32-118"><a href="#cb32-118" aria-hidden="true" tabindex="-1"></a><span class="in">      'Yes, on Sunday June 23' = "sun",</span></span>
-<span id="cb32-119"><a href="#cb32-119" aria-hidden="true" tabindex="-1"></a><span class="in">      'Yes, on Saturday June 22, Yes, on Sunday June 23' = "sat_sun",</span></span>
-<span id="cb32-120"><a href="#cb32-120" aria-hidden="true" tabindex="-1"></a><span class="in">      'Not this year' = "no"</span></span>
-<span id="cb32-121"><a href="#cb32-121" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
-<span id="cb32-122"><a href="#cb32-122" aria-hidden="true" tabindex="-1"></a><span class="in">  ) |&gt;</span></span>
-<span id="cb32-123"><a href="#cb32-123" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change values for 'operate' to make them lower case</span></span>
-<span id="cb32-124"><a href="#cb32-124" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(operate = tolower(operate)) |&gt;</span></span>
-<span id="cb32-125"><a href="#cb32-125" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change values for 'overnight'</span></span>
-<span id="cb32-126"><a href="#cb32-126" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(</span></span>
-<span id="cb32-127"><a href="#cb32-127" aria-hidden="true" tabindex="-1"></a><span class="in">    overnight = dplyr::recode(overnight,</span></span>
-<span id="cb32-128"><a href="#cb32-128" aria-hidden="true" tabindex="-1"></a><span class="in">                              'Yes, absolutely' = "yes",</span></span>
-<span id="cb32-129"><a href="#cb32-129" aria-hidden="true" tabindex="-1"></a><span class="in">                              'Heck no' = "no")</span></span>
-<span id="cb32-130"><a href="#cb32-130" aria-hidden="true" tabindex="-1"></a><span class="in">  ) |&gt;</span></span>
-<span id="cb32-131"><a href="#cb32-131" aria-hidden="true" tabindex="-1"></a><span class="in">  # Create new variable for each mode</span></span>
-<span id="cb32-132"><a href="#cb32-132" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(phone = stringr::str_detect(modes, "Phone"),</span></span>
-<span id="cb32-133"><a href="#cb32-133" aria-hidden="true" tabindex="-1"></a><span class="in">                cw = stringr::str_detect(modes, "CW"),</span></span>
-<span id="cb32-134"><a href="#cb32-134" aria-hidden="true" tabindex="-1"></a><span class="in">                ft8 = stringr::str_detect(modes, "FT8/FT4"),</span></span>
-<span id="cb32-135"><a href="#cb32-135" aria-hidden="true" tabindex="-1"></a><span class="in">                varac = stringr::str_detect(modes, "VarAC"),</span></span>
-<span id="cb32-136"><a href="#cb32-136" aria-hidden="true" tabindex="-1"></a><span class="in">                fldigi = stringr::str_detect(modes, "fldigi"),</span></span>
-<span id="cb32-137"><a href="#cb32-137" aria-hidden="true" tabindex="-1"></a><span class="in">                js8call = stringr::str_detect(modes, "JS8Call"),</span></span>
-<span id="cb32-138"><a href="#cb32-138" aria-hidden="true" tabindex="-1"></a><span class="in">                sstv = stringr::str_detect(modes, "SSTV"))</span></span>
-<span id="cb32-139"><a href="#cb32-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-140"><a href="#cb32-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-141"><a href="#cb32-141" aria-hidden="true" tabindex="-1"></a>It will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.</span>
-<span id="cb32-142"><a href="#cb32-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-145"><a href="#cb32-145" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-146"><a href="#cb32-146" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="ot">&lt;-</span> survey_resps <span class="sc">|&gt;</span></span>
-<span id="cb32-147"><a href="#cb32-147" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb32-148"><a href="#cb32-148" aria-hidden="true" tabindex="-1"></a>    <span class="at">attend_sat =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(attend, <span class="st">"sat"</span>),</span>
-<span id="cb32-149"><a href="#cb32-149" aria-hidden="true" tabindex="-1"></a>    <span class="at">attend_sun =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(attend, <span class="st">"sun"</span>)</span>
-<span id="cb32-150"><a href="#cb32-150" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb32-151"><a href="#cb32-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-152"><a href="#cb32-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-153"><a href="#cb32-153" aria-hidden="true" tabindex="-1"></a>Finally, we export the cleaned file.</span>
-<span id="cb32-154"><a href="#cb32-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-157"><a href="#cb32-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-158"><a href="#cb32-158" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(survey_resps, <span class="fu">file.path</span>(<span class="st">"csv"</span>, <span class="fu">paste0</span>(<span class="st">"clean_"</span>, params<span class="sc">$</span>survey_data_fn)))</span>
-<span id="cb32-159"><a href="#cb32-159" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-160"><a href="#cb32-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-161"><a href="#cb32-161" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualizing</span></span>
-<span id="cb32-162"><a href="#cb32-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-163"><a href="#cb32-163" aria-hidden="true" tabindex="-1"></a>As of <span class="in">`{r} Sys.Date()`</span>, we've had <span class="in">`{r} dim(survey_resps)[1]`</span> responses.</span>
-<span id="cb32-164"><a href="#cb32-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-165"><a href="#cb32-165" aria-hidden="true" tabindex="-1"></a>Here are the number of respondents who plan to attend and their plans to operate.</span>
-<span id="cb32-166"><a href="#cb32-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-169"><a href="#cb32-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-170"><a href="#cb32-170" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> attend <span class="sc">+</span> operate, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-171"><a href="#cb32-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-172"><a href="#cb32-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-173"><a href="#cb32-173" aria-hidden="true" tabindex="-1"></a>Here are respondents' plans to operate overnight:</span>
-<span id="cb32-174"><a href="#cb32-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-177"><a href="#cb32-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-178"><a href="#cb32-178" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> overnight, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-179"><a href="#cb32-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-180"><a href="#cb32-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-181"><a href="#cb32-181" aria-hidden="true" tabindex="-1"></a>Here are respondents' interests by mode:</span>
-<span id="cb32-182"><a href="#cb32-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-185"><a href="#cb32-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-186"><a href="#cb32-186" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> phone, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-187"><a href="#cb32-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-188"><a href="#cb32-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-191"><a href="#cb32-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-192"><a href="#cb32-192" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> cw, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-193"><a href="#cb32-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-194"><a href="#cb32-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-197"><a href="#cb32-197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-198"><a href="#cb32-198" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> ft8, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-199"><a href="#cb32-199" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-200"><a href="#cb32-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-203"><a href="#cb32-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> varac, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-205"><a href="#cb32-205" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-206"><a href="#cb32-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-209"><a href="#cb32-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-210"><a href="#cb32-210" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> fldigi, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-211"><a href="#cb32-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-212"><a href="#cb32-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-215"><a href="#cb32-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-216"><a href="#cb32-216" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> js8call, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-217"><a href="#cb32-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb32-218"><a href="#cb32-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-221"><a href="#cb32-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb32-222"><a href="#cb32-222" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> sstv, <span class="at">data =</span> survey_resps)</span>
-<span id="cb32-223"><a href="#cb32-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb74" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Planning"</span></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co">  update_data: true</span></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a><span class="co">  survey_data_fn: narc-fd-2024-survey.csv</span></span>
+<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a><span class="co">  survey_sheet_fn: "Field Day 2024 volunteer sign-up (Responses)"</span></span>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb74-13"><a href="#cb74-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-14"><a href="#cb74-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## About</span></span>
+<span id="cb74-15"><a href="#cb74-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-16"><a href="#cb74-16" aria-hidden="true" tabindex="-1"></a>This page documents some of the steps in our planning process.</span>
+<span id="cb74-17"><a href="#cb74-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-18"><a href="#cb74-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Member Survey</span></span>
+<span id="cb74-19"><a href="#cb74-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-20"><a href="#cb74-20" aria-hidden="true" tabindex="-1"></a>W3TM drafted a member survey using a Google Form.</span>
+<span id="cb74-21"><a href="#cb74-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-22"><a href="#cb74-22" aria-hidden="true" tabindex="-1"></a>Here are some of the preliminary results.</span>
+<span id="cb74-23"><a href="#cb74-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-24"><a href="#cb74-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Set-up</span></span>
+<span id="cb74-25"><a href="#cb74-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-26"><a href="#cb74-26" aria-hidden="true" tabindex="-1"></a>We source some packages to make calls to their functions more convenient.</span>
+<span id="cb74-27"><a href="#cb74-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-30"><a href="#cb74-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-31"><a href="#cb74-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb74-32"><a href="#cb74-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-33"><a href="#cb74-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-34"><a href="#cb74-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gathering</span></span>
+<span id="cb74-35"><a href="#cb74-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-36"><a href="#cb74-36" aria-hidden="true" tabindex="-1"></a>The Google Form application saves the survey responses as a Google Sheet:</span>
+<span id="cb74-37"><a href="#cb74-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-38"><a href="#cb74-38" aria-hidden="true" tabindex="-1"></a>https://docs.google.com/spreadsheets/d/1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg/edit?resourcekey#gid=283208367</span>
+<span id="cb74-39"><a href="#cb74-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-42"><a href="#cb74-42" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-43"><a href="#cb74-43" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(<span class="st">'csv'</span>)) {</span>
+<span id="cb74-44"><a href="#cb74-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Creating missing `csv/`."</span>)</span>
+<span id="cb74-45"><a href="#cb74-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(<span class="st">"csv"</span>)</span>
+<span id="cb74-46"><a href="#cb74-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb74-47"><a href="#cb74-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-48"><a href="#cb74-48" aria-hidden="true" tabindex="-1"></a>update_figs <span class="ot">=</span> <span class="cn">TRUE</span></span>
+<span id="cb74-49"><a href="#cb74-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-50"><a href="#cb74-50" aria-hidden="true" tabindex="-1"></a>full_survey_data_fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"csv"</span>, params<span class="sc">$</span>survey_data_fn)</span>
+<span id="cb74-51"><a href="#cb74-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-52"><a href="#cb74-52" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (params<span class="sc">$</span>update_data) {</span>
+<span id="cb74-53"><a href="#cb74-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">gargle_oauth_email =</span> <span class="fu">Sys.getenv</span>(<span class="st">"GMAIL_SURVEY"</span>))</span>
+<span id="cb74-54"><a href="#cb74-54" aria-hidden="true" tabindex="-1"></a>  googledrive<span class="sc">::</span><span class="fu">drive_auth</span>()</span>
+<span id="cb74-55"><a href="#cb74-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb74-56"><a href="#cb74-56" aria-hidden="true" tabindex="-1"></a>  new_fn <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"csv"</span>, <span class="fu">paste0</span>(<span class="st">"_"</span>, params<span class="sc">$</span>survey_data_fn))</span>
+<span id="cb74-57"><a href="#cb74-57" aria-hidden="true" tabindex="-1"></a>  googledrive<span class="sc">::</span><span class="fu">drive_download</span>(</span>
+<span id="cb74-58"><a href="#cb74-58" aria-hidden="true" tabindex="-1"></a>    params<span class="sc">$</span>survey_sheet_fn,</span>
+<span id="cb74-59"><a href="#cb74-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">path =</span> full_survey_data_fn,</span>
+<span id="cb74-60"><a href="#cb74-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"csv"</span>,</span>
+<span id="cb74-61"><a href="#cb74-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">overwrite =</span> <span class="cn">TRUE</span></span>
+<span id="cb74-62"><a href="#cb74-62" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb74-63"><a href="#cb74-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">"Data updated."</span>)</span>
+<span id="cb74-64"><a href="#cb74-64" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb74-65"><a href="#cb74-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(full_survey_data_fn)) {</span>
+<span id="cb74-66"><a href="#cb74-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"File not found: '"</span>, full_survey_data_fn, <span class="st">"'."</span>)</span>
+<span id="cb74-67"><a href="#cb74-67" aria-hidden="true" tabindex="-1"></a>    update_figs <span class="ot">=</span> <span class="cn">FALSE</span></span>
+<span id="cb74-68"><a href="#cb74-68" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb74-69"><a href="#cb74-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Using previously stored data."</span>)</span>
+<span id="cb74-70"><a href="#cb74-70" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb74-71"><a href="#cb74-71" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb74-72"><a href="#cb74-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-73"><a href="#cb74-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-74"><a href="#cb74-74" aria-hidden="true" tabindex="-1"></a>Now, we load the downloaded CSV</span>
+<span id="cb74-75"><a href="#cb74-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-76"><a href="#cb74-76" aria-hidden="true" tabindex="-1"></a><span class="in">```{r load-survey-data}</span></span>
+<span id="cb74-77"><a href="#cb74-77" aria-hidden="true" tabindex="-1"></a><span class="in">if (update_figs) {</span></span>
+<span id="cb74-78"><a href="#cb74-78" aria-hidden="true" tabindex="-1"></a><span class="in">  survey_resps &lt;-</span></span>
+<span id="cb74-79"><a href="#cb74-79" aria-hidden="true" tabindex="-1"></a><span class="in">    readr::read_csv(full_survey_data_fn, show_col_types = FALSE)</span></span>
+<span id="cb74-80"><a href="#cb74-80" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb74-81"><a href="#cb74-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-82"><a href="#cb74-82" aria-hidden="true" tabindex="-1"></a><span class="in">names(survey_resps)</span></span>
+<span id="cb74-83"><a href="#cb74-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-84"><a href="#cb74-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-85"><a href="#cb74-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cleaning</span></span>
+<span id="cb74-86"><a href="#cb74-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-87"><a href="#cb74-87" aria-hidden="true" tabindex="-1"></a>Then we clean the data by renaming the variables.</span>
+<span id="cb74-88"><a href="#cb74-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-89"><a href="#cb74-89" aria-hidden="true" tabindex="-1"></a><span class="in">```{r rename-variables}</span></span>
+<span id="cb74-90"><a href="#cb74-90" aria-hidden="true" tabindex="-1"></a><span class="in">survey_resps &lt;- survey_resps |&gt;</span></span>
+<span id="cb74-91"><a href="#cb74-91" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::rename(</span></span>
+<span id="cb74-92"><a href="#cb74-92" aria-hidden="true" tabindex="-1"></a><span class="in">    timestamp = "Timestamp",</span></span>
+<span id="cb74-93"><a href="#cb74-93" aria-hidden="true" tabindex="-1"></a><span class="in">    name = "Your Name",</span></span>
+<span id="cb74-94"><a href="#cb74-94" aria-hidden="true" tabindex="-1"></a><span class="in">    callsign = "Callsign",</span></span>
+<span id="cb74-95"><a href="#cb74-95" aria-hidden="true" tabindex="-1"></a><span class="in">    phone = "Phone",</span></span>
+<span id="cb74-96"><a href="#cb74-96" aria-hidden="true" tabindex="-1"></a><span class="in">    email = "Email",</span></span>
+<span id="cb74-97"><a href="#cb74-97" aria-hidden="true" tabindex="-1"></a><span class="in">    attend = "Do you plan to attend NARC's Field Day 2024?",</span></span>
+<span id="cb74-98"><a href="#cb74-98" aria-hidden="true" tabindex="-1"></a><span class="in">    operate = "Do you plan to operate on Field Day?",</span></span>
+<span id="cb74-99"><a href="#cb74-99" aria-hidden="true" tabindex="-1"></a><span class="in">    overnight = "Are you a night owl and want to operate late into the night or camp out to snag some rare DX?",</span></span>
+<span id="cb74-100"><a href="#cb74-100" aria-hidden="true" tabindex="-1"></a><span class="in">help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",</span></span>
+<span id="cb74-101"><a href="#cb74-101" aria-hidden="true" tabindex="-1"></a><span class="in">comments = "Comments or suggestions"</span></span>
+<span id="cb74-102"><a href="#cb74-102" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="cb74-103"><a href="#cb74-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-104"><a href="#cb74-104" aria-hidden="true" tabindex="-1"></a><span class="in">names(survey_resps)[9] &lt;- "modes"</span></span>
+<span id="cb74-105"><a href="#cb74-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-106"><a href="#cb74-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-107"><a href="#cb74-107" aria-hidden="true" tabindex="-1"></a>Then we parse variables with multiple values, and conforming some values so that they are easier to visualize.</span>
+<span id="cb74-108"><a href="#cb74-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-109"><a href="#cb74-109" aria-hidden="true" tabindex="-1"></a><span class="in">```{r recode-variables}</span></span>
+<span id="cb74-110"><a href="#cb74-110" aria-hidden="true" tabindex="-1"></a><span class="in">survey_resps &lt;- survey_resps |&gt;</span></span>
+<span id="cb74-111"><a href="#cb74-111" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change timestamp to proper date and time</span></span>
+<span id="cb74-112"><a href="#cb74-112" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = "America/New_York")) |&gt;</span></span>
+<span id="cb74-113"><a href="#cb74-113" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change values for 'attend' to make them more easily readable</span></span>
+<span id="cb74-114"><a href="#cb74-114" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(</span></span>
+<span id="cb74-115"><a href="#cb74-115" aria-hidden="true" tabindex="-1"></a><span class="in">    attend = dplyr::recode(</span></span>
+<span id="cb74-116"><a href="#cb74-116" aria-hidden="true" tabindex="-1"></a><span class="in">      attend,</span></span>
+<span id="cb74-117"><a href="#cb74-117" aria-hidden="true" tabindex="-1"></a><span class="in">      'Yes, on Saturday June 22' = "sat",</span></span>
+<span id="cb74-118"><a href="#cb74-118" aria-hidden="true" tabindex="-1"></a><span class="in">      'Yes, on Sunday June 23' = "sun",</span></span>
+<span id="cb74-119"><a href="#cb74-119" aria-hidden="true" tabindex="-1"></a><span class="in">      'Yes, on Saturday June 22, Yes, on Sunday June 23' = "sat_sun",</span></span>
+<span id="cb74-120"><a href="#cb74-120" aria-hidden="true" tabindex="-1"></a><span class="in">      'Not this year' = "no"</span></span>
+<span id="cb74-121"><a href="#cb74-121" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb74-122"><a href="#cb74-122" aria-hidden="true" tabindex="-1"></a><span class="in">  ) |&gt;</span></span>
+<span id="cb74-123"><a href="#cb74-123" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change values for 'operate' to make them lower case</span></span>
+<span id="cb74-124"><a href="#cb74-124" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(operate = tolower(operate)) |&gt;</span></span>
+<span id="cb74-125"><a href="#cb74-125" aria-hidden="true" tabindex="-1"></a><span class="in">  # Change values for 'overnight'</span></span>
+<span id="cb74-126"><a href="#cb74-126" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(</span></span>
+<span id="cb74-127"><a href="#cb74-127" aria-hidden="true" tabindex="-1"></a><span class="in">    overnight = dplyr::recode(overnight,</span></span>
+<span id="cb74-128"><a href="#cb74-128" aria-hidden="true" tabindex="-1"></a><span class="in">                              'Yes, absolutely' = "yes",</span></span>
+<span id="cb74-129"><a href="#cb74-129" aria-hidden="true" tabindex="-1"></a><span class="in">                              'Heck no' = "no")</span></span>
+<span id="cb74-130"><a href="#cb74-130" aria-hidden="true" tabindex="-1"></a><span class="in">  ) |&gt;</span></span>
+<span id="cb74-131"><a href="#cb74-131" aria-hidden="true" tabindex="-1"></a><span class="in">  # Create new variable for each mode</span></span>
+<span id="cb74-132"><a href="#cb74-132" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(phone = stringr::str_detect(modes, "Phone"),</span></span>
+<span id="cb74-133"><a href="#cb74-133" aria-hidden="true" tabindex="-1"></a><span class="in">                cw = stringr::str_detect(modes, "CW"),</span></span>
+<span id="cb74-134"><a href="#cb74-134" aria-hidden="true" tabindex="-1"></a><span class="in">                ft8 = stringr::str_detect(modes, "FT8/FT4"),</span></span>
+<span id="cb74-135"><a href="#cb74-135" aria-hidden="true" tabindex="-1"></a><span class="in">                varac = stringr::str_detect(modes, "VarAC"),</span></span>
+<span id="cb74-136"><a href="#cb74-136" aria-hidden="true" tabindex="-1"></a><span class="in">                fldigi = stringr::str_detect(modes, "fldigi"),</span></span>
+<span id="cb74-137"><a href="#cb74-137" aria-hidden="true" tabindex="-1"></a><span class="in">                js8call = stringr::str_detect(modes, "JS8Call"),</span></span>
+<span id="cb74-138"><a href="#cb74-138" aria-hidden="true" tabindex="-1"></a><span class="in">                sstv = stringr::str_detect(modes, "SSTV")) |&gt;</span></span>
+<span id="cb74-139"><a href="#cb74-139" aria-hidden="true" tabindex="-1"></a><span class="in">  # Create new variables for each volunteer role</span></span>
+<span id="cb74-140"><a href="#cb74-140" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::mutate(pr = stringr::str_detect(help_with, "PR"),</span></span>
+<span id="cb74-141"><a href="#cb74-141" aria-hidden="true" tabindex="-1"></a><span class="in">                info_table = stringr::str_detect(help_with, "table"),</span></span>
+<span id="cb74-142"><a href="#cb74-142" aria-hidden="true" tabindex="-1"></a><span class="in">                satellite = stringr::str_detect(help_with, "satellite"),</span></span>
+<span id="cb74-143"><a href="#cb74-143" aria-hidden="true" tabindex="-1"></a><span class="in">                mode_expert = stringr::str_detect(help_with, "expert"),</span></span>
+<span id="cb74-144"><a href="#cb74-144" aria-hidden="true" tabindex="-1"></a><span class="in">                ed_activity = stringr::str_detect(help_with, "Educational"),</span></span>
+<span id="cb74-145"><a href="#cb74-145" aria-hidden="true" tabindex="-1"></a><span class="in">                invite_elected = stringr::str_detect(help_with, "elected"),</span></span>
+<span id="cb74-146"><a href="#cb74-146" aria-hidden="true" tabindex="-1"></a><span class="in">                youth = stringr::str_detect(help_with, "youth"),</span></span>
+<span id="cb74-147"><a href="#cb74-147" aria-hidden="true" tabindex="-1"></a><span class="in">                food = stringr::str_detect(help_with, "food"),</span></span>
+<span id="cb74-148"><a href="#cb74-148" aria-hidden="true" tabindex="-1"></a><span class="in">                clean_up = stringr::str_detect(help_with, "clean-up"),</span></span>
+<span id="cb74-149"><a href="#cb74-149" aria-hidden="true" tabindex="-1"></a><span class="in">                test_equipment = stringr::str_detect(help_with, "equipment"))</span></span>
+<span id="cb74-150"><a href="#cb74-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-151"><a href="#cb74-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-152"><a href="#cb74-152" aria-hidden="true" tabindex="-1"></a>It will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.</span>
+<span id="cb74-153"><a href="#cb74-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-156"><a href="#cb74-156" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-157"><a href="#cb74-157" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="ot">&lt;-</span> survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-158"><a href="#cb74-158" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb74-159"><a href="#cb74-159" aria-hidden="true" tabindex="-1"></a>    <span class="at">attend_sat =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(attend, <span class="st">"sat"</span>),</span>
+<span id="cb74-160"><a href="#cb74-160" aria-hidden="true" tabindex="-1"></a>    <span class="at">attend_sun =</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(attend, <span class="st">"sun"</span>)</span>
+<span id="cb74-161"><a href="#cb74-161" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb74-162"><a href="#cb74-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-163"><a href="#cb74-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-164"><a href="#cb74-164" aria-hidden="true" tabindex="-1"></a>We make all the callsigns uppercase for consistency.</span>
+<span id="cb74-165"><a href="#cb74-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-168"><a href="#cb74-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-169"><a href="#cb74-169" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="ot">&lt;-</span> survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-170"><a href="#cb74-170" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">callsign =</span> <span class="fu">toupper</span>(callsign))</span>
+<span id="cb74-171"><a href="#cb74-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-172"><a href="#cb74-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-173"><a href="#cb74-173" aria-hidden="true" tabindex="-1"></a>Finally, we export the cleaned file.</span>
+<span id="cb74-174"><a href="#cb74-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-177"><a href="#cb74-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-178"><a href="#cb74-178" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(survey_resps, <span class="fu">file.path</span>(<span class="st">"csv"</span>, <span class="fu">paste0</span>(<span class="st">"clean_"</span>, params<span class="sc">$</span>survey_data_fn)))</span>
+<span id="cb74-179"><a href="#cb74-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-180"><a href="#cb74-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-181"><a href="#cb74-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualizing</span></span>
+<span id="cb74-182"><a href="#cb74-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-183"><a href="#cb74-183" aria-hidden="true" tabindex="-1"></a>As of <span class="in">`{r} Sys.Date()`</span>, we've had <span class="in">`{r} dim(survey_resps)[1]`</span> responses.</span>
+<span id="cb74-184"><a href="#cb74-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-185"><a href="#cb74-185" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Attending and operating</span></span>
+<span id="cb74-186"><a href="#cb74-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-187"><a href="#cb74-187" aria-hidden="true" tabindex="-1"></a>Here are the number of respondents who plan to attend and their plans to operate.</span>
+<span id="cb74-188"><a href="#cb74-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-191"><a href="#cb74-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-192"><a href="#cb74-192" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> attend <span class="sc">+</span> operate, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-193"><a href="#cb74-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-194"><a href="#cb74-194" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-195"><a href="#cb74-195" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, attend_sat) <span class="sc">|&gt;</span></span>
+<span id="cb74-196"><a href="#cb74-196" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(attend_sat <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-197"><a href="#cb74-197" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-198"><a href="#cb74-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-199"><a href="#cb74-199" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-200"><a href="#cb74-200" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, attend_sun) <span class="sc">|&gt;</span></span>
+<span id="cb74-201"><a href="#cb74-201" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(attend_sun <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-202"><a href="#cb74-202" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-203"><a href="#cb74-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-204"><a href="#cb74-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-205"><a href="#cb74-205" aria-hidden="true" tabindex="-1"></a>Here are respondents' plans to operate overnight:</span>
+<span id="cb74-206"><a href="#cb74-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-209"><a href="#cb74-209" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-210"><a href="#cb74-210" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> overnight, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-211"><a href="#cb74-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-212"><a href="#cb74-212" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-213"><a href="#cb74-213" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, overnight) <span class="sc">|&gt;</span></span>
+<span id="cb74-214"><a href="#cb74-214" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(overnight <span class="sc">==</span> <span class="st">'yes'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-215"><a href="#cb74-215" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-216"><a href="#cb74-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-217"><a href="#cb74-217" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-218"><a href="#cb74-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-219"><a href="#cb74-219" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Modes</span></span>
+<span id="cb74-220"><a href="#cb74-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-221"><a href="#cb74-221" aria-hidden="true" tabindex="-1"></a>Here are respondents' interests by mode:</span>
+<span id="cb74-222"><a href="#cb74-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-225"><a href="#cb74-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-226"><a href="#cb74-226" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> phone, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-227"><a href="#cb74-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-228"><a href="#cb74-228" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-229"><a href="#cb74-229" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, phone) <span class="sc">|&gt;</span></span>
+<span id="cb74-230"><a href="#cb74-230" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(phone <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-231"><a href="#cb74-231" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-232"><a href="#cb74-232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-233"><a href="#cb74-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-236"><a href="#cb74-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-237"><a href="#cb74-237" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> cw, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-238"><a href="#cb74-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-239"><a href="#cb74-239" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-240"><a href="#cb74-240" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, cw) <span class="sc">|&gt;</span></span>
+<span id="cb74-241"><a href="#cb74-241" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(cw <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-242"><a href="#cb74-242" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-243"><a href="#cb74-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-244"><a href="#cb74-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-247"><a href="#cb74-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-248"><a href="#cb74-248" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> ft8, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-249"><a href="#cb74-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-250"><a href="#cb74-250" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-251"><a href="#cb74-251" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, ft8) <span class="sc">|&gt;</span></span>
+<span id="cb74-252"><a href="#cb74-252" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ft8 <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-253"><a href="#cb74-253" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-254"><a href="#cb74-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-255"><a href="#cb74-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-258"><a href="#cb74-258" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-259"><a href="#cb74-259" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> varac, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-260"><a href="#cb74-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-261"><a href="#cb74-261" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-262"><a href="#cb74-262" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, varac) <span class="sc">|&gt;</span></span>
+<span id="cb74-263"><a href="#cb74-263" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(varac <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-264"><a href="#cb74-264" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-265"><a href="#cb74-265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-266"><a href="#cb74-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-269"><a href="#cb74-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-270"><a href="#cb74-270" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> fldigi, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-271"><a href="#cb74-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-272"><a href="#cb74-272" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-273"><a href="#cb74-273" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, fldigi) <span class="sc">|&gt;</span></span>
+<span id="cb74-274"><a href="#cb74-274" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(fldigi <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-275"><a href="#cb74-275" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-276"><a href="#cb74-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-277"><a href="#cb74-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-280"><a href="#cb74-280" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-281"><a href="#cb74-281" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> js8call, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-282"><a href="#cb74-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-283"><a href="#cb74-283" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-284"><a href="#cb74-284" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, js8call) <span class="sc">|&gt;</span></span>
+<span id="cb74-285"><a href="#cb74-285" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(js8call <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-286"><a href="#cb74-286" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-287"><a href="#cb74-287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-288"><a href="#cb74-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-291"><a href="#cb74-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-292"><a href="#cb74-292" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> sstv, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-293"><a href="#cb74-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-294"><a href="#cb74-294" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-295"><a href="#cb74-295" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, sstv) <span class="sc">|&gt;</span></span>
+<span id="cb74-296"><a href="#cb74-296" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(sstv <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-297"><a href="#cb74-297" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-298"><a href="#cb74-298" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-299"><a href="#cb74-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-300"><a href="#cb74-300" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Volunteering</span></span>
+<span id="cb74-301"><a href="#cb74-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-302"><a href="#cb74-302" aria-hidden="true" tabindex="-1"></a>And here are respondents' interests in volunteering:</span>
+<span id="cb74-303"><a href="#cb74-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-306"><a href="#cb74-306" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-307"><a href="#cb74-307" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> pr, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-308"><a href="#cb74-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-309"><a href="#cb74-309" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-310"><a href="#cb74-310" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, pr) <span class="sc">|&gt;</span></span>
+<span id="cb74-311"><a href="#cb74-311" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pr <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-312"><a href="#cb74-312" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-313"><a href="#cb74-313" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-314"><a href="#cb74-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-317"><a href="#cb74-317" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-318"><a href="#cb74-318" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> info_table, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-319"><a href="#cb74-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-320"><a href="#cb74-320" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-321"><a href="#cb74-321" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, info_table) <span class="sc">|&gt;</span></span>
+<span id="cb74-322"><a href="#cb74-322" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(info_table <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-323"><a href="#cb74-323" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-324"><a href="#cb74-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-325"><a href="#cb74-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-328"><a href="#cb74-328" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-329"><a href="#cb74-329" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> satellite, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-330"><a href="#cb74-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-331"><a href="#cb74-331" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-332"><a href="#cb74-332" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, satellite) <span class="sc">|&gt;</span></span>
+<span id="cb74-333"><a href="#cb74-333" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(satellite <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-334"><a href="#cb74-334" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-335"><a href="#cb74-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-336"><a href="#cb74-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-339"><a href="#cb74-339" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-340"><a href="#cb74-340" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> mode_expert, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-341"><a href="#cb74-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-342"><a href="#cb74-342" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-343"><a href="#cb74-343" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, mode_expert) <span class="sc">|&gt;</span></span>
+<span id="cb74-344"><a href="#cb74-344" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(mode_expert <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-345"><a href="#cb74-345" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-346"><a href="#cb74-346" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-347"><a href="#cb74-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-350"><a href="#cb74-350" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-351"><a href="#cb74-351" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> ed_activity, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-352"><a href="#cb74-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-353"><a href="#cb74-353" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-354"><a href="#cb74-354" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, ed_activity) <span class="sc">|&gt;</span></span>
+<span id="cb74-355"><a href="#cb74-355" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(ed_activity <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-356"><a href="#cb74-356" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-357"><a href="#cb74-357" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-358"><a href="#cb74-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-361"><a href="#cb74-361" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-362"><a href="#cb74-362" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> invite_elected, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-363"><a href="#cb74-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-364"><a href="#cb74-364" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-365"><a href="#cb74-365" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, invite_elected) <span class="sc">|&gt;</span></span>
+<span id="cb74-366"><a href="#cb74-366" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(invite_elected <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-367"><a href="#cb74-367" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-368"><a href="#cb74-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-369"><a href="#cb74-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-372"><a href="#cb74-372" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-373"><a href="#cb74-373" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> youth, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-374"><a href="#cb74-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-375"><a href="#cb74-375" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-376"><a href="#cb74-376" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, youth) <span class="sc">|&gt;</span></span>
+<span id="cb74-377"><a href="#cb74-377" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(youth <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-378"><a href="#cb74-378" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-379"><a href="#cb74-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-380"><a href="#cb74-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-383"><a href="#cb74-383" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-384"><a href="#cb74-384" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> food, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-385"><a href="#cb74-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-386"><a href="#cb74-386" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-387"><a href="#cb74-387" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, food) <span class="sc">|&gt;</span></span>
+<span id="cb74-388"><a href="#cb74-388" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(food <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-389"><a href="#cb74-389" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-390"><a href="#cb74-390" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-391"><a href="#cb74-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-394"><a href="#cb74-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-395"><a href="#cb74-395" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> clean_up, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-396"><a href="#cb74-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-397"><a href="#cb74-397" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-398"><a href="#cb74-398" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, clean_up) <span class="sc">|&gt;</span></span>
+<span id="cb74-399"><a href="#cb74-399" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(clean_up <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-400"><a href="#cb74-400" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-401"><a href="#cb74-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-402"><a href="#cb74-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-405"><a href="#cb74-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-406"><a href="#cb74-406" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(<span class="at">formula =</span> <span class="sc">~</span> test_equipment, <span class="at">data =</span> survey_resps)</span>
+<span id="cb74-407"><a href="#cb74-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-408"><a href="#cb74-408" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-409"><a href="#cb74-409" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, test_equipment) <span class="sc">|&gt;</span></span>
+<span id="cb74-410"><a href="#cb74-410" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(test_equipment <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb74-411"><a href="#cb74-411" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-412"><a href="#cb74-412" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb74-413"><a href="#cb74-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-414"><a href="#cb74-414" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Comments</span></span>
+<span id="cb74-415"><a href="#cb74-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-416"><a href="#cb74-416" aria-hidden="true" tabindex="-1"></a>And here are the comments:</span>
+<span id="cb74-417"><a href="#cb74-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-420"><a href="#cb74-420" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb74-421"><a href="#cb74-421" aria-hidden="true" tabindex="-1"></a>survey_resps <span class="sc">|&gt;</span></span>
+<span id="cb74-422"><a href="#cb74-422" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(callsign, comments) <span class="sc">|&gt;</span></span>
+<span id="cb74-423"><a href="#cb74-423" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(comments)) <span class="sc">|&gt;</span></span>
+<span id="cb74-424"><a href="#cb74-424" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">format =</span> <span class="st">'html'</span>)</span>
+<span id="cb74-425"><a href="#cb74-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
