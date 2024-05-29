@@ -2,7 +2,7 @@
 title: "Planning"
 format:
   html:
-    code-fold: false
+    code-fold: true
     code-tools: true
     toc: true
 params:
@@ -15,13 +15,16 @@ params:
 
 This page documents some of the steps in our planning process.
 
-## Member Survey
-
-W3TM drafted a member survey using a Google Form.
-
+W3TM drafted and distributed on 2024-05-28 a member survey using a Google Form.
 Here are some of the preliminary results.
 
-### Set-up
+::: {.callout-note}
+
+To reveal the code that generates the following outputs, select the 'Show All Code' item from the '</> Code' dropdown menu at upper right.
+
+:::
+
+## Set-up
 
 We source some packages to make calls to their functions more convenient.
 
@@ -29,7 +32,7 @@ We source some packages to make calls to their functions more convenient.
 library(ggplot2)
 ```
 
-### Gathering
+## Gathering
 
 The Google Form application saves the survey responses as a Google Sheet:
 
@@ -78,7 +81,7 @@ if (update_figs) {
 names(survey_resps)
 ```
 
-### Cleaning
+## Cleaning
 
 Then we clean the data by renaming the variables.
 
@@ -168,27 +171,37 @@ Finally, we export the cleaned file.
 readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_data_fn)))
 ```
 
-### Visualizing
+## Visualizing
 
 As of `{r} Sys.Date()`, we've had `{r} dim(survey_resps)[1]` responses.
 
-#### Attending and operating
+### Attending and operating
 
 Here are the number of respondents who plan to attend and their plans to operate.
 
 ```{r}
 xtabs(formula = ~ attend + operate, data = survey_resps)
+```
 
+#### Saturday
+
+```{r}
 survey_resps |>
   dplyr::select(callsign, attend_sat) |>
   dplyr::filter(attend_sat == TRUE) |>
     knitr::kable(format = 'html')
+```
 
+#### Sunday
+
+```{r}
 survey_resps |>
   dplyr::select(callsign, attend_sun) |>
   dplyr::filter(attend_sun == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### Overnight
 
 Here are respondents' plans to operate overnight:
 
@@ -202,9 +215,11 @@ survey_resps |>
 
 ```
 
-#### Modes
+### Modes
 
 Here are respondents' interests by mode:
+
+#### Phone
 
 ```{r}
 xtabs(formula = ~ phone, data = survey_resps)
@@ -215,6 +230,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### CW
+
 ```{r}
 xtabs(formula = ~ cw, data = survey_resps)
 
@@ -223,6 +240,8 @@ survey_resps |>
   dplyr::filter(cw == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### FT8/FT4
 
 ```{r}
 xtabs(formula = ~ ft8, data = survey_resps)
@@ -233,6 +252,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### VarAC
+
 ```{r}
 xtabs(formula = ~ varac, data = survey_resps)
 
@@ -241,6 +262,8 @@ survey_resps |>
   dplyr::filter(varac == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### Fldigi (e.g., PSK31)
 
 ```{r}
 xtabs(formula = ~ fldigi, data = survey_resps)
@@ -251,6 +274,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### JS8Call
+
 ```{r}
 xtabs(formula = ~ js8call, data = survey_resps)
 
@@ -259,6 +284,8 @@ survey_resps |>
   dplyr::filter(js8call == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### SSTV
 
 ```{r}
 xtabs(formula = ~ sstv, data = survey_resps)
@@ -269,9 +296,11 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
-#### Volunteering
+### Volunteering
 
 And here are respondents' interests in volunteering:
+
+#### PR
 
 ```{r}
 xtabs(formula = ~ pr, data = survey_resps)
@@ -282,6 +311,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### Info table
+
 ```{r}
 xtabs(formula = ~ info_table, data = survey_resps)
 
@@ -290,6 +321,8 @@ survey_resps |>
   dplyr::filter(info_table == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### Satellite QSO
 
 ```{r}
 xtabs(formula = ~ satellite, data = survey_resps)
@@ -300,6 +333,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### Mode 'expert'
+
 ```{r}
 xtabs(formula = ~ mode_expert, data = survey_resps)
 
@@ -308,6 +343,8 @@ survey_resps |>
   dplyr::filter(mode_expert == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### Educational activity
 
 ```{r}
 xtabs(formula = ~ ed_activity, data = survey_resps)
@@ -318,6 +355,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### Invitations to elected officials
+
 ```{r}
 xtabs(formula = ~ invite_elected, data = survey_resps)
 
@@ -326,6 +365,8 @@ survey_resps |>
   dplyr::filter(invite_elected == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### Invitations to youth groups
 
 ```{r}
 xtabs(formula = ~ youth, data = survey_resps)
@@ -336,6 +377,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### Food & Drink
+
 ```{r}
 xtabs(formula = ~ food, data = survey_resps)
 
@@ -344,6 +387,8 @@ survey_resps |>
   dplyr::filter(food == TRUE) |>
     knitr::kable(format = 'html')
 ```
+
+#### Clean-up
 
 ```{r}
 xtabs(formula = ~ clean_up, data = survey_resps)
@@ -354,6 +399,8 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
+#### Test equipment & software
+
 ```{r}
 xtabs(formula = ~ test_equipment, data = survey_resps)
 
@@ -363,14 +410,20 @@ survey_resps |>
     knitr::kable(format = 'html')
 ```
 
-#### Comments
+<!-- #### Comments -->
 
-And here are the comments:
+<!-- And here are the comments: -->
 
-```{r}
-survey_resps |>
-  dplyr::select(callsign, comments) |>
-  dplyr::filter(!is.na(comments)) |>
-  knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, comments) |> -->
+<!--   dplyr::filter(!is.na(comments)) |> -->
+<!--   knitr::kable(format = 'html') -->
+<!-- ``` -->
 
+## Observations
+
+- We have about half a dozen attendees who want to operate on Saturday and Sunday.
+- W3TM will be by himself late at night or overnight.
+- We have several operators interested in digital (FT8, fldigi, and JS8Call) modes.
+- We should have 5-10 helpers to assist with strike/tear-down.
