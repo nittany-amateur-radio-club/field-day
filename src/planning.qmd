@@ -191,7 +191,7 @@ readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_d
 
 ## Visualizing
 
-As of `{r} Sys.Date()`, we've had `{r} dim(survey_resps)[1]` responses.
+As of `{r} Sys.time()`, we've had `{r} dim(survey_resps)[1]` responses.
 
 ### Attending and operating
 
