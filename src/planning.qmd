@@ -30,6 +30,7 @@ We source some packages to make calls to their functions more convenient.
 
 ```{r}
 library(ggplot2)
+knitr::opts_chunk$set(tidy = "styler")
 ```
 
 ## Gathering
@@ -105,7 +106,7 @@ names(survey_resps)[9] <- "modes"
 
 Then we parse variables with multiple values, and conforming some values so that they are easier to visualize.
 
-```{r recode-variables}
+```{r recode-variables, tidy = "styler"}
 survey_resps <- survey_resps |>
   # Change timestamp to proper date and time
   dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = "America/New_York")) |>
@@ -113,39 +114,55 @@ survey_resps <- survey_resps |>
   dplyr::mutate(
     attend = dplyr::recode(
       attend,
-      'Yes, on Saturday June 22' = "sat",
-      'Yes, on Sunday June 23' = "sun",
-      'Yes, on Saturday June 22, Yes, on Sunday June 23' = "sat_sun",
-      'Not this year' = "no"
+        'Yes, on Saturday June 22' = "sat",
+        'Yes, on Sunday June 23' = "sun",
+        'Yes, on Saturday June 22, Yes, on Sunday June 23' = "sat_sun",
+        'Not this year' = "no"
     )
   ) |>
   # Change values for 'operate' to make them lower case
   dplyr::mutate(operate = tolower(operate)) |>
   # Change values for 'overnight'
-  dplyr::mutate(
-    overnight = dplyr::recode(overnight,
-                              'Yes, absolutely' = "yes",
-                              'Heck no' = "no")
-  ) |>
+  dplyr::mutate(overnight = dplyr::recode(
+    overnight,
+      'Yes, absolutely' = TRUE,
+      'Heck no' = FALSE)) |>
   # Create new variable for each mode
-  dplyr::mutate(phone = stringr::str_detect(modes, "Phone"),
-                cw = stringr::str_detect(modes, "CW"),
-                ft8 = stringr::str_detect(modes, "FT8/FT4"),
-                varac = stringr::str_detect(modes, "VarAC"),
-                fldigi = stringr::str_detect(modes, "fldigi"),
-                js8call = stringr::str_detect(modes, "JS8Call"),
-                sstv = stringr::str_detect(modes, "SSTV")) |>
+  dplyr::mutate(
+    phone = stringr::str_detect(modes, "Phone"),
+    cw = stringr::str_detect(modes, "CW"),
+    ft8 = stringr::str_detect(modes, "FT8/FT4"),
+    varac = stringr::str_detect(modes, "VarAC"),
+    fldigi = stringr::str_detect(modes, "fldigi"),
+    js8call = stringr::str_detect(modes, "JS8Call"),
+    sstv = stringr::str_detect(modes, "SSTV")
+  ) |>
   # Create new variables for each volunteer role
-  dplyr::mutate(pr = stringr::str_detect(help_with, "PR"),
-                info_table = stringr::str_detect(help_with, "table"),
-                satellite = stringr::str_detect(help_with, "satellite"),
-                mode_expert = stringr::str_detect(help_with, "expert"),
-                ed_activity = stringr::str_detect(help_with, "Educational"),
-                invite_elected = stringr::str_detect(help_with, "elected"),
-                youth = stringr::str_detect(help_with, "youth"),
-                food = stringr::str_detect(help_with, "food"),
-                clean_up = stringr::str_detect(help_with, "clean-up"),
-                test_equipment = stringr::str_detect(help_with, "equipment"))
+  dplyr::mutate(
+    pr = stringr::str_detect(help_with, "PR"),
+    info_table = stringr::str_detect(help_with, "table"),
+    satellite = stringr::str_detect(help_with, "satellite"),
+    mode_expert = stringr::str_detect(help_with, "expert"),
+    ed_activity = stringr::str_detect(help_with, "Educational"),
+    invite_elected = stringr::str_detect(help_with, "elected"),
+    youth = stringr::str_detect(help_with, "youth"),
+    food = stringr::str_detect(help_with, "food"),
+    clean_up = stringr::str_detect(help_with, "clean-up"),
+    test_equipment = stringr::str_detect(help_with, "equipment")
+  )
+
+survey_resps$overnight[is.na(survey_resps$overnight)] <- FALSE
+survey_resps$pr[is.na(survey_resps$pr)] <- FALSE
+survey_resps$info_table[is.na(survey_resps$info_table)] <- FALSE
+survey_resps$satellite[is.na(survey_resps$satellite)] <- FALSE
+survey_resps$mode_expert[is.na(survey_resps$mode_expert)] <- FALSE
+survey_resps$ed_activity[is.na(survey_resps$ed_activity)] <- FALSE
+survey_resps$invite_elected[is.na(survey_resps$invite_elected)] <- FALSE
+survey_resps$youth[is.na(survey_resps$youth)] <- FALSE
+survey_resps$food[is.na(survey_resps$food)] <- FALSE
+survey_resps$clean_up[is.na(survey_resps$clean_up)] <- FALSE
+survey_resps$test_equipment[is.na(survey_resps$test_equipment)] <- FALSE
+
 ```
 
 It will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.
@@ -155,7 +172,8 @@ survey_resps <- survey_resps |>
   dplyr::mutate(
     attend_sat = stringr::str_detect(attend, "sat"),
     attend_sun = stringr::str_detect(attend, "sun")
-  )
+  ) |>
+  dplyr::mutate(attend_any = (attend_sat | attend_sun))
 ```
 
 We make all the callsigns uppercase for consistency.
@@ -182,233 +200,302 @@ Here are the number of respondents who plan to attend and their plans to operate
 ```{r}
 xtabs(formula = ~ attend + operate, data = survey_resps)
 ```
-
-#### Saturday
-
 ```{r}
 survey_resps |>
-  dplyr::select(callsign, attend_sat) |>
-  dplyr::filter(attend_sat == TRUE) |>
-    knitr::kable(format = 'html')
+  dplyr::select(callsign, attend_sat, overnight, attend_sun) |>
+  kableExtra::kbl(format = "html") |>
+  kableExtra::kable_classic() |>
+  kableExtra::column_spec(2, 
+    color = ifelse(survey_resps$attend_sat == TRUE, "green", "red")) |>
+  kableExtra::column_spec(4, 
+    color = ifelse(survey_resps$attend_sun == TRUE, "green", "red")) |>
+  kableExtra::column_spec(3, 
+    color = ifelse(survey_resps$overnight == TRUE, "green", "red"))
 ```
 
-#### Sunday
+<!-- #### Saturday -->
 
-```{r}
-survey_resps |>
-  dplyr::select(callsign, attend_sun) |>
-  dplyr::filter(attend_sun == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, attend_sat) |> -->
+<!--   dplyr::filter(attend_sat == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Overnight
+<!-- #### Sunday -->
 
-Here are respondents' plans to operate overnight:
+<!-- ```{r} -->
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, attend_sun) |> -->
+<!--   dplyr::filter(attend_sun == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-```{r}
-xtabs(formula = ~ overnight, data = survey_resps)
+<!-- #### Overnight -->
 
-survey_resps |>
-  dplyr::select(callsign, overnight) |>
-  dplyr::filter(overnight == 'yes') |>
-    knitr::kable(format = 'html')
+<!-- Here are respondents' plans to operate overnight: -->
 
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ overnight, data = survey_resps) -->
+
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, overnight) |> -->
+<!--   dplyr::filter(overnight == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+
+<!-- ``` -->
 
 ### Modes
 
 Here are respondents' interests by mode:
 
-#### Phone
-
 ```{r}
-xtabs(formula = ~ phone, data = survey_resps)
+attendees <- survey_resps |>
+  dplyr::filter(attend_any == TRUE)
 
-survey_resps |>
-  dplyr::select(callsign, phone) |>
-  dplyr::filter(phone == TRUE) |>
-    knitr::kable(format = 'html')
+attendees |>
+  dplyr::select(callsign, phone, cw, ft8, varac, fldigi, js8call, sstv) |>
+  kableExtra::kbl(format = "html") |>
+  kableExtra::kable_classic() |>
+  kableExtra::column_spec(2, 
+    color = ifelse(attendees$phone == TRUE, "green", "red")) |>
+  kableExtra::column_spec(3,
+    color = ifelse(attendees$cw == TRUE, "green", "red")) |>
+  kableExtra::column_spec(4,
+    color = ifelse(attendees$ft8 == TRUE, "green", "red")) |>
+  kableExtra::column_spec(5,
+    color = ifelse(attendees$varac == TRUE, "green", "red")) |>
+  kableExtra::column_spec(6,
+    color = ifelse(attendees$fldigi == TRUE, "green", "red")) |>
+  kableExtra::column_spec(7,
+    color = ifelse(attendees$js8call == TRUE, "green", "red")) |>
+  kableExtra::column_spec(8,
+    color = ifelse(attendees$sstv == TRUE, "green", "red"))
+
 ```
 
-#### CW
 
-```{r}
-xtabs(formula = ~ cw, data = survey_resps)
+<!-- #### Phone -->
 
-survey_resps |>
-  dplyr::select(callsign, cw) |>
-  dplyr::filter(cw == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ phone, data = survey_resps) -->
 
-#### FT8/FT4
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, phone) |> -->
+<!--   dplyr::filter(phone == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-```{r}
-xtabs(formula = ~ ft8, data = survey_resps)
+<!-- #### CW -->
 
-survey_resps |>
-  dplyr::select(callsign, ft8) |>
-  dplyr::filter(ft8 == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ cw, data = survey_resps) -->
 
-#### VarAC
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, cw) |> -->
+<!--   dplyr::filter(cw == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-```{r}
-xtabs(formula = ~ varac, data = survey_resps)
+<!-- #### FT8/FT4 -->
 
-survey_resps |>
-  dplyr::select(callsign, varac) |>
-  dplyr::filter(varac == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ ft8, data = survey_resps) -->
 
-#### Fldigi (e.g., PSK31)
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, ft8) |> -->
+<!--   dplyr::filter(ft8 == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-```{r}
-xtabs(formula = ~ fldigi, data = survey_resps)
+<!-- #### VarAC -->
 
-survey_resps |>
-  dplyr::select(callsign, fldigi) |>
-  dplyr::filter(fldigi == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ varac, data = survey_resps) -->
 
-#### JS8Call
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, varac) |> -->
+<!--   dplyr::filter(varac == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-```{r}
-xtabs(formula = ~ js8call, data = survey_resps)
+<!-- #### Fldigi (e.g., PSK31) -->
 
-survey_resps |>
-  dplyr::select(callsign, js8call) |>
-  dplyr::filter(js8call == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ fldigi, data = survey_resps) -->
 
-#### SSTV
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, fldigi) |> -->
+<!--   dplyr::filter(fldigi == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-```{r}
-xtabs(formula = ~ sstv, data = survey_resps)
+<!-- #### JS8Call -->
 
-survey_resps |>
-  dplyr::select(callsign, sstv) |>
-  dplyr::filter(sstv == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ js8call, data = survey_resps) -->
+
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, js8call) |> -->
+<!--   dplyr::filter(js8call == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
+
+<!-- #### SSTV -->
+
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ sstv, data = survey_resps) -->
+
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, sstv) |> -->
+<!--   dplyr::filter(sstv == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
 ### Volunteering
 
 And here are respondents' interests in volunteering:
 
-#### PR
-
 ```{r}
-xtabs(formula = ~ pr, data = survey_resps)
+volunteers <- survey_resps |>
+  dplyr::select(callsign, pr, info_table, satellite, mode_expert,
+    ed_activity, invite_elected, youth, food, clean_up, test_equipment)
 
-survey_resps |>
-  dplyr::select(callsign, pr) |>
-  dplyr::filter(pr == TRUE) |>
-    knitr::kable(format = 'html')
+volunteers |>
+  kableExtra::kbl(format = "html") |>
+  kableExtra::kable_classic() |>
+  kableExtra::column_spec(2, 
+    color = ifelse(volunteers$pr == TRUE, "green", "red")) |>
+  kableExtra::column_spec(3,
+    color = ifelse(volunteers$info_table == TRUE, "green", "red")) |>
+  kableExtra::column_spec(4,
+    color = ifelse(volunteers$satellite == TRUE, "green", "red")) |>
+  kableExtra::column_spec(5,
+    color = ifelse(volunteers$mode_expert == TRUE, "green", "red")) |>
+  kableExtra::column_spec(6,
+    color = ifelse(volunteers$ed_activity == TRUE, "green", "red")) |>
+  kableExtra::column_spec(7,
+    color = ifelse(volunteers$invite_elected == TRUE, "green", "red")) |>
+  kableExtra::column_spec(8,
+    color = ifelse(volunteers$youth == TRUE, "green", "red")) |>
+  kableExtra::column_spec(9,
+    color = ifelse(volunteers$food == TRUE, "green", "red")) |>
+  kableExtra::column_spec(10,
+    color = ifelse(volunteers$clean_up == TRUE, "green", "red")) |>
+  kableExtra::column_spec(11,
+    color = ifelse(volunteers$test_equipment == TRUE, "green", "red"))
+
 ```
 
-#### Info table
+<!-- #### PR -->
 
-```{r}
-xtabs(formula = ~ info_table, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ pr, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, info_table) |>
-  dplyr::filter(info_table == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, pr) |> -->
+<!--   dplyr::filter(pr == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Satellite QSO
+<!-- #### Info table -->
 
-```{r}
-xtabs(formula = ~ satellite, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ info_table, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, satellite) |>
-  dplyr::filter(satellite == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, info_table) |> -->
+<!--   dplyr::filter(info_table == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Mode 'expert'
+<!-- #### Satellite QSO -->
 
-```{r}
-xtabs(formula = ~ mode_expert, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ satellite, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, mode_expert) |>
-  dplyr::filter(mode_expert == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, satellite) |> -->
+<!--   dplyr::filter(satellite == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Educational activity
+<!-- #### Mode 'expert' -->
 
-```{r}
-xtabs(formula = ~ ed_activity, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ mode_expert, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, ed_activity) |>
-  dplyr::filter(ed_activity == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, mode_expert) |> -->
+<!--   dplyr::filter(mode_expert == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Invitations to elected officials
+<!-- #### Educational activity -->
 
-```{r}
-xtabs(formula = ~ invite_elected, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ ed_activity, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, invite_elected) |>
-  dplyr::filter(invite_elected == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, ed_activity) |> -->
+<!--   dplyr::filter(ed_activity == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Invitations to youth groups
+<!-- #### Invitations to elected officials -->
 
-```{r}
-xtabs(formula = ~ youth, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ invite_elected, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, youth) |>
-  dplyr::filter(youth == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, invite_elected) |> -->
+<!--   dplyr::filter(invite_elected == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Food & Drink
+<!-- #### Invitations to youth groups -->
 
-```{r}
-xtabs(formula = ~ food, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ youth, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, food) |>
-  dplyr::filter(food == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, youth) |> -->
+<!--   dplyr::filter(youth == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Clean-up
+<!-- #### Food & Drink -->
 
-```{r}
-xtabs(formula = ~ clean_up, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ food, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, clean_up) |>
-  dplyr::filter(clean_up == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, food) |> -->
+<!--   dplyr::filter(food == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
-#### Test equipment & software
+<!-- #### Clean-up -->
 
-```{r}
-xtabs(formula = ~ test_equipment, data = survey_resps)
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ clean_up, data = survey_resps) -->
 
-survey_resps |>
-  dplyr::select(callsign, test_equipment) |>
-  dplyr::filter(test_equipment == TRUE) |>
-    knitr::kable(format = 'html')
-```
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, clean_up) |> -->
+<!--   dplyr::filter(clean_up == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
+
+<!-- #### Test equipment & software -->
+
+<!-- ```{r} -->
+<!-- xtabs(formula = ~ test_equipment, data = survey_resps) -->
+
+<!-- survey_resps |> -->
+<!--   dplyr::select(callsign, test_equipment) |> -->
+<!--   dplyr::filter(test_equipment == TRUE) |> -->
+<!--     knitr::kable(format = 'html') -->
+<!-- ``` -->
 
 <!-- #### Comments -->
 
@@ -423,7 +510,7 @@ survey_resps |>
 
 ## Observations
 
-- We have about half a dozen attendees who want to operate on Saturday and Sunday.
+- We have about half a dozen attendees who want to operate on Saturday and/or Sunday.
 - W3TM will be by himself late at night or overnight.
 - We have several operators interested in digital (FT8, fldigi, and JS8Call) modes.
 - We should have 5-10 helpers to assist with strike/tear-down.
