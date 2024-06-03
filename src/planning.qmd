@@ -510,7 +510,7 @@ volunteers |>
 
 ## Observations
 
-- We have about half a dozen attendees who want to operate on Saturday and/or Sunday.
-- W3TM will be by himself late at night or overnight.
-- We have several operators interested in digital (FT8, fldigi, and JS8Call) modes.
+- We have about half a dozen attendees who want to operate on Saturday and a larger group on Sunday.
+- W3TM will have some company (W3EDP and KM4LAO) late at night or overnight.
+- We have a number of operators interested in digital (FT8, fldigi, and JS8Call) modes.
 - We should have 5-10 helpers to assist with strike/tear-down.
