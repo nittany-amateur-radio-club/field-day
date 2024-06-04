@@ -1,10 +1,5 @@
 project:
   type: website
-  render:
-    - index.qmd
-    - about.qmd
-    - calendar.qmd
-    - planning.qmd
   output-dir: "../docs"
 website:
   title: "NARC Field Day"
@@ -13,7 +8,9 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - stations.qmd
       - calendar.qmd
+      - people.qmd
       - planning.qmd
       
 format:

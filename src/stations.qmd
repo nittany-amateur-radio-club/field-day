@@ -1,0 +1,59 @@
+---
+title: "Stations"
+---
+
+## About
+
+This page describes some details about our Field Day stations.
+
+## Class
+
+Based on the results of the [survey](planning.qmd#visualizing), we plan to operate two (2) transmitters.
+Because we are operating from a fixed location on mains power, we are class D.
+
+We will operate at 100 W.
+
+## NARC Mountaintop
+
+Both NARC1 and NARC2 will be ready for use on Field Day.
+
+### NARC1
+
+- ICOM IC-7610 transceiver
+- HP All-in-one PC with 2nd Display
+- KPA-1500 amplifier/ATU
+- ICOM SM-50 mic
+
+### NARC2
+
+- FlexRadio Flex 6400M
+- HP All-in-one PC with 2nd Display
+- KPA-1500 amplifier/ATU
+
+## Field/Portable Station
+
+[Field Station Committee](people.qmd#field-comm)
+
+::: {.callout-warning}
+## Staff Field Station/Info Table 
+
+Saturday 2:00 pm - 5:00 pm
+
+Sunday 11:00 am - 2:00 pm 
+:::
+
+- Tent
+- Table
+- Chairs
+- **S**upport
+- **P**ower
+  - Solar panels (W3TM) and charge controller
+  - 40 Ah $LiFePO_3$ battery (W3TM)
+- **A**ntenna
+- **R**adio/rig
+- **C**onnector(s)
+  - Coax (radio/antenna)
+- **-**
+- **E**xtra(s)
+  - Logging PC, keyboard, mouse
+- Ham radio info

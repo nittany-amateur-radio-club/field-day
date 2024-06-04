@@ -1,50 +1,85 @@
 [
   {
+    "objectID": "calendar.html",
+    "href": "calendar.html",
+    "title": "Calendar",
+    "section": "",
+    "text": "This page describes some of the specific actions that need to be taken leading up to and on Field Day."
+  },
+  {
+    "objectID": "calendar.html#about",
+    "href": "calendar.html#about",
+    "title": "Calendar",
+    "section": "",
+    "text": "This page describes some of the specific actions that need to be taken leading up to and on Field Day."
+  },
+  {
+    "objectID": "calendar.html#spring-2024",
+    "href": "calendar.html#spring-2024",
+    "title": "Calendar",
+    "section": "Spring 2024",
+    "text": "Spring 2024\n\nAdd info to ARRL Field Day website. W3TM"
+  },
+  {
+    "objectID": "calendar.html#may-2024",
+    "href": "calendar.html#may-2024",
+    "title": "Calendar",
+    "section": "May 2024",
+    "text": "May 2024\n\nCreate Field Day budget.\n\nFood & drink budget.\nPorta-Potty estimate.\nEquipment estimate.\nPR and supply estimate.\n\nSecure NARC BoD budget approval. W3TM & K3YV."
+  },
+  {
+    "objectID": "calendar.html#june-2024",
+    "href": "calendar.html#june-2024",
+    "title": "Calendar",
+    "section": "June 2024",
+    "text": "June 2024\n\n4 weeks out\n\nAdd event to web-based activity calendars. H3LP.\n\nWSPU activity calendar\nState College dot com calendar.\n\nSend invitations to other groups\n\nPack 67 Cub Scouts?\nCentral PA Observers. W3TM.\n\nDraft and send invitations to elected officials. W3TM.\nDraft and send invitation to served agency official W3TM.\nSchedule Porta-Potty Cleaning. W3TM; K3CWP\nDistribute survey. W3TM\n\n\n\n3 weeks out\n\nDraft press release and send to media outlets. H3LP.\nEvaluate survey results; assign volunteers to teams. W3TM\nSend emails to specific volunteer teams. W3TM:\n\nFood. W3TM; K3GEM\nField Site. W3TM; W3EDP; K9SDW; W3SWL\nEd Activity. K3YV; K9SDW\nPR. W3TM; KM3AJ.\n\n\n\n\n2 weeks out\n\nTest 40m dipoles\n\nIf can’t tune, install 40m/20m dipole\n\nTest 80m dipoles\n\nIf can’t tune, install 80-10 EFHW in temporary location.\n\nTest networked logging with\n\nPhone\nCW\nWSJT-X\nVarAC\nJS8Call\n\nTest wifi from Jo Hays Vista\n\nIf it connects, test networked logging\n\nPhone\nCW\nWSJT-X\nVarAC\nJS8Call\n\nIf no wifi, set-up and test N3FJP logging locally\n\nPhone\nCW\nWSJT-X\nVarAC\nJS8Call\n\n\nBuy/set-aside supplies\n\nEducational activity (people.qmd#ed-comm)\n\nT connectors.\nPL-259 and SO-239s\nAntenna analyzer.\n\n\n\n\n\nWeek of event\n\nConfirm Porta-Potty cleaning. H3LP.\nOrder food:\n\nLunch Saturday from Subway\nDinner Saturday from Papa Johns\nLunch Sunday from ??\n\n\n\n\nField Day Weekend (June 21 - 23)\n\nFriday, June 21\n\n\nSaturday, June 22\n\nSet up food & drink. Set-up Committee; Food Committee.\n\nPick up Subway. (people.qmd#food.com)\n\nSet up info table. Info Table Committee\n\n\n\n\n\n\n\nWarning\n\n\n\n2:00 PM EDT (1800 UTC) Field Day begins\nStaff Field Station/Info Table 2:00 pm - 5:00 pm. Field Station Committee\n\n\n\nHost educational activity. Time TBD. Ed Committee\nPick-up pizza. Time TBD. (people.qmd#food-comm)\n\n\n\nSunday, June 23\n\n\n\n\n\n\nWarning\n\n\n\nStaff Field Station/Info Table 11:00 am - 2:00 pm. Field Station Committee\n2:00 PM EDT (1800 UTC) Field Day ends\n\n\n\n\n\nWeek after\n\nClean logs and submit to ARRL."
+  },
+  {
     "objectID": "planning.html",
     "href": "planning.html",
-    "title": "Planning",
+    "title": "Survey",
     "section": "",
     "text": "This page documents some of the steps in our planning process.\nW3TM drafted and distributed on 2024-05-28 a member survey using a Google Form. Here are some of the preliminary results.\n\n\n\n\n\n\nNote\n\n\n\nTo reveal the code that generates the following outputs, select the ‘Show All Code’ item from the ‘&lt;/&gt; Code’ dropdown menu at upper right."
   },
   {
     "objectID": "planning.html#about",
     "href": "planning.html#about",
-    "title": "Planning",
+    "title": "Survey",
     "section": "",
     "text": "This page documents some of the steps in our planning process.\nW3TM drafted and distributed on 2024-05-28 a member survey using a Google Form. Here are some of the preliminary results.\n\n\n\n\n\n\nNote\n\n\n\nTo reveal the code that generates the following outputs, select the ‘Show All Code’ item from the ‘&lt;/&gt; Code’ dropdown menu at upper right."
   },
   {
     "objectID": "planning.html#set-up",
     "href": "planning.html#set-up",
-    "title": "Planning",
+    "title": "Survey",
     "section": "Set-up",
     "text": "Set-up\nWe source some packages to make calls to their functions more convenient.\n\n\nCode\nlibrary(ggplot2)\nknitr::opts_chunk$set(tidy = \"styler\")"
   },
   {
     "objectID": "planning.html#gathering",
     "href": "planning.html#gathering",
-    "title": "Planning",
+    "title": "Survey",
     "section": "Gathering",
     "text": "Gathering\nThe Google Form application saves the survey responses as a Google Sheet:\nhttps://docs.google.com/spreadsheets/d/1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg/edit?resourcekey#gid=283208367\n\n\nCode\nif (!dir.exists(\"csv\")) {\n  message(\"Creating missing `csv/`.\")\n  dir.create(\"csv\")\n}\n\nupdate_figs &lt;- TRUE\n\nfull_survey_data_fn &lt;- file.path(\"csv\", params$survey_data_fn)\n\nif (params$update_data) {\n  options(gargle_oauth_email = Sys.getenv(\"GMAIL_SURVEY\"))\n  googledrive::drive_auth()\n\n  new_fn &lt;- file.path(\"csv\", paste0(\"_\", params$survey_data_fn))\n  googledrive::drive_download(\n    params$survey_sheet_fn,\n    path = full_survey_data_fn,\n    type = \"csv\",\n    overwrite = TRUE\n  )\n  message(\"Data updated.\")\n} else {\n  if (!file.exists(full_survey_data_fn)) {\n    warning(\"File not found: '\", full_survey_data_fn, \"'.\")\n    update_figs &lt;- FALSE\n  } else {\n    message(\"Using previously stored data.\")\n  }\n}\n\n\nFile downloaded:\n\n\n• 'Field Day 2024 volunteer sign-up (Responses)'\n  &lt;id: 1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg&gt;\n\n\nSaved locally as:\n\n\n• 'csv/narc-fd-2024-survey.csv'\n\n\nData updated.\n\n\nNow, we load the downloaded CSV\n\n\nCode\nif (update_figs) {\n  survey_resps &lt;-\n    readr::read_csv(full_survey_data_fn, show_col_types = FALSE)\n}\n\nnames(survey_resps)\n\n\n [1] \"Timestamp\"                                                                                                                                                                                                                          \n [2] \"Your Name\"                                                                                                                                                                                                                          \n [3] \"Callsign\"                                                                                                                                                                                                                           \n [4] \"Phone\"                                                                                                                                                                                                                              \n [5] \"Email\"                                                                                                                                                                                                                              \n [6] \"Do you plan to attend NARC's Field Day 2024?\"                                                                                                                                                                                       \n [7] \"Do you plan to operate on Field Day?\"                                                                                                                                                                                               \n [8] \"Are you a night owl and want to operate late into the night or camp out to snag some rare DX?\"                                                                                                                                      \n [9] \"If you plan to operate, which of the following mode(s) would interest you? \\n\\nNote: We will have knowledgeable helpers for all modes we use on Field Day, so you are encouraged to try a new mode and will have help if you do so.\"\n[10] \"I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...\"                                                                                                                    \n[11] \"Comments or suggestions\""
   },
   {
     "objectID": "planning.html#cleaning",
     "href": "planning.html#cleaning",
-    "title": "Planning",
+    "title": "Survey",
     "section": "Cleaning",
     "text": "Cleaning\nThen we clean the data by renaming the variables.\n\n\nCode\nsurvey_resps &lt;- survey_resps |&gt;\n  dplyr::rename(\n    timestamp = \"Timestamp\",\n    name = \"Your Name\",\n    callsign = \"Callsign\",\n    phone = \"Phone\",\n    email = \"Email\",\n    attend = \"Do you plan to attend NARC's Field Day 2024?\",\n    operate = \"Do you plan to operate on Field Day?\",\n    overnight = \"Are you a night owl and want to operate late into the night or camp out to snag some rare DX?\",\n    help_with = \"I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...\",\n    comments = \"Comments or suggestions\"\n  )\n\nnames(survey_resps)[9] &lt;- \"modes\"\n\n\nThen we parse variables with multiple values, and conforming some values so that they are easier to visualize.\n\n\nCode\nsurvey_resps &lt;- survey_resps |&gt;\n  # Change timestamp to proper date and time\n  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = \"America/New_York\")) |&gt;\n  # Change values for 'attend' to make them more easily readable\n  dplyr::mutate(\n    attend = dplyr::recode(\n      attend,\n      \"Yes, on Saturday June 22\" = \"sat\",\n      \"Yes, on Sunday June 23\" = \"sun\",\n      \"Yes, on Saturday June 22, Yes, on Sunday June 23\" = \"sat_sun\",\n      \"Not this year\" = \"no\"\n    )\n  ) |&gt;\n  # Change values for 'operate' to make them lower case\n  dplyr::mutate(operate = tolower(operate)) |&gt;\n  # Change values for 'overnight'\n  dplyr::mutate(overnight = dplyr::recode(\n    overnight,\n    \"Yes, absolutely\" = TRUE,\n    \"Heck no\" = FALSE\n  )) |&gt;\n  # Create new variable for each mode\n  dplyr::mutate(\n    phone = stringr::str_detect(modes, \"Phone\"),\n    cw = stringr::str_detect(modes, \"CW\"),\n    ft8 = stringr::str_detect(modes, \"FT8/FT4\"),\n    varac = stringr::str_detect(modes, \"VarAC\"),\n    fldigi = stringr::str_detect(modes, \"fldigi\"),\n    js8call = stringr::str_detect(modes, \"JS8Call\"),\n    sstv = stringr::str_detect(modes, \"SSTV\")\n  ) |&gt;\n  # Create new variables for each volunteer role\n  dplyr::mutate(\n    pr = stringr::str_detect(help_with, \"PR\"),\n    info_table = stringr::str_detect(help_with, \"table\"),\n    satellite = stringr::str_detect(help_with, \"satellite\"),\n    mode_expert = stringr::str_detect(help_with, \"expert\"),\n    ed_activity = stringr::str_detect(help_with, \"Educational\"),\n    invite_elected = stringr::str_detect(help_with, \"elected\"),\n    youth = stringr::str_detect(help_with, \"youth\"),\n    food = stringr::str_detect(help_with, \"food\"),\n    clean_up = stringr::str_detect(help_with, \"clean-up\"),\n    test_equipment = stringr::str_detect(help_with, \"equipment\")\n  )\n\nsurvey_resps$overnight[is.na(survey_resps$overnight)] &lt;- FALSE\nsurvey_resps$pr[is.na(survey_resps$pr)] &lt;- FALSE\nsurvey_resps$info_table[is.na(survey_resps$info_table)] &lt;- FALSE\nsurvey_resps$satellite[is.na(survey_resps$satellite)] &lt;- FALSE\nsurvey_resps$mode_expert[is.na(survey_resps$mode_expert)] &lt;- FALSE\nsurvey_resps$ed_activity[is.na(survey_resps$ed_activity)] &lt;- FALSE\nsurvey_resps$invite_elected[is.na(survey_resps$invite_elected)] &lt;- FALSE\nsurvey_resps$youth[is.na(survey_resps$youth)] &lt;- FALSE\nsurvey_resps$food[is.na(survey_resps$food)] &lt;- FALSE\nsurvey_resps$clean_up[is.na(survey_resps$clean_up)] &lt;- FALSE\nsurvey_resps$test_equipment[is.na(survey_resps$test_equipment)] &lt;- FALSE\n\n\nIt will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.\n\n\nCode\nsurvey_resps &lt;- survey_resps |&gt;\n  dplyr::mutate(\n    attend_sat = stringr::str_detect(attend, \"sat\"),\n    attend_sun = stringr::str_detect(attend, \"sun\")\n  ) |&gt;\n  dplyr::mutate(attend_any = (attend_sat | attend_sun))\n\n\nWe make all the callsigns uppercase for consistency.\n\n\nCode\nsurvey_resps &lt;- survey_resps |&gt;\n  dplyr::mutate(callsign = toupper(callsign))\n\n\nFinally, we export the cleaned file.\n\n\nCode\nreadr::write_csv(survey_resps, file.path(\"csv\", paste0(\"clean_\", params$survey_data_fn)))"
   },
   {
     "objectID": "planning.html#visualizing",
     "href": "planning.html#visualizing",
-    "title": "Planning",
+    "title": "Survey",
     "section": "Visualizing",
-    "text": "Visualizing\nAs of 2024-06-03 13:30:04.676442, we’ve had 17 responses.\n\nAttending and operating\nHere are the number of respondents who plan to attend and their plans to operate.\n\n\nCode\nxtabs(formula = ~ attend + operate, data = survey_resps)\n\n\n         operate\nattend    maybe no yes\n  no          0  5   1\n  sat         1  0   0\n  sat_sun     1  0   4\n  sun         0  0   5\n\n\n\n\nCode\nsurvey_resps |&gt;\n  dplyr::select(callsign, attend_sat, overnight, attend_sun) |&gt;\n  kableExtra::kbl(format = \"html\") |&gt;\n  kableExtra::kable_classic() |&gt;\n  kableExtra::column_spec(2,\n    color = ifelse(survey_resps$attend_sat == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(4,\n    color = ifelse(survey_resps$attend_sun == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(3,\n    color = ifelse(survey_resps$overnight == TRUE, \"green\", \"red\")\n  )\n\n\n\n\n\ncallsign\nattend_sat\novernight\nattend_sun\n\n\n\n\nW3TM\nTRUE\nTRUE\nTRUE\n\n\nK3YV\nTRUE\nFALSE\nTRUE\n\n\nK3CWP\nFALSE\nFALSE\nFALSE\n\n\nK9SDW\nTRUE\nFALSE\nTRUE\n\n\nW3SWL\nTRUE\nFALSE\nTRUE\n\n\nKC2VCK\nTRUE\nFALSE\nFALSE\n\n\nK3IWI\nFALSE\nFALSE\nFALSE\n\n\nK3OOL\nFALSE\nFALSE\nFALSE\n\n\nK0LO\nFALSE\nFALSE\nFALSE\n\n\nWX2DX\nFALSE\nFALSE\nFALSE\n\n\nKM3AJ\nFALSE\nFALSE\nTRUE\n\n\nK3SKS\nFALSE\nFALSE\nTRUE\n\n\nW3EDP\nFALSE\nTRUE\nTRUE\n\n\nKM4LAO\nFALSE\nTRUE\nTRUE\n\n\nK3GEM\nTRUE\nFALSE\nTRUE\n\n\nN3YUW\nFALSE\nFALSE\nFALSE\n\n\nKC3JAS\nFALSE\nFALSE\nTRUE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModes\nHere are respondents’ interests by mode:\n\n\nCode\nattendees &lt;- survey_resps |&gt;\n  dplyr::filter(attend_any == TRUE)\n\nattendees |&gt;\n  dplyr::select(callsign, phone, cw, ft8, varac, fldigi, js8call, sstv) |&gt;\n  kableExtra::kbl(format = \"html\") |&gt;\n  kableExtra::kable_classic() |&gt;\n  kableExtra::column_spec(2,\n    color = ifelse(attendees$phone == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(3,\n    color = ifelse(attendees$cw == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(4,\n    color = ifelse(attendees$ft8 == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(5,\n    color = ifelse(attendees$varac == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(6,\n    color = ifelse(attendees$fldigi == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(7,\n    color = ifelse(attendees$js8call == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(8,\n    color = ifelse(attendees$sstv == TRUE, \"green\", \"red\")\n  )\n\n\n\n\n\ncallsign\nphone\ncw\nft8\nvarac\nfldigi\njs8call\nsstv\n\n\n\n\nW3TM\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\n\n\nK3YV\nTRUE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK9SDW\nTRUE\nFALSE\nTRUE\nFALSE\nTRUE\nTRUE\nTRUE\n\n\nW3SWL\nFALSE\nFALSE\nTRUE\nFALSE\nTRUE\nFALSE\nFALSE\n\n\nKC2VCK\nFALSE\nFALSE\nTRUE\nFALSE\nTRUE\nTRUE\nFALSE\n\n\nKM3AJ\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\n\n\nK3SKS\nTRUE\nFALSE\nFALSE\nFALSE\nTRUE\nTRUE\nFALSE\n\n\nW3EDP\nTRUE\nFALSE\nTRUE\nFALSE\nTRUE\nTRUE\nTRUE\n\n\nKM4LAO\nTRUE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3GEM\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKC3JAS\nTRUE\nFALSE\nFALSE\nFALSE\nTRUE\nTRUE\nFALSE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVolunteering\nAnd here are respondents’ interests in volunteering:\n\n\nCode\nvolunteers &lt;- survey_resps |&gt;\n  dplyr::select(\n    callsign, pr, info_table, satellite, mode_expert,\n    ed_activity, invite_elected, youth, food, clean_up, test_equipment\n  )\n\nvolunteers |&gt;\n  kableExtra::kbl(format = \"html\") |&gt;\n  kableExtra::kable_classic() |&gt;\n  kableExtra::column_spec(2,\n    color = ifelse(volunteers$pr == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(3,\n    color = ifelse(volunteers$info_table == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(4,\n    color = ifelse(volunteers$satellite == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(5,\n    color = ifelse(volunteers$mode_expert == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(6,\n    color = ifelse(volunteers$ed_activity == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(7,\n    color = ifelse(volunteers$invite_elected == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(8,\n    color = ifelse(volunteers$youth == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(9,\n    color = ifelse(volunteers$food == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(10,\n    color = ifelse(volunteers$clean_up == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(11,\n    color = ifelse(volunteers$test_equipment == TRUE, \"green\", \"red\")\n  )\n\n\n\n\n\ncallsign\npr\ninfo_table\nsatellite\nmode_expert\ned_activity\ninvite_elected\nyouth\nfood\nclean_up\ntest_equipment\n\n\n\n\nW3TM\nTRUE\nTRUE\nFALSE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\n\n\nK3YV\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3CWP\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK9SDW\nFALSE\nTRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nTRUE\nTRUE\nTRUE\n\n\nW3SWL\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nKC2VCK\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3IWI\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3OOL\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK0LO\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nWX2DX\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKM3AJ\nTRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nK3SKS\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nW3EDP\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nKM4LAO\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3GEM\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\n\n\nN3YUW\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKC3JAS\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE"
+    "text": "Visualizing\nAs of 2024-06-04 09:39:21.661027, we’ve had 20 responses.\n\nAttending and operating\nHere are the number of respondents who plan to attend and their plans to operate.\n\n\nCode\nxtabs(formula = ~ attend + operate, data = survey_resps)\n\n\n         operate\nattend    maybe no yes\n  no          1  6   1\n  sat         1  0   0\n  sat_sun     2  0   4\n  sun         0  0   5\n\n\n\n\nCode\nsurvey_resps |&gt;\n  dplyr::select(callsign, attend_sat, overnight, attend_sun) |&gt;\n  kableExtra::kbl(format = \"html\") |&gt;\n  kableExtra::kable_classic() |&gt;\n  kableExtra::column_spec(2,\n    color = ifelse(survey_resps$attend_sat == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(4,\n    color = ifelse(survey_resps$attend_sun == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(3,\n    color = ifelse(survey_resps$overnight == TRUE, \"green\", \"red\")\n  )\n\n\n\n\n\ncallsign\nattend_sat\novernight\nattend_sun\n\n\n\n\nW3TM\nTRUE\nTRUE\nTRUE\n\n\nK3YV\nTRUE\nFALSE\nTRUE\n\n\nK3CWP\nFALSE\nFALSE\nFALSE\n\n\nK9SDW\nTRUE\nFALSE\nTRUE\n\n\nW3SWL\nTRUE\nFALSE\nTRUE\n\n\nKC2VCK\nTRUE\nFALSE\nFALSE\n\n\nK3IWI\nFALSE\nFALSE\nFALSE\n\n\nK3OOL\nFALSE\nFALSE\nFALSE\n\n\nK0LO\nFALSE\nFALSE\nFALSE\n\n\nWX2DX\nFALSE\nFALSE\nFALSE\n\n\nKM3AJ\nFALSE\nFALSE\nTRUE\n\n\nK3SKS\nFALSE\nFALSE\nTRUE\n\n\nW3EDP\nFALSE\nTRUE\nTRUE\n\n\nKM4LAO\nFALSE\nTRUE\nTRUE\n\n\nK3GEM\nTRUE\nFALSE\nTRUE\n\n\nN3YUW\nFALSE\nFALSE\nFALSE\n\n\nK3FOF\nFALSE\nFALSE\nFALSE\n\n\nKC3BHI\nTRUE\nFALSE\nTRUE\n\n\nW3CEE\nFALSE\nFALSE\nFALSE\n\n\nKC3JAS\nFALSE\nFALSE\nTRUE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModes\nHere are respondents’ interests by mode:\n\n\nCode\nattendees &lt;- survey_resps |&gt;\n  dplyr::filter(attend_any == TRUE)\n\nattendees |&gt;\n  dplyr::select(callsign, phone, cw, ft8, varac, fldigi, js8call, sstv) |&gt;\n  kableExtra::kbl(format = \"html\") |&gt;\n  kableExtra::kable_classic() |&gt;\n  kableExtra::column_spec(2,\n    color = ifelse(attendees$phone == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(3,\n    color = ifelse(attendees$cw == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(4,\n    color = ifelse(attendees$ft8 == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(5,\n    color = ifelse(attendees$varac == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(6,\n    color = ifelse(attendees$fldigi == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(7,\n    color = ifelse(attendees$js8call == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(8,\n    color = ifelse(attendees$sstv == TRUE, \"green\", \"red\")\n  )\n\n\n\n\n\ncallsign\nphone\ncw\nft8\nvarac\nfldigi\njs8call\nsstv\n\n\n\n\nW3TM\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\n\n\nK3YV\nTRUE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK9SDW\nTRUE\nFALSE\nTRUE\nFALSE\nTRUE\nTRUE\nTRUE\n\n\nW3SWL\nFALSE\nFALSE\nTRUE\nFALSE\nTRUE\nFALSE\nFALSE\n\n\nKC2VCK\nFALSE\nFALSE\nTRUE\nFALSE\nTRUE\nTRUE\nFALSE\n\n\nKM3AJ\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\n\n\nK3SKS\nTRUE\nFALSE\nFALSE\nFALSE\nTRUE\nTRUE\nFALSE\n\n\nW3EDP\nTRUE\nFALSE\nTRUE\nFALSE\nTRUE\nTRUE\nTRUE\n\n\nKM4LAO\nTRUE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3GEM\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKC3BHI\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKC3JAS\nTRUE\nFALSE\nFALSE\nFALSE\nTRUE\nTRUE\nFALSE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVolunteering\nAnd here are respondents’ interests in volunteering:\n\n\nCode\nvolunteers &lt;- survey_resps |&gt;\n  dplyr::select(\n    callsign, pr, info_table, satellite, mode_expert,\n    ed_activity, invite_elected, youth, food, clean_up, test_equipment\n  )\n\nvolunteers |&gt;\n  kableExtra::kbl(format = \"html\") |&gt;\n  kableExtra::kable_classic() |&gt;\n  kableExtra::column_spec(2,\n    color = ifelse(volunteers$pr == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(3,\n    color = ifelse(volunteers$info_table == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(4,\n    color = ifelse(volunteers$satellite == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(5,\n    color = ifelse(volunteers$mode_expert == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(6,\n    color = ifelse(volunteers$ed_activity == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(7,\n    color = ifelse(volunteers$invite_elected == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(8,\n    color = ifelse(volunteers$youth == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(9,\n    color = ifelse(volunteers$food == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(10,\n    color = ifelse(volunteers$clean_up == TRUE, \"green\", \"red\")\n  ) |&gt;\n  kableExtra::column_spec(11,\n    color = ifelse(volunteers$test_equipment == TRUE, \"green\", \"red\")\n  )\n\n\n\n\n\ncallsign\npr\ninfo_table\nsatellite\nmode_expert\ned_activity\ninvite_elected\nyouth\nfood\nclean_up\ntest_equipment\n\n\n\n\nW3TM\nTRUE\nTRUE\nFALSE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\nTRUE\n\n\nK3YV\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3CWP\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK9SDW\nFALSE\nTRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nTRUE\nTRUE\nTRUE\n\n\nW3SWL\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nKC2VCK\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3IWI\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3OOL\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK0LO\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nWX2DX\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKM3AJ\nTRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nK3SKS\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nW3EDP\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\n\n\nKM4LAO\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3GEM\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\n\n\nN3YUW\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nK3FOF\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nTRUE\nTRUE\n\n\nKC3BHI\nTRUE\nTRUE\nFALSE\nFALSE\nTRUE\nFALSE\nFALSE\nFALSE\nTRUE\nTRUE\n\n\nW3CEE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\n\n\nKC3JAS\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE\nFALSE"
   },
   {
     "objectID": "planning.html#observations",
     "href": "planning.html#observations",
-    "title": "Planning",
+    "title": "Survey",
     "section": "Observations",
     "text": "Observations\n\nWe have about half a dozen attendees who want to operate on Saturday and a larger group on Sunday.\nW3TM will have some company (W3EDP and KM4LAO) late at night or overnight.\nWe have a number of operators interested in digital (FT8, fldigi, and JS8Call) modes.\nWe should have 5-10 helpers to assist with strike/tear-down."
   },
@@ -56,6 +91,41 @@
     "text": "Field Day is an event organized by the American Radio Relay League (ARRL), the membership organization for amateur radio operators (hams) in the U.S.\nField Day is an open house to show-off amateur radio to the public, an exercise in portable or field radio operations, and a contest to see which stations can earn the most points.\nNARC will operate under the club callsign W3YA with two high frequency (HF) transmitters capable of long-distance communication and a bonus VHF+ station.\nWe will operate from our clubhouse location on top of Pine Grove Mountain off of State Route 26, making this a class 2D (two delta) operation.\n\n\n\nNARC Clubhouse"
   },
   {
+    "objectID": "stations.html",
+    "href": "stations.html",
+    "title": "Stations",
+    "section": "",
+    "text": "This page describes some details about our Field Day stations."
+  },
+  {
+    "objectID": "stations.html#about",
+    "href": "stations.html#about",
+    "title": "Stations",
+    "section": "",
+    "text": "This page describes some details about our Field Day stations."
+  },
+  {
+    "objectID": "stations.html#class",
+    "href": "stations.html#class",
+    "title": "Stations",
+    "section": "Class",
+    "text": "Class\nBased on the results of the survey, we plan to operate two (2) transmitters. Because we are operating from a fixed location on mains power, we are class D.\nWe will operate at 100 W."
+  },
+  {
+    "objectID": "stations.html#narc-mountaintop",
+    "href": "stations.html#narc-mountaintop",
+    "title": "Stations",
+    "section": "NARC Mountaintop",
+    "text": "NARC Mountaintop\nBoth NARC1 and NARC2 will be ready for use on Field Day.\n\nNARC1\n\nICOM IC-7610 transceiver\nHP All-in-one PC with 2nd Display\nKPA-1500 amplifier/ATU\nICOM SM-50 mic\n\n\n\nNARC2\n\nFlexRadio Flex 6400M\nHP All-in-one PC with 2nd Display\nKPA-1500 amplifier/ATU"
+  },
+  {
+    "objectID": "stations.html#fieldportable-station",
+    "href": "stations.html#fieldportable-station",
+    "title": "Stations",
+    "section": "Field/Portable Station",
+    "text": "Field/Portable Station\nField Station Committee\n\n\n\n\n\n\nStaff Field Station/Info Table\n\n\n\nSaturday 2:00 pm - 5:00 pm\nSunday 11:00 am - 2:00 pm\n\n\n\nTent\nTable\nChairs\nSupport\nPower\n\nSolar panels (W3TM) and charge controller\n40 Ah \\(LiFePO_3\\) battery (W3TM)\n\nAntenna\nRadio/rig\nConnector(s)\n\nCoax (radio/antenna)\n\n-\nExtra(s)\n\nLogging PC, keyboard, mouse\n\nHam radio info"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Field Day 2024",
@@ -63,38 +133,94 @@
     "text": "This is a website that describes planning for the ARRL Field Day operation conducted by the Nittany Amateur Radio Club (NARC). Rick Gilmore W3TM created and maintains the site.\nPlease see separate pages that describe what Field Day is about, the people who are involved, what they do when to make Field Day happen, and some of the material items needed to pull-off an event like this.\n\n\n\nAntennas at sunset.\n\n\n\n\n\n\n\n\nNote\n\n\n\nField Day 2024 is on Saturday, June 22, 2024 to Sunday, June 23, 2023.\nThe event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday."
   },
   {
-    "objectID": "calendar.html",
-    "href": "calendar.html",
-    "title": "Calendar",
+    "objectID": "people.html",
+    "href": "people.html",
+    "title": "People",
     "section": "",
-    "text": "Here is a link to the Google doc:\nhttps://docs.google.com/document/d/1AT3f4egvd98MGMu3RWlehmllep89HMRYQFrhlksZyms/edit?usp=sharing"
+    "text": "This page describes the people who are involved with Field Day."
   },
   {
-    "objectID": "calendar.html#fall-2022",
-    "href": "calendar.html#fall-2022",
-    "title": "Calendar",
-    "section": "1 Fall 2022",
-    "text": "1 Fall 2022\n\nReserve location. K3YV"
+    "objectID": "people.html#organizing-committee",
+    "href": "people.html#organizing-committee",
+    "title": "People",
+    "section": "Organizing Committee",
+    "text": "Organizing Committee\n\nWoody Brem K3YV\nRick Gilmore W3TM\nMike Coslo N3LI\nDan Muthler K9SDW"
   },
   {
-    "objectID": "calendar.html#spring-2023",
-    "href": "calendar.html#spring-2023",
-    "title": "Calendar",
-    "section": "2 Spring 2023",
-    "text": "2 Spring 2023\n\nAdd info to ARRL Field Day website. W3TM"
+    "objectID": "people.html#special-roles",
+    "href": "people.html#special-roles",
+    "title": "People",
+    "section": "Special Roles",
+    "text": "Special Roles\n\nSafety Officer\n\nJohn Guss N3GU has served in this role in the past.\n\n\n\nServed Agency Official\n\nBrett Saylor, Red Cross"
   },
   {
-    "objectID": "calendar.html#may-2023",
-    "href": "calendar.html#may-2023",
-    "title": "Calendar",
-    "section": "3 May 2023",
-    "text": "3 May 2023\n\nCreate Field Day budget.\n\nFood & drink budget.\nPorta-Potty estimate.\nEquipment estimate.\nPR and supply estimate.\nTruck rental. N3LI\n\nSecure NARC BoD budget approval. W3TM & K3YV."
+    "objectID": "people.html#field-comm",
+    "href": "people.html#field-comm",
+    "title": "People",
+    "section": "Field/Portable/Info table",
+    "text": "Field/Portable/Info table\n\nDan Muthler K9SDW\nEric Prescott W3EDP\nBrad Flubacher KC3BHI\nRick Gilmore W3TM"
   },
   {
-    "objectID": "calendar.html#june-2023",
-    "href": "calendar.html#june-2023",
-    "title": "Calendar",
-    "section": "4 June 2023",
-    "text": "4 June 2023\n\n4.1 4 weeks out (May 28 - June 3)\n\nAdd event to web-based activity calendars. H3LP.\nDraft and send invitations to elected officials. H3LP.\nReserve Porta-Potty. H3LP.\n\n\n\n4.2 3 weeks out (June 4 - June 10)\n\nDraft press release and send to media outlets. H3LP.\n\n\n\n4.3 2 weeks out (June 11 - June 17)\n\n\n4.4 Week of event (June 18 - June 22)\n\nConfirm Porta-Potty delivery details. H3LP.\n\n\n\n4.5 Field Day (June 23 - 25)\n\n4.5.1 Friday, June 23\n\nPick-up U-Haul. N3LI.\nPack equipment at mountaintop station and load into truck.\nSet up antennas. H3LP.\n\n80/10m MyAntennas EFWH oriented roughly East/West.\n80/10m MyAntennas EFWH oriented roughly East/West.\n\nTest antennas.\n\n\n\n4.5.2 Saturday, June 24\n\nSet up radio gear. H3LP.\nSet up power. H3LP.\nSet up computers and network. N3LI.\nSet up food & drink. H3LP.\nSet up info table. H3LP.\n\n\n\n\n\n\n\nWarning\n\n\n\n2:00 PM EDT (1800 UTC) Field Day begins\n\n\n\n\n4.5.3 Sunday, June 25\n\n\n\n\n\n\nWarning\n\n\n\n2:00 PM EDT (1800 UTC) Field Day ends\n\n\n\n\n\n4.6 Week after\n\nClean logs and submit to ARRL. H3LP."
+    "objectID": "people.html#pub-comm",
+    "href": "people.html#pub-comm",
+    "title": "People",
+    "section": "Publicity",
+    "text": "Publicity\n\nRick Gilmore W3TM\nGene Moore KM3AJ\nBrad Flubacher KC3BHI"
+  },
+  {
+    "objectID": "people.html#food-comm",
+    "href": "people.html#food-comm",
+    "title": "People",
+    "section": "Food & Drink",
+    "text": "Food & Drink\n\nGreg Miller K3GEM\nDan Muthler K9SDW\nRick Gilmore W3TM"
+  },
+  {
+    "objectID": "people.html#ed-comm",
+    "href": "people.html#ed-comm",
+    "title": "People",
+    "section": "Ed Activity",
+    "text": "Ed Activity\n\nWoody Brem K3YV\nDan Muthler K9SDW\nBrad Flubacher KC3BHI"
+  },
+  {
+    "objectID": "people.html#set-up-comm",
+    "href": "people.html#set-up-comm",
+    "title": "People",
+    "section": "Set-up/Clean-up/Equipment",
+    "text": "Set-up/Clean-up/Equipment\n\nMike Coslo N3LI\nDan Muthler K9SDW\nBrett Saylor W3SWL\nGene Moore KM3AJ\nBrad Flubacher KC3BHI\nRick Gilmore W3TM\nMark Wharton K0LO"
+  },
+  {
+    "objectID": "things.html",
+    "href": "things.html",
+    "title": "Things",
+    "section": "",
+    "text": "This document provides a list of the material items we need for Field Day."
+  },
+  {
+    "objectID": "things.html#gear",
+    "href": "things.html#gear",
+    "title": "Things",
+    "section": "Gear",
+    "text": "Gear\n\nRadios\n\nICOM IC-7610. NARC1.\nFlexRadio Flex 6400M. NARC.\nRF power meters. NARC or BUY2.\n2x Morse key/paddles. NARC.\n\n\n\nComputers\n\n3x HP all-in-ones. NARC.\n3x USB cables. NARC.\n3x wireless keyboards & mice. NARC.\n3x mousepads. NARC or BUY.\n\n\n\nAntennas\n\n1x MyAntennas 80/10m EFHW. NARC.\n1x MyAntennas 80/10m EFHW. BORROW3. K3YV\n2x military mast to reduce mid-antenna sag. BORROW. K3YV & W3TM.\n\n\n\nPower\nPresuming operation from generator and mains at pavilion.\n\n2x Astron 12 V power supplies.\n\nBring power for bonus VHF+ station? W3SWL?.\n\n3x power strips. NARC or BUY.\nExtension cords. NARC or BUY.\nGenerator. BORROW. W3TM to ask Dan K9SDW.\n\nFuel.\n\n\n\n\nFurniture\n\n8x folding tables. NARC.\n6-8x rolling chairs. NARC.\n2x pop-up tents. BORROW. W3EDP?\n3x table-top shelves. NARC.\n\n\n\nCables\n\n50-75’ of RG-213 coax with PL-259s."
+  },
+  {
+    "objectID": "things.html#supplies",
+    "href": "things.html#supplies",
+    "title": "Things",
+    "section": "Supplies",
+    "text": "Supplies\n\nHygiene\n\nGarbage bags. NARC or BUY.\nPaper towels. NARC or BUY.\nHand sanitizer. NARC or BUY.\nToilet paper. NARC or BUY.\nSpray cleaner. NARC or BUY.\n\n\n\nSafety/comfort\n\nBug spray. NARC or BUY\nFirst aid kit. NARC or BUY.\n\n\n\nWriting\n\nLegal pads. NARC or BUY.\nPens. NARC or BUY."
+  },
+  {
+    "objectID": "things.html#nourishment",
+    "href": "things.html#nourishment",
+    "title": "Things",
+    "section": "Nourishment",
+    "text": "Nourishment\n\nSupplies\n\nPlates. BUY.\nNapkins. BUY.\nUtensils. BUY.\nCups (hot & cold). BUY.\nCooler. BORROW. ????.\n\n\n\nDrinks\n\nWater. BUY.\nSoft drinks. BUY.\nCoffee. BUY.\n\nCoffee maker. BORROW. ????.\n\n\n\n\nFood\n\nSaturday lunch\n\nSandwich tray?\n\n\n\nSaturday dinner\n\nPizza?\n\n\n\nSunday breakfast\n\nBagels, fruit, yogurt?\n\n\n\nSunday lunch"
+  },
+  {
+    "objectID": "things.html#footnotes",
+    "href": "things.html#footnotes",
+    "title": "Things",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nRefers to items available at the NARC clubhouse that we will pack and bring to Field Day.↩︎\nItems we are likely to have to purchase.↩︎\nItems we should be able to borrow from a club member.↩︎"
   }
 ]

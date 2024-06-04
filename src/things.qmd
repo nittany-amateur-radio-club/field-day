@@ -2,11 +2,7 @@
 title: "Things"
 ---
 
-This document provides a list of the material items we need to bring to Field Day.
-
-Here is a link to the Google doc that is being phased out as we develop this site:
-
-<https://docs.google.com/document/d/1AT3f4egvd98MGMu3RWlehmllep89HMRYQFrhlksZyms/edit?usp=sharing>
+This document provides a list of the material items we need for Field Day.
 
 ## Gear
 
