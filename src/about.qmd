@@ -11,4 +11,13 @@ NARC will operate under the club callsign [W3YA](https://qrz.com/db/w3ya) with t
 
 We will operate from our clubhouse location on top of Pine Grove Mountain off of State Route 26, making this a class 2D (two delta) operation.
 
+::: {.callout-note}
+## One callsign or two?
+
+We are considering operating the remote/field station as a one alpha (1A) station under a different callsign.
+
+If we do so, the clubhouse station would likely remain two delta (2D).
+
+:::
+
 ![NARC Clubhouse](include/img/narc-clubhouse-map.png){fig-align="center"}
