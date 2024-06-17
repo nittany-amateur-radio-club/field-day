@@ -50,7 +50,7 @@ update_figs = TRUE
 full_survey_data_fn <- file.path("csv", params$survey_data_fn)
 
 if (params$update_data) {
-  options(gargle_oauth_email = Sys.getenv("GMAIL_SURVEY"))
+  options(gargle_oauth_email = Sys.getenv("GMAIL_ROG"))
   googledrive::drive_auth()
   
   new_fn <- file.path("csv", paste0("_", params$survey_data_fn))
@@ -191,7 +191,7 @@ readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_d
 
 ## Visualizing
 
-As of `{r} Sys.time()`, we've had `{r} dim(survey_resps)[1]` responses.
+<!-- As of `{r} Sys.time()`, we've had `{r} dim(survey_resps)[1]` responses. -->
 
 ### Attending and operating
 

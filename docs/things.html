@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -45,13 +45,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -60,13 +54,14 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="include/css/styles.css">
 </head>
@@ -75,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">NARC Field Day</span>
     </a>
@@ -89,33 +84,33 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./stations.html"> 
-<span class="menu-text">Stations</span></a>
+    <a class="nav-link" href="./stations.html" rel="" target="">
+ <span class="menu-text">Stations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./calendar.html"> 
-<span class="menu-text">Calendar</span></a>
+    <a class="nav-link" href="./calendar.html" rel="" target="">
+ <span class="menu-text">Calendar</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./people.html"> 
-<span class="menu-text">People</span></a>
+    <a class="nav-link" href="./people.html" rel="" target="">
+ <span class="menu-text">People</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./planning.html"> 
-<span class="menu-text">Survey</span></a>
+    <a class="nav-link" href="./planning.html" rel="" target="">
+ <span class="menu-text">Survey</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools ms-auto">
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -128,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#gear" id="toc-gear" class="nav-link active" data-scroll-target="#gear">Gear</a>
+  <li><a href="#gear-for-mountaintop" id="toc-gear-for-mountaintop" class="nav-link active" data-scroll-target="#gear-for-mountaintop">Gear for mountaintop</a>
   <ul class="collapse">
   <li><a href="#radios" id="toc-radios" class="nav-link" data-scroll-target="#radios">Radios</a></li>
   <li><a href="#computers" id="toc-computers" class="nav-link" data-scroll-target="#computers">Computers</a></li>
@@ -137,6 +132,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#furniture" id="toc-furniture" class="nav-link" data-scroll-target="#furniture">Furniture</a></li>
   <li><a href="#cables" id="toc-cables" class="nav-link" data-scroll-target="#cables">Cables</a></li>
   </ul></li>
+  <li><a href="#gear-for-fieldportable-station" id="toc-gear-for-fieldportable-station" class="nav-link" data-scroll-target="#gear-for-fieldportable-station">Gear for field/portable station</a></li>
   <li><a href="#supplies" id="toc-supplies" class="nav-link" data-scroll-target="#supplies">Supplies</a>
   <ul class="collapse">
   <li><a href="#hygiene" id="toc-hygiene" class="nav-link" data-scroll-target="#hygiene">Hygiene</a></li>
@@ -147,7 +143,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#supplies-1" id="toc-supplies-1" class="nav-link" data-scroll-target="#supplies-1">Supplies</a></li>
   <li><a href="#drinks" id="toc-drinks" class="nav-link" data-scroll-target="#drinks">Drinks</a></li>
-  <li><a href="#food" id="toc-food" class="nav-link" data-scroll-target="#food">Food</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -170,96 +165,175 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-
 </header>
 
-
 <p>This document provides a list of the material items we need for Field Day.</p>
-<section id="gear" class="level2">
-<h2 class="anchored" data-anchor-id="gear">Gear</h2>
+<section id="gear-for-mountaintop" class="level2">
+<h2 class="anchored" data-anchor-id="gear-for-mountaintop">Gear for mountaintop</h2>
 <section id="radios" class="level3">
 <h3 class="anchored" data-anchor-id="radios">Radios</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">ICOM IC-7610. NARC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</label></li>
-<li><label><input type="checkbox">FlexRadio Flex 6400M. NARC.</label></li>
-<li><label><input type="checkbox">RF power meters. NARC or BUY<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</label></li>
-<li><label><input type="checkbox">2x Morse key/paddles. NARC.</label></li>
+<li><input type="checkbox" checked="">ICOM IC-7610. NARC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+<li><input type="checkbox" checked="">FlexRadio Flex 6400M.</li>
+<li><input type="checkbox">2x Morse key/paddles.
+<ul class="task-list">
+<li><input type="checkbox">NARC has</li>
+<li><input type="checkbox">Borrow one</li>
+</ul></li>
 </ul>
 </section>
 <section id="computers" class="level3">
 <h3 class="anchored" data-anchor-id="computers">Computers</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">3x HP all-in-ones. NARC.</label></li>
-<li><label><input type="checkbox">3x USB cables. NARC.</label></li>
-<li><label><input type="checkbox">3x wireless keyboards &amp; mice. NARC.</label></li>
-<li><label><input type="checkbox">3x mousepads. NARC or BUY.</label></li>
+<li><input type="checkbox" checked="">2x HP all-in-ones.</li>
+<li><input type="checkbox" checked="">2x USB cables.</li>
+<li><input type="checkbox" checked="">2x wireless keyboards &amp; mice. <!-- - [ ] 2x mousepads. --></li>
 </ul>
 </section>
 <section id="antennas" class="level3">
 <h3 class="anchored" data-anchor-id="antennas">Antennas</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">1x MyAntennas 80/10m EFHW. NARC.</label></li>
-<li><label><input type="checkbox">1x MyAntennas 80/10m EFHW. BORROW<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. <a href="./people.html#K3YV">K3YV</a></label></li>
-<li><label><input type="checkbox">2x military mast to reduce mid-antenna sag. BORROW. <a href="./people.html#K3YV">K3YV</a> &amp; <a href="./people.html#W3TM">W3TM</a>.</label></li>
+<li><input type="checkbox" checked="">Mosely 20m-10m Yagi on 60 ft tower</li>
+<li><input type="checkbox" checked="">Mosely 20m-10m Yagi on 80 ft tower</li>
+<li><input type="checkbox">MyAntennas 80/10m EFHW on 80 ft tower.</li>
 </ul>
 </section>
 <section id="power" class="level3">
 <h3 class="anchored" data-anchor-id="power">Power</h3>
-<p><em>Presuming operation from generator and mains at pavilion.</em></p>
-<ul class="task-list">
-<li><label><input type="checkbox">2x Astron 12 V power supplies.</label>
 <ul>
-<li>Bring power for bonus VHF+ station? <a href="./people.html#W3SWL">W3SWL</a>?.</li>
-</ul></li>
-<li><label><input type="checkbox">3x power strips. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Extension cords. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Generator. BORROW. <a href="./people.html#W3TM">W3TM</a> to ask Dan K9SDW.</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Fuel.</label></li>
-</ul></li>
+<li>Using station mains</li>
 </ul>
+<!-- *Presuming operation from generator and mains at pavilion.* -->
+<!-- - [ ] 2x Astron 12 V power supplies. -->
+<!--     - Bring power for bonus VHF+ station? [W3SWL](people.qmd#W3SWL)?. -->
+<!-- - [ ] 3x power strips. NARC or BUY. -->
+<!-- - [ ] Extension cords. NARC or BUY. -->
+<!-- - [ ] Generator. BORROW. [W3TM](people.qmd#W3TM) to ask Dan K9SDW. -->
+<!--     - [ ] Fuel. -->
 </section>
 <section id="furniture" class="level3">
 <h3 class="anchored" data-anchor-id="furniture">Furniture</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">8x folding tables. NARC.</label></li>
-<li><label><input type="checkbox">6-8x rolling chairs. NARC.</label></li>
-<li><label><input type="checkbox">2x pop-up tents. BORROW. W3EDP?</label></li>
-<li><label><input type="checkbox">3x table-top shelves. NARC.</label></li>
+<ul>
+<li>Using station furniture</li>
+<li>2x 6-8 ft folding tables for food, etc.</li>
 </ul>
+
+<!-- - [ ] 8x folding tables. NARC. -->
+<!-- - [ ] 6-8x rolling chairs. NARC. -->
+<!-- - [ ] 2x pop-up tents. BORROW. W3EDP? -->
+
+<!-- - [ ] 3x table-top shelves. NARC.  -->
 </section>
 <section id="cables" class="level3">
 <h3 class="anchored" data-anchor-id="cables">Cables</h3>
 <ul>
-<li><label><input type="checkbox">50-75’ of RG-213 coax with PL-259s.</label></li>
-<li></li>
+<li>Use existing feedlines, except</li>
+<li>New feedline for EFHW</li>
 </ul>
 </section>
+</section>
+<section id="gear-for-fieldportable-station" class="level2">
+<h2 class="anchored" data-anchor-id="gear-for-fieldportable-station">Gear for field/portable station</h2>
+<p>W3TM finds the following acronym extremely useful for planning portable operations: SPARC-EY (‘sparky’).</p>
+<ul>
+<li><strong>S</strong>upport
+<ul class="task-list">
+<li><input type="checkbox">SotaBeams 10m mast. W3TM</li>
+<li><input type="checkbox">Drive on flagpole/mast mount. W3TM</li>
+<li><input type="checkbox">Military mast (5) + tripod. W3TM</li>
+</ul></li>
+<li><strong>P</strong>ower
+<ul class="task-list">
+<li><input type="checkbox">Solar panels. W3TM</li>
+<li><input type="checkbox">Charge controller. W3TM.</li>
+<li><input type="checkbox">40 Ah <span class="math inline">\(LiFePO_3\)</span> battery. W3TM</li>
+<li><input type="checkbox">30 Ah <span class="math inline">\(LiFePO_3\)</span> battery. W3TM</li>
+</ul></li>
+<li><strong>A</strong>ntennas
+<ul class="task-list">
+<li><input type="checkbox">40m-10m EFHW.</li>
+<li><input type="checkbox">40m/20m SotaBeams linked dipole. W3TM.</li>
+<li><input type="checkbox">6m Moxon. W3SWL.</li>
+<li><input type="checkbox">2m/70cm eggbeaters (optional satellite). W3TM</li>
+</ul></li>
+<li><strong>R</strong>adio/rig
+<ul class="task-list">
+<li><input type="checkbox">FT-991a. K9SDW</li>
+<li><input type="checkbox">FT-891 (backup HF). W3TM</li>
+<li><input type="checkbox">IC-7100 VHF/UHF. W3SWL</li>
+<li><input type="checkbox">IC-9700 (optional satellite). W3TM</li>
+<li><input type="checkbox">XXX? KM4AJ.</li>
+</ul></li>
+<li><strong>C</strong>onnector(s)
+<ul class="task-list">
+<li><input type="checkbox">Coax
+<ul class="task-list">
+<li><input type="checkbox">2x 50’ LMR-400 (optional satellite). W3TM.</li>
+</ul></li>
+<li><input type="checkbox">Adapters</li>
+<li><input type="checkbox">USB cables</li>
+<li><input type="checkbox">Network cables</li>
+</ul></li>
+<li><strong>-</strong></li>
+<li><strong>E</strong>xtra(s)
+<ul class="task-list">
+<li><input type="checkbox">Logging PC, keyboard, mouse. K9SDW
+<ul class="task-list">
+<li><input type="checkbox">AC Log Field Day logger loaded</li>
+<li><input type="checkbox">WSJT-X loaded and configured for AC Log</li>
+<li><input type="checkbox">fldigi loaded and configured for AC Log</li>
+</ul></li>
+<li><input type="checkbox">PC for optional satellite station. W3TM</li>
+<li><input type="checkbox">S.A.T for optional satellite station. W3TM</li>
+</ul></li>
+<li><strong>Y</strong>ou
+<ul class="task-list">
+<li><input type="checkbox">S.A.T for optional satellite station. W3TM</li>
+<li><input type="checkbox">Pop-up tent. W3TM</li>
+<li><input type="checkbox">Second pop-up tent.</li>
+<li><input type="checkbox">4 ft table. W3TM</li>
+<li><input type="checkbox">6 or 8 ft table.</li>
+<li><input type="checkbox">Chairs</li>
+<li><input type="checkbox">Public info table supplies. W3TM, KC3BHI, KM3AJ
+<ul class="task-list">
+<li><input type="checkbox">Handouts/brochures</li>
+<li><input type="checkbox">Sign-in/up sheets</li>
+<li><input type="checkbox">QSL cards. W3TM</li>
+</ul></li>
+<li><input type="checkbox">Comfort
+<ul class="task-list">
+<li><input type="checkbox">Snacks</li>
+<li><input type="checkbox">Drinks</li>
+<li><input type="checkbox">Hand sanitizer</li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="supplies" class="level2">
 <h2 class="anchored" data-anchor-id="supplies">Supplies</h2>
 <section id="hygiene" class="level3">
 <h3 class="anchored" data-anchor-id="hygiene">Hygiene</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Garbage bags. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Paper towels. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Hand sanitizer. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Toilet paper. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Spray cleaner. NARC or BUY.</label></li>
+<li><input type="checkbox">Garbage bags.</li>
+<li><input type="checkbox">Paper towels.</li>
+<li><input type="checkbox">Hand sanitizer.</li>
+<li><input type="checkbox">Toilet paper.</li>
+<li><input type="checkbox">Spray cleaner.</li>
 </ul>
 </section>
 <section id="safetycomfort" class="level3">
 <h3 class="anchored" data-anchor-id="safetycomfort">Safety/comfort</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Bug spray. NARC or BUY</label></li>
-<li><label><input type="checkbox">First aid kit. NARC or BUY.</label></li>
+<li><input type="checkbox">Bug spray.</li>
+<li><input type="checkbox">First aid kit.</li>
 </ul>
 </section>
 <section id="writing" class="level3">
 <h3 class="anchored" data-anchor-id="writing">Writing</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Legal pads. NARC or BUY.</label></li>
-<li><label><input type="checkbox">Pens. NARC or BUY.</label></li>
+<li><input type="checkbox">Legal pads.<br>
+</li>
+<li><input type="checkbox">Pens.</li>
 </ul>
 </section>
 </section>
@@ -268,50 +342,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="supplies-1" class="level3">
 <h3 class="anchored" data-anchor-id="supplies-1">Supplies</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Plates. BUY.</label></li>
-<li><label><input type="checkbox">Napkins. BUY.</label></li>
-<li><label><input type="checkbox">Utensils. BUY.</label></li>
-<li><label><input type="checkbox">Cups (hot &amp; cold). BUY.</label></li>
-<li><label><input type="checkbox">Cooler. BORROW. ????.</label></li>
+<li><input type="checkbox">Plates.</li>
+<li><input type="checkbox">Napkins.</li>
+<li><input type="checkbox">Utensils.</li>
+<li><input type="checkbox">Cups (hot &amp; cold).</li>
+<li><input type="checkbox">Cooler.</li>
 </ul>
 </section>
 <section id="drinks" class="level3">
 <h3 class="anchored" data-anchor-id="drinks">Drinks</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Water. BUY.</label></li>
-<li><label><input type="checkbox">Soft drinks. BUY.</label></li>
-<li><label><input type="checkbox">Coffee. BUY.</label>
+<li><input type="checkbox">Water.</li>
+<li><input type="checkbox">Soft drinks</li>
+<li><input type="checkbox">Coffee.
 <ul class="task-list">
-<li><label><input type="checkbox">Coffee maker. BORROW. ????.</label></li>
+<li><input type="checkbox">Coffee maker.</li>
 </ul></li>
 </ul>
-</section>
-<section id="food" class="level3">
-<h3 class="anchored" data-anchor-id="food">Food</h3>
-<section id="saturday-lunch" class="level4">
-<h4 class="anchored" data-anchor-id="saturday-lunch">Saturday lunch</h4>
-<ul>
-<li>Sandwich tray?</li>
-</ul>
-</section>
-<section id="saturday-dinner" class="level4">
-<h4 class="anchored" data-anchor-id="saturday-dinner">Saturday dinner</h4>
-<ul>
-<li>Pizza?</li>
-</ul>
-</section>
-<section id="sunday-breakfast" class="level4">
-<h4 class="anchored" data-anchor-id="sunday-breakfast">Sunday breakfast</h4>
-<ul>
-<li>Bagels, fruit, yogurt?</li>
-</ul>
-</section>
-<section id="sunday-lunch" class="level4">
-<h4 class="anchored" data-anchor-id="sunday-lunch">Sunday lunch</h4>
-<hr>
 
 
-</section>
 </section>
 </section>
 
@@ -320,8 +369,6 @@ ul.task-list li input[type="checkbox"] {
 
 <ol>
 <li id="fn1"><p>Refers to items available at the NARC clubhouse that we will pack and bring to Field Day.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Items we are likely to have to purchase.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Items we should be able to borrow from a club member.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -403,9 +450,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -415,17 +463,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -438,125 +477,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -600,7 +520,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -626,32 +545,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -712,7 +605,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 

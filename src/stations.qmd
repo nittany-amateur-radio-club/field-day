@@ -44,18 +44,3 @@ Saturday 2:00 pm - 5:00 pm
 Sunday 11:00 am - 2:00 pm 
 :::
 
-- Tent
-- Table
-- Chairs
-- **S**upport
-- **P**ower
-  - Solar panels (W3TM) and charge controller
-  - 40 Ah $LiFePO_3$ battery (W3TM)
-- **A**ntenna
-- **R**adio/rig
-- **C**onnector(s)
-  - Coax (radio/antenna)
-- **-**
-- **E**xtra(s)
-  - Logging PC, keyboard, mouse
-- Ham radio info

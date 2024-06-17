@@ -4,108 +4,147 @@ title: "Things"
 
 This document provides a list of the material items we need for Field Day.
 
-## Gear
+## Gear for mountaintop
 
 ### Radios
 
-- [ ] ICOM IC-7610. NARC[^1].
-- [ ] FlexRadio Flex 6400M. NARC.
-- [ ] RF power meters. NARC or BUY[^2].
-- [ ] 2x Morse key/paddles. NARC.
+- [x] ICOM IC-7610. NARC[^1].
+- [x] FlexRadio Flex 6400M. 
+- [ ] 2x Morse key/paddles.
+  - [ ] NARC has
+  - [ ] Borrow one
 
 ### Computers
 
-- [ ] 3x HP all-in-ones. NARC.
-- [ ] 3x USB cables. NARC.
-- [ ] 3x wireless keyboards & mice. NARC.
-- [ ] 3x mousepads. NARC or BUY.
+- [X] 2x HP all-in-ones. 
+- [X] 2x USB cables. 
+- [X] 2x wireless keyboards & mice. 
+<!-- - [ ] 2x mousepads. -->
 
 ### Antennas
 
-- [ ] 1x MyAntennas 80/10m EFHW. NARC.
-- [ ] 1x MyAntennas 80/10m EFHW. BORROW[^3]. [K3YV](people.qmd#K3YV)
-- [ ] 2x military mast to reduce mid-antenna sag. BORROW. [K3YV](people.qmd#K3YV) & [W3TM](people.qmd#W3TM).
+- [x] Mosely 20m-10m Yagi on 60 ft tower
+- [x] Mosely 20m-10m Yagi on 80 ft tower
+- [ ] MyAntennas 80/10m EFHW on 80 ft tower.
 
 ### Power
 
-*Presuming operation from generator and mains at pavilion.*
+- Using station mains
 
-- [ ] 2x Astron 12 V power supplies.
-    - Bring power for bonus VHF+ station? [W3SWL](people.qmd#W3SWL)?.
-- [ ] 3x power strips. NARC or BUY.
-- [ ] Extension cords. NARC or BUY.
-- [ ] Generator. BORROW. [W3TM](people.qmd#W3TM) to ask Dan K9SDW.
-    - [ ] Fuel.
+<!-- *Presuming operation from generator and mains at pavilion.* -->
+
+<!-- - [ ] 2x Astron 12 V power supplies. -->
+<!--     - Bring power for bonus VHF+ station? [W3SWL](people.qmd#W3SWL)?. -->
+<!-- - [ ] 3x power strips. NARC or BUY. -->
+<!-- - [ ] Extension cords. NARC or BUY. -->
+<!-- - [ ] Generator. BORROW. [W3TM](people.qmd#W3TM) to ask Dan K9SDW. -->
+<!--     - [ ] Fuel. -->
 
 ### Furniture
 
-- [ ] 8x folding tables. NARC.
-- [ ] 6-8x rolling chairs. NARC.
-- [ ] 2x pop-up tents. BORROW. W3EDP?
-- [ ] 3x table-top shelves. NARC. 
+- Using station furniture
+- 2x 6-8 ft folding tables for food, etc.
+
+<!-- - [ ] 8x folding tables. NARC. -->
+<!-- - [ ] 6-8x rolling chairs. NARC. -->
+<!-- - [ ] 2x pop-up tents. BORROW. W3EDP? -->
+<!-- - [ ] 3x table-top shelves. NARC.  -->
 
 ### Cables
 
-- [ ] 50-75' of RG-213 coax with PL-259s.
--
+- Use existing feedlines, except
+- New feedline for EFHW
+
+## Gear for field/portable station
+
+W3TM finds the following acronym extremely useful for planning portable operations: SPARC-EY ('sparky').
+
+- **S**upport
+  - [ ] SotaBeams 10m mast. W3TM
+  - [ ] Drive on flagpole/mast mount. W3TM
+  - [ ] Military mast (5) + tripod. W3TM
+- **P**ower
+  - [ ] Solar panels. W3TM
+  - [ ] Charge controller. W3TM.
+  - [ ] 40 Ah $LiFePO_3$ battery. W3TM
+  - [ ] 30 Ah $LiFePO_3$ battery. W3TM
+- **A**ntennas
+  - [ ] 40m-10m EFHW.
+  - [ ] 40m/20m SotaBeams linked dipole. W3TM.
+  - [ ] 6m Moxon. W3SWL.
+  - [ ] 2m/70cm eggbeaters (optional satellite). W3TM
+- **R**adio/rig
+  - [ ] FT-991a. K9SDW
+  - [ ] FT-891 (backup HF). W3TM
+  - [ ] IC-7100 VHF/UHF. W3SWL
+  - [ ] IC-9700 (optional satellite). W3TM
+  - [ ] XXX? KM4AJ.
+- **C**onnector(s)
+  - [ ] Coax
+    - [ ] 2x 50' LMR-400 (optional satellite). W3TM.
+  - [ ] Adapters
+  - [ ] USB cables
+  - [ ] Network cables
+- **-**
+- **E**xtra(s)
+  - [ ] Logging PC, keyboard, mouse. K9SDW
+      - [ ] AC Log Field Day logger loaded
+      - [ ] WSJT-X loaded and configured for AC Log
+      - [ ] fldigi loaded and configured for AC Log
+  - [ ] PC for optional satellite station. W3TM
+  - [ ] S.A.T for optional satellite station. W3TM
+- **Y**ou
+  - [ ] S.A.T for optional satellite station. W3TM
+  - [ ] Pop-up tent. W3TM
+  - [ ] Second pop-up tent.
+  - [ ] 4 ft table. W3TM
+  - [ ] 6 or 8 ft table.
+  - [ ] Chairs
+  - [ ] Public info table supplies. W3TM, KC3BHI, KM3AJ
+    - [ ] Handouts/brochures
+    - [ ] Sign-in/up sheets
+    - [ ] QSL cards. W3TM
+  - [ ] Comfort
+    - [ ] Snacks
+    - [ ] Drinks
+    - [ ] Hand sanitizer
 
 ## Supplies
 
 ### Hygiene
 
-- [ ] Garbage bags. NARC or BUY.
-- [ ] Paper towels. NARC or BUY.
-- [ ] Hand sanitizer. NARC or BUY.
-- [ ] Toilet paper. NARC or BUY.
-- [ ] Spray cleaner. NARC or BUY.
+- [ ] Garbage bags.
+- [ ] Paper towels. 
+- [ ] Hand sanitizer.
+- [ ] Toilet paper. 
+- [ ] Spray cleaner.
 
 ### Safety/comfort
 
-- [ ] Bug spray. NARC or BUY
-- [ ] First aid kit. NARC or BUY. 
+- [ ] Bug spray.
+- [ ] First aid kit.
 
 ### Writing
 
-- [ ] Legal pads. NARC or BUY. 
-- [ ] Pens. NARC or BUY. 
+- [ ] Legal pads.  
+- [ ] Pens.
 
 ## Nourishment
 
 ### Supplies
 
-- [ ] Plates. BUY.
-- [ ] Napkins. BUY.
-- [ ] Utensils. BUY.
-- [ ] Cups (hot & cold). BUY.
-- [ ] Cooler. BORROW. ????.
+- [ ] Plates. 
+- [ ] Napkins.
+- [ ] Utensils.
+- [ ] Cups (hot & cold). 
+- [ ] Cooler.
 
 ### Drinks
 
-- [ ] Water. BUY.
-- [ ] Soft drinks. BUY.
-- [ ] Coffee. BUY.
-    - [ ] Coffee maker. BORROW. ????.
+- [ ] Water.
+- [ ] Soft drinks 
+- [ ] Coffee. 
+    - [ ] Coffee maker.
 
-### Food
-
-#### Saturday lunch
-
-- Sandwich tray?
-
-#### Saturday dinner
-
-- Pizza?
-
-#### Sunday breakfast
-
-- Bagels, fruit, yogurt?
-
-#### Sunday lunch
-
----
 
 [^1]: Refers to items available at the NARC clubhouse that we will pack and bring to Field Day.
-
-[^2]: Items we are likely to have to purchase.
-
-[^3]: Items we should be able to borrow from a club member.
