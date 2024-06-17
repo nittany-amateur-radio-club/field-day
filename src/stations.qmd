@@ -32,6 +32,8 @@ Both NARC1 and NARC2 will be ready for use on Field Day.
 
 ## Field/Portable Station
 
+We're trying something new this year: A field/portable station from Jo Hays Vista across State Route 26 from the access road to the clubhouse.
+
 [Field Station Committee](people.qmd#field-comm)
 
 ::: {.callout-warning}
