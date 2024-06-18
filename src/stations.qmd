@@ -8,10 +8,10 @@ This page describes some details about our Field Day stations.
 
 ## Class
 
-Based on the results of the [survey](planning.qmd#visualizing), we plan to operate two (2) transmitters.
+Based on the results of the [survey](planning.qmd#visualizing), we plan to operate three (2) transmitters, two from the clubhouse and a field/portable station within 500 ft of the clubhouse.
 Because we are operating from a fixed location on mains power, we are class D.
 
-We will operate at 100 W.
+We will operate at 100 W and use W3YA as our callsign.
 
 ## NARC Mountaintop
 
@@ -30,11 +30,14 @@ Both NARC1 and NARC2 will be ready for use on Field Day.
 - HP All-in-one PC with 2nd Display
 - KPA-1500 amplifier/ATU
 
+### Antennas
+
+- 2x Mosley Triband Yagis, one pointed south, the other pointed west. These antennas will be for 20m, 15m, and 10m.
+- 1 80m-10m EFHW antenna. This antenna is primarily for 40m and 75m/80m operation.
+
 ## Field/Portable Station
 
 We're trying something new this year: A field/portable station from Jo Hays Vista across State Route 26 from the access road to the clubhouse.
-
-[Field Station Committee](people.qmd#field-comm)
 
 ::: {.callout-warning}
 ## Staff Field Station/Info Table 
@@ -44,3 +47,7 @@ Saturday 2:00 pm - 5:00 pm
 Sunday 11:00 am - 2:00 pm 
 :::
 
+[Field Station Committee](people.qmd#field-comm)
+
+We're still working out the equipment for this station.
+See [here](things.qmd#gear-for-fieldportable-station) for details.

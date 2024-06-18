@@ -8,9 +8,10 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - stations.qmd
       - calendar.qmd
+      - stations.qmd
       - people.qmd
+      - things.qmd
       - planning.qmd
       
 format:
