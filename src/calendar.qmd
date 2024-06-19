@@ -81,10 +81,12 @@ This page describes some of the specific actions that need to be taken leading u
 
 - [x] Confirm Porta-Potty cleaning. K3CWP.
   - [ ] Check about cleaning date.
-- [ ] Confirm mowing. W3TM. 2024-06-15.
-  - [ ] If not mowed by Wed 6/19, let K9SDW know
+- [x] Confirm mowing. W3TM. 2024-06-15.
+  - [ ] ~~If not mowed by Wed 6/19, let K9SDW know~~
+  - [ ] W3TM Confirmed mowing for Thu 6/20.
 - [ ] Order food
-  - [ ] Lunch Saturday from Subway
+  - [x] Order lunch for Saturday from Subway
+    - Pickup 11:30 am at South Atherton Subway. Pay on pickup. Order under Rick's name.
   - [ ] Dinner Saturday from Papa Johns
   - [ ] Lunch Sunday from TBD
     - Bagels & fixins from Toasted
@@ -97,13 +99,13 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Chips
   - [ ] Cookies
   - [ ] Fruit
-- [ ] Assess supplies
-  - [ ] Paper goods
-  - [ ] Cups
-  - [ ] Utencils
-  - [ ] Napkins
-  - [ ] Paper towels
-  - [ ] Trash bags
+- [x] Assess supplies
+  - [x] Paper goods
+  - [x] Cups
+  - [x] Utencils
+  - [x] Napkins
+  - [x] Paper towels
+  - [x] Trash bags
 - Buy needed supplies
   - [ ] Septic-safe toilet paper
 - [ ] Clean-up station interior

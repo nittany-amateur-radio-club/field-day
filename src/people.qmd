@@ -27,6 +27,7 @@ This page describes the people who are involved with Field Day.
 - Eric Prescott W3EDP
 - Brad Flubacher KC3BHI
 - Rick Gilmore W3TM
+- Gene Moore KM4AJ
 
 ## Publicity {#pub-comm}
 
@@ -36,7 +37,6 @@ This page describes the people who are involved with Field Day.
 
 ## Food & Drink {#food-comm}
 
-- Greg Miller K3GEM
 - Dan Muthler K9SDW
 - Rick Gilmore W3TM
 

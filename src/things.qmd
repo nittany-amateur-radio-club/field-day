@@ -8,7 +8,7 @@ This document provides a list of the material items we need for Field Day.
 
 ### Radios
 
-- [x] ICOM IC-7610. NARC[^1].
+- [x] ICOM IC-7610.
 - [x] FlexRadio Flex 6400M. 
 - [ ] 2x Morse key/paddles.
   - [ ] NARC has
@@ -25,7 +25,7 @@ This document provides a list of the material items we need for Field Day.
 
 - [x] Mosely 20m-10m Yagi on 60 ft tower
 - [x] Mosely 20m-10m Yagi on 80 ft tower
-- [ ] MyAntennas 80/10m EFHW on 80 ft tower.
+- [x] MyAntennas 80/10m EFHW on 80 ft tower
 
 ### Power
 
@@ -53,7 +53,7 @@ This document provides a list of the material items we need for Field Day.
 ### Cables
 
 - Use existing feedlines, except
-- New feedline for EFHW
+  - New feedline for EFHW
 
 ## Gear for field/portable station
 
@@ -65,26 +65,31 @@ W3TM finds the following acronym extremely useful for planning portable operatio
   - [ ] Military mast (5) + tripod. W3TM
 - **P**ower
   - [ ] Solar panels. W3TM
-  - [ ] Charge controller. W3TM.
+  - [ ] Charge controller. W3TM
   - [ ] 40 Ah $LiFePO_3$ battery. W3TM
   - [ ] 30 Ah $LiFePO_3$ battery. W3TM
+  - [ ] 40 Ah battery with 30O W pure sinewave inverter. KM4AJ
+  - [ ] Solar panel. KM4AJ
 - **A**ntennas
-  - [ ] 40m-10m EFHW.
-  - [ ] 40m/20m SotaBeams linked dipole. W3TM.
-  - [ ] 6m Moxon. W3SWL.
+  - [ ] Chameleon EMCOMM II dipole. K9SDW
+  - [ ] 40m/20m SotaBeams linked dipole. W3TM
+  - [ ] 40m-10m EFHW. W3TM
+  - [ ] 6m Moxon. W3SWL
   - [ ] 2m/70cm eggbeaters (optional satellite). W3TM
+  - [ ] J-Pole 2m/70cm. KM4AJ
 - **R**adio/rig
   - [ ] FT-991a. K9SDW
-  - [ ] FT-891 (backup HF). W3TM
+  - [ ] ~~FT-891 (backup HF). W3TM~~
   - [ ] IC-7100 VHF/UHF. W3SWL
+  - [ ] IC-7100 KM4AJ.
   - [ ] IC-9700 (optional satellite). W3TM
-  - [ ] XXX? KM4AJ.
 - **C**onnector(s)
   - [ ] Coax
-    - [ ] 2x 50' LMR-400 (optional satellite). W3TM.
+    - [ ] 2x 50' LMR-400 (optional satellite). W3TM
   - [ ] Adapters
   - [ ] USB cables
   - [ ] Network cables
+  - [ ] Power cabling and power strips. K9SDW
 - **-**
 - **E**xtra(s)
   - [ ] Logging PC, keyboard, mouse. K9SDW
@@ -96,11 +101,11 @@ W3TM finds the following acronym extremely useful for planning portable operatio
 - **Y**ou
   - [ ] S.A.T for optional satellite station. W3TM
   - [ ] Pop-up tent. W3TM
-  - [ ] Second pop-up tent.
+  - [ ] Second pop-up tent. K9SDW
   - [ ] 4 ft table. W3TM
-  - [ ] 6 or 8 ft table.
-  - [ ] Chairs
-  - [ ] Public info table supplies. W3TM, KC3BHI, KM3AJ
+  - [ ] 6 ft table. K9SDW
+  - [ ] Chairs. K9SDW
+  - [ ] Public info table supplies. W3TM.
     - [ ] Handouts/brochures
     - [ ] Sign-in/up sheets
     - [ ] QSL cards. W3TM
@@ -113,38 +118,36 @@ W3TM finds the following acronym extremely useful for planning portable operatio
 
 ### Hygiene
 
-- [ ] Garbage bags.
-- [ ] Paper towels. 
-- [ ] Hand sanitizer.
+- [x] Garbage bags.
+- [x] Paper towels. 
+- [x] Hand sanitizer.
 - [ ] Toilet paper. 
-- [ ] Spray cleaner.
+- [x] Spray cleaner.
 
 ### Safety/comfort
 
 - [ ] Bug spray.
-- [ ] First aid kit.
+- [x] First aid kit.
 
 ### Writing
 
-- [ ] Legal pads.  
-- [ ] Pens.
+- [x] Legal pads.  
+- [x] Pens.
+- [x] Name tags.
+- [x] Clipboards.
 
 ## Nourishment
 
 ### Supplies
 
-- [ ] Plates. 
-- [ ] Napkins.
-- [ ] Utensils.
-- [ ] Cups (hot & cold). 
-- [ ] Cooler.
+- [x] Plates. 
+- [x] Napkins.
+- [x] Utensils.
+- [x] Cups (hot & cold). 
+- [x] Cooler.
 
 ### Drinks
 
-- [ ] Water.
-- [ ] Soft drinks 
-- [ ] Coffee. 
-    - [ ] Coffee maker.
-
-
-[^1]: Refers to items available at the NARC clubhouse that we will pack and bring to Field Day.
+- [ ] Water
+- [ ] Soft drinks
+- [ ] Coffee 
