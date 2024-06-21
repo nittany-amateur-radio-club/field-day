@@ -107,14 +107,12 @@ This page describes some of the specific actions that need to be taken leading u
   - [x] Paper towels
   - [x] Trash bags
 - Buy needed supplies
-  - [ ] Septic-safe toilet paper
+  - [x] Septic-safe toilet paper
 - [ ] Clean-up station interior
   - [ ] Dust or vacuum all surfaces
   - [ ] Sweep, vacuum, & mop
   - [ ] Move excess gear from shack to shed
   - [ ] Clean cooler
-- [ ] Set-aside gear to bring
-  - [ ] 2x 6 foot tables
 - [x] Set Yagi antenna orientations
   - [x] 80 ft tower to the west. W3TM 2024-06-16.
   - [x] 60 ft tower to the south. W3TM 2024-06-16.
@@ -127,8 +125,10 @@ This page describes some of the specific actions that need to be taken leading u
 #### Saturday, June 22
 
 - [ ] Buy ice.
+  - [ ] K3GEM
+  - [ ] W3TM
 - [ ] Set up food & drink. [Set-up Committee](people.qmd#set-up-comm); [Food Committee](people.qmd#food.com).
-    - [ ] Pick up Subway. (people.qmd#food.com)
+    - [ ] Pick up Subway. K3GEM
 - [ ] Set up info table. [Info Table Committee](people.qmd#field-comm)
 
 ::: {.callout-warning}

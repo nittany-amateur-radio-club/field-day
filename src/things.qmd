@@ -121,7 +121,7 @@ W3TM finds the following acronym extremely useful for planning portable operatio
 - [x] Garbage bags.
 - [x] Paper towels. 
 - [x] Hand sanitizer.
-- [ ] Toilet paper. 
+- [x] Toilet paper. K9SDW bought
 - [x] Spray cleaner.
 
 ### Safety/comfort
@@ -148,6 +148,6 @@ W3TM finds the following acronym extremely useful for planning portable operatio
 
 ### Drinks
 
-- [ ] Water
-- [ ] Soft drinks
-- [ ] Coffee 
+- [x] Water. K9SDW
+- [x] Soft drinks. K9SDW
+- [x] Coffee. K9SDW
