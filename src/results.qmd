@@ -1,0 +1,48 @@
+---
+title: "Results"
+format: html
+params:
+  survey_data_fn: csv/clean_narc-fd-2024-survey.csv
+---
+
+## About
+
+This page provides some data about the club's results.
+
+## Contacts
+
+**COMING SOON**
+
+## Bonus points
+
+- 10 Winlink messages (W3SWL)
+- Message to Section Manager (W3SWL)
+- Visit by served agency official (W3SWL)
+- Press coverage (WA3TM)
+- Educational Activity (K3YV on stub filters)
+
+## Attendees, operators, and volunteers
+
+```{r}
+fd_data <- readr::read_csv(params$survey_data_fn, show_col_types = FALSE)
+
+fd_ops_guests_vols <- fd_data |>
+  dplyr::select(callsign, attended_sat, attended_sun, operated_fd, helped_out)
+```
+
+```{r}
+xtabs(~ attended_sat, fd_ops_guests_vols)
+```
+
+```{r}
+xtabs(~ attended_sun, fd_ops_guests_vols)
+```
+
+```{r}
+xtabs(~ operated_fd, fd_ops_guests_vols)
+```
+
+```{r}
+xtabs(~ helped_out, fd_ops_guests_vols)
+```
+

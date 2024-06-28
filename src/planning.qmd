@@ -200,9 +200,11 @@ Here are the number of respondents who plan to attend and their plans to operate
 ```{r}
 xtabs(formula = ~ attend + operate, data = survey_resps)
 ```
+
 ```{r}
 survey_resps |>
   dplyr::select(callsign, attend_sat, overnight, attend_sun) |>
+  dplyr::filter(!is.na(attend_sat), !is.na(overnight), !is.na(attend_sun)) |>
   kableExtra::kbl(format = "html") |>
   kableExtra::kable_classic() |>
   kableExtra::column_spec(2, 
