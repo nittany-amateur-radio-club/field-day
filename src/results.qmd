@@ -7,7 +7,7 @@ params:
 
 ## About
 
-This page provides some data about the club's results.
+This page provides some data about the club's activities and results on Field Day.
 
 ## Contacts
 
