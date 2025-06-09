@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NARC Field Day - Things</title>
+<title>Things – NARC Field Day</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="include/css/styles.css">
 </head>
@@ -112,7 +83,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -151,7 +122,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -174,7 +145,6 @@ window.Quarto = {
   <li><a href="#furniture" id="toc-furniture" class="nav-link" data-scroll-target="#furniture">Furniture</a></li>
   <li><a href="#cables" id="toc-cables" class="nav-link" data-scroll-target="#cables">Cables</a></li>
   </ul></li>
-  <li><a href="#gear-for-fieldportable-station" id="toc-gear-for-fieldportable-station" class="nav-link" data-scroll-target="#gear-for-fieldportable-station">Gear for field/portable station</a></li>
   <li><a href="#supplies" id="toc-supplies" class="nav-link" data-scroll-target="#supplies">Supplies</a>
   <ul class="collapse">
   <li><a href="#hygiene" id="toc-hygiene" class="nav-link" data-scroll-target="#hygiene">Hygiene</a></li>
@@ -219,11 +189,7 @@ window.Quarto = {
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">ICOM IC-7610.</label></li>
 <li><label><input type="checkbox" checked="">FlexRadio Flex 6400M.</label></li>
-<li><label><input type="checkbox">2x Morse key/paddles.</label>
-<ul class="task-list">
-<li><label><input type="checkbox">NARC has</label></li>
-<li><label><input type="checkbox">Borrow one</label></li>
-</ul></li>
+<li><label><input type="checkbox" checked="">2x Morse key/paddles.</label></li>
 </ul>
 </section>
 <section id="computers" class="level3">
@@ -269,122 +235,93 @@ window.Quarto = {
 <section id="cables" class="level3">
 <h3 class="anchored" data-anchor-id="cables">Cables</h3>
 <ul>
-<li>Use existing feedlines, except
-<ul>
-<li>New feedline for EFHW</li>
-</ul></li>
+<li>Use existing feedlines</li>
 </ul>
+<!-- ## Gear for field/portable station -->
+<!-- W3TM finds the following acronym extremely useful for planning portable operations: SPARC-EY ('sparky'). -->
+<!-- - **S**upport -->
+<!--   - [ ] SotaBeams 10m mast. W3TM -->
+<!--   - [ ] Drive on flagpole/mast mount. W3TM -->
+<!--   - [ ] Military mast (5) + tripod. W3TM -->
+<!-- - **P**ower -->
+<!--   - [ ] Solar panels. W3TM -->
+<!--   - [ ] Charge controller. W3TM -->
+<!--   - [ ] 40 Ah $LiFePO_3$ battery. W3TM -->
+<!--   - [ ] 30 Ah $LiFePO_3$ battery. W3TM -->
+<!--   - [ ] 40 Ah battery with 30O W pure sinewave inverter. KM4AJ -->
+<!--   - [ ] Solar panel. KM4AJ -->
+<!-- - **A**ntennas -->
+<!--   - [ ] Chameleon EMCOMM II dipole. K9SDW -->
+<!--   - [ ] 40m/20m SotaBeams linked dipole. W3TM -->
+<!--   - [ ] 40m-10m EFHW. W3TM -->
+<!--   - [ ] 6m Moxon. W3SWL -->
+<!--   - [ ] 2m/70cm eggbeaters (optional satellite). W3TM -->
+<!--   - [ ] J-Pole 2m/70cm. KM4AJ -->
+<!-- - **R**adio/rig -->
+<!--   - [ ] FT-991a. K9SDW -->
+<!--   - [ ] ~~FT-891 (backup HF). W3TM~~ -->
+<!--   - [ ] IC-7100 VHF/UHF. W3SWL -->
+<!--   - [ ] IC-7100 KM4AJ. -->
+<!--   - [ ] IC-9700 (optional satellite). W3TM -->
+<!-- - **C**onnector(s) -->
+<!--   - [ ] Coax -->
+<!--     - [ ] 2x 50' LMR-400 (optional satellite). W3TM -->
+<!--   - [ ] Adapters -->
+<!--   - [ ] USB cables -->
+<!--   - [ ] Network cables -->
+<!--   - [ ] Power cabling and power strips. K9SDW -->
+<!-- - **-** -->
+<!-- - **E**xtra(s) -->
+<!--   - [ ] Logging PC, keyboard, mouse. K9SDW -->
+<!--       - [ ] AC Log Field Day logger loaded -->
+<!--       - [ ] WSJT-X loaded and configured for AC Log -->
+<!--       - [ ] fldigi loaded and configured for AC Log -->
+<!--   - [ ] PC for optional satellite station. W3TM -->
+<!--   - [ ] S.A.T for optional satellite station. W3TM -->
+<!-- - **Y**ou -->
+<!--   - [ ] S.A.T for optional satellite station. W3TM -->
+<!--   - [ ] Pop-up tent. W3TM -->
+<!--   - [ ] Second pop-up tent. K9SDW -->
+<!--   - [ ] 4 ft table. W3TM -->
+<!--   - [ ] 6 ft table. K9SDW -->
+<!--   - [ ] Chairs. K9SDW -->
+<!--   - [ ] Public info table supplies. W3TM. -->
+<!--     - [ ] Handouts/brochures -->
+<!--     - [ ] Sign-in/up sheets -->
+<!--     - [ ] QSL cards. W3TM -->
+<!--   - [ ] Comfort -->
+<!--     - [ ] Snacks -->
+<!--     - [ ] Drinks -->
+<!--     - [ ] Hand sanitizer -->
 </section>
-</section>
-<section id="gear-for-fieldportable-station" class="level2">
-<h2 class="anchored" data-anchor-id="gear-for-fieldportable-station">Gear for field/portable station</h2>
-<p>W3TM finds the following acronym extremely useful for planning portable operations: SPARC-EY (‘sparky’).</p>
-<ul>
-<li><strong>S</strong>upport
-<ul class="task-list">
-<li><label><input type="checkbox">SotaBeams 10m mast. W3TM</label></li>
-<li><label><input type="checkbox">Drive on flagpole/mast mount. W3TM</label></li>
-<li><label><input type="checkbox">Military mast (5) + tripod. W3TM</label></li>
-</ul></li>
-<li><strong>P</strong>ower
-<ul class="task-list">
-<li><label><input type="checkbox">Solar panels. W3TM</label></li>
-<li><label><input type="checkbox">Charge controller. W3TM</label></li>
-<li><label><input type="checkbox">40 Ah <span class="math inline">\(LiFePO_3\)</span> battery. W3TM</label></li>
-<li><label><input type="checkbox">30 Ah <span class="math inline">\(LiFePO_3\)</span> battery. W3TM</label></li>
-<li><label><input type="checkbox">40 Ah battery with 30O W pure sinewave inverter. KM4AJ</label></li>
-<li><label><input type="checkbox">Solar panel. KM4AJ</label></li>
-</ul></li>
-<li><strong>A</strong>ntennas
-<ul class="task-list">
-<li><label><input type="checkbox">Chameleon EMCOMM II dipole. K9SDW</label></li>
-<li><label><input type="checkbox">40m/20m SotaBeams linked dipole. W3TM</label></li>
-<li><label><input type="checkbox">40m-10m EFHW. W3TM</label></li>
-<li><label><input type="checkbox">6m Moxon. W3SWL</label></li>
-<li><label><input type="checkbox">2m/70cm eggbeaters (optional satellite). W3TM</label></li>
-<li><label><input type="checkbox">J-Pole 2m/70cm. KM4AJ</label></li>
-</ul></li>
-<li><strong>R</strong>adio/rig
-<ul class="task-list">
-<li><label><input type="checkbox">FT-991a. K9SDW</label></li>
-<li><label><input type="checkbox"><del>FT-891 (backup HF). W3TM</del></label></li>
-<li><label><input type="checkbox">IC-7100 VHF/UHF. W3SWL</label></li>
-<li><label><input type="checkbox">IC-7100 KM4AJ.</label></li>
-<li><label><input type="checkbox">IC-9700 (optional satellite). W3TM</label></li>
-</ul></li>
-<li><strong>C</strong>onnector(s)
-<ul class="task-list">
-<li><label><input type="checkbox">Coax</label>
-<ul class="task-list">
-<li><label><input type="checkbox">2x 50’ LMR-400 (optional satellite). W3TM</label></li>
-</ul></li>
-<li><label><input type="checkbox">Adapters</label></li>
-<li><label><input type="checkbox">USB cables</label></li>
-<li><label><input type="checkbox">Network cables</label></li>
-<li><label><input type="checkbox">Power cabling and power strips. K9SDW</label></li>
-</ul></li>
-<li><strong>-</strong></li>
-<li><strong>E</strong>xtra(s)
-<ul class="task-list">
-<li><label><input type="checkbox">Logging PC, keyboard, mouse. K9SDW</label>
-<ul class="task-list">
-<li><label><input type="checkbox">AC Log Field Day logger loaded</label></li>
-<li><label><input type="checkbox">WSJT-X loaded and configured for AC Log</label></li>
-<li><label><input type="checkbox">fldigi loaded and configured for AC Log</label></li>
-</ul></li>
-<li><label><input type="checkbox">PC for optional satellite station. W3TM</label></li>
-<li><label><input type="checkbox">S.A.T for optional satellite station. W3TM</label></li>
-</ul></li>
-<li><strong>Y</strong>ou
-<ul class="task-list">
-<li><label><input type="checkbox">S.A.T for optional satellite station. W3TM</label></li>
-<li><label><input type="checkbox">Pop-up tent. W3TM</label></li>
-<li><label><input type="checkbox">Second pop-up tent. K9SDW</label></li>
-<li><label><input type="checkbox">4 ft table. W3TM</label></li>
-<li><label><input type="checkbox">6 ft table. K9SDW</label></li>
-<li><label><input type="checkbox">Chairs. K9SDW</label></li>
-<li><label><input type="checkbox">Public info table supplies. W3TM.</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Handouts/brochures</label></li>
-<li><label><input type="checkbox">Sign-in/up sheets</label></li>
-<li><label><input type="checkbox">QSL cards. W3TM</label></li>
-</ul></li>
-<li><label><input type="checkbox">Comfort</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Snacks</label></li>
-<li><label><input type="checkbox">Drinks</label></li>
-<li><label><input type="checkbox">Hand sanitizer</label></li>
-</ul></li>
-</ul></li>
-</ul>
 </section>
 <section id="supplies" class="level2">
 <h2 class="anchored" data-anchor-id="supplies">Supplies</h2>
 <section id="hygiene" class="level3">
 <h3 class="anchored" data-anchor-id="hygiene">Hygiene</h3>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Garbage bags.</label></li>
-<li><label><input type="checkbox" checked="">Paper towels.</label></li>
-<li><label><input type="checkbox" checked="">Hand sanitizer.</label></li>
-<li><label><input type="checkbox" checked="">Toilet paper. K9SDW bought</label></li>
-<li><label><input type="checkbox" checked="">Spray cleaner.</label></li>
+<li><label><input type="checkbox">Garbage bags.</label></li>
+<li><label><input type="checkbox">Paper towels.</label></li>
+<li><label><input type="checkbox">Hand sanitizer.</label></li>
+<li><label><input type="checkbox">Toilet paper.</label></li>
+<li><label><input type="checkbox">Spray cleaner.</label></li>
 </ul>
 </section>
 <section id="safetycomfort" class="level3">
 <h3 class="anchored" data-anchor-id="safetycomfort">Safety/comfort</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Bug spray.</label></li>
-<li><label><input type="checkbox" checked="">First aid kit.</label></li>
+<li><label><input type="checkbox">First aid kit.</label></li>
 </ul>
 </section>
 <section id="writing" class="level3">
 <h3 class="anchored" data-anchor-id="writing">Writing</h3>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Legal pads.<br>
+<li><label><input type="checkbox">Legal pads.<br>
 </label></li>
-<li><label><input type="checkbox" checked="">Pens.</label></li>
-<li><label><input type="checkbox" checked="">Name tags.</label></li>
-<li><label><input type="checkbox" checked="">Clipboards.</label></li>
+<li><label><input type="checkbox">Pens.</label></li>
+<li><label><input type="checkbox">Name tags.</label></li>
+<li><label><input type="checkbox">Clipboards.</label></li>
 </ul>
 </section>
 </section>
@@ -393,19 +330,19 @@ window.Quarto = {
 <section id="supplies-1" class="level3">
 <h3 class="anchored" data-anchor-id="supplies-1">Supplies</h3>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Plates.</label></li>
-<li><label><input type="checkbox" checked="">Napkins.</label></li>
-<li><label><input type="checkbox" checked="">Utensils.</label></li>
-<li><label><input type="checkbox" checked="">Cups (hot &amp; cold).</label></li>
-<li><label><input type="checkbox" checked="">Cooler.</label></li>
+<li><label><input type="checkbox">Plates.</label></li>
+<li><label><input type="checkbox">Napkins.</label></li>
+<li><label><input type="checkbox">Utensils.</label></li>
+<li><label><input type="checkbox">Cups (hot &amp; cold).</label></li>
+<li><label><input type="checkbox">Cooler.</label></li>
 </ul>
 </section>
 <section id="drinks" class="level3">
 <h3 class="anchored" data-anchor-id="drinks">Drinks</h3>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Water. K9SDW</label></li>
-<li><label><input type="checkbox" checked="">Soft drinks. K9SDW</label></li>
-<li><label><input type="checkbox" checked="">Coffee. K9SDW</label></li>
+<li><label><input type="checkbox">Water.</label></li>
+<li><label><input type="checkbox">Soft drinks.</label></li>
+<li><label><input type="checkbox">Coffee.</label></li>
 </ul>
 
 
@@ -448,18 +385,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -491,7 +417,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -526,7 +490,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -574,7 +542,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

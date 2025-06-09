@@ -1,34 +1,138 @@
 ---
 title: "Results"
 format: html
+code-fold: true
 params:
-  survey_data_fn: csv/clean_narc-fd-2024-survey.csv
+  survey_data_2024_fn: csv/clean_narc-fd-2024-survey.csv
 ---
+
+::: {.callout-warning}
+## Under construction
+
+Since Field Day is still a few weeks away, this page is under construction.
+:::
 
 ## About
 
 This page provides some data about the club's activities and results on Field Day.
 
-## Contacts
-
-**COMING SOON**
-
-## Bonus points
-
-- 10 Winlink messages (W3SWL)
-- Message to Section Manager (W3SWL)
-- Visit by served agency official (W3SWL)
-- Press coverage (WA3TM)
-- Educational Activity (K3YV on stub filters)
-
-## Attendees, operators, and volunteers
+## Prior years
 
 ```{r}
-fd_data <- readr::read_csv(params$survey_data_fn, show_col_types = FALSE)
+#| label: gather-priors
+#| warning: false
+#| message: false
+fd_2024 <- readr::read_csv("https://contests.arrl.org/ContestResults/2024/field-day-2024.csv", show_col_types = FALSE)
+fd_2023 <- readr::read_csv("https://contests.arrl.org/ContestResults/2023/field-day-2023.csv", show_col_types = FALSE)
+fd_2022 <- readr::read_csv("https://contests.arrl.org/ContestResults/2022/field-day-2022.csv", show_col_types = FALSE)
+fd_2021 <- readr::read_csv("https://contests.arrl.org/ContestResults/2021/field-day-2021.csv", show_col_types = FALSE)
+```
+
+```{r}
+#| label: filter-merge
+
+w3ya_24 <- fd_2024 |>
+  dplyr::filter(Call == "W3YA") |>
+  dplyr::mutate(year = 2024)
+
+w3ya_23 <- fd_2023 |>
+  dplyr::filter(Call == "W3YA") |>
+  dplyr::mutate(year = 2023)
+
+w3ya_22 <- fd_2022 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2022) |>
+  dplyr::rename(Call = CALL)
+
+w3ya_21 <- fd_2021 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2021) |>
+  dplyr::rename(Call = CALL, `Power Multiplier` = Pwr_Mult, 
+                `FINAL SCORE` = Score)
+
+w3ya <- purrr::list_rbind(list(w3ya_24, w3ya_23, w3ya_22, w3ya_21))
+
+w3ya <- w3ya |>
+  dplyr::select(-c(`GOTA CALL`, `GOTA Call`, 
+                   `CLUB NAME`)) |>
+  dplyr::rename(score = `FINAL SCORE`,
+                cw_qsos = `TOTAL CW QSOs`,
+                dig_qsos = `TOTAL DIGITAL QSOs`,
+                ph_qsos = `TOTAL PHONE QSOs`,
+                tot_qsos = `TOTAL QSOs`,
+                bonus = `BONUS POINTS`)
+```
+
+### Score
+
+```{r}
+#| label: fig-score-by-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day score 2021-24"
+library(ggplot2)
+w3ya |>
+  ggplot() +
+  aes(x = year, y = score) +
+  geom_point() +
+  geom_line()
+```
+
+### QSOs
+
+```{r}
+#| label: select-qsos
+qsos <- w3ya |>
+  tidyr::pivot_longer(cols = contains("qsos"), names_to = "type", values_to = "n_qsos")
+```
+
+```{r}
+#| label: fig-qsos-by-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day QSOs by mode 2021-24"
+qsos |>
+  ggplot() +
+  aes(x = year, y = n_qsos, color = type) +
+  geom_point() +
+  geom_line() 
+```
+
+### Bonus points
+
+```{r}
+#| label: fig-bonus-by-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day bonus points 2021-24"
+w3ya |>
+  ggplot() +
+  aes(x = year, y = bonus) +
+  geom_point() +
+  geom_line()
+```
+
+### Attendees, operators, and volunteers
+
+```{r}
+library(readr)
+fd_data <- readr::read_csv(
+  "csv/narc-fd-2024-participation.csv",
+  show_col_types = FALSE,
+  col_types = cols(
+    callsign = "c",
+    attended_sat = "l",
+    attended_sun = "l",
+    operated_fd = "l",
+    helped_out = "l"
+  )
+)
 
 fd_ops_guests_vols <- fd_data |>
   dplyr::select(callsign, attended_sat, attended_sun, operated_fd, helped_out)
 ```
+
+```{r}
+fd_attended <- fd_ops_guests_vols |>
+  dplyr::mutate(attended = attended_sat | attended_sun)
+
+xtabs(~ attended, fd_attended)
+```
+
 
 ```{r}
 xtabs(~ attended_sat, fd_ops_guests_vols)

@@ -9,7 +9,6 @@ This page describes the people who are involved with Field Day.
 - Woody Brem K3YV
 - Rick Gilmore W3TM
 - Mike Coslo N3LI
-- Dan Muthler K9SDW
 
 ## Special Roles
 
@@ -19,43 +18,28 @@ This page describes the people who are involved with Field Day.
 
 ### Served Agency Official
 
-- Brett Saylor W3SWL, Red Cross
+- TBD. Brett Saylor W3SWL, Red Cross has served in this capacity in previous years
 
-## Field/Portable/Info table {#field-comm}
+<!-- ## Field/Portable/Info table {#field-comm} -->
 
-- Dan Muthler K9SDW
-- Eric Prescott W3EDP
-- Brad Flubacher KC3BHI
-- Rick Gilmore W3TM
-- Gene Moore KM4AJ
+<!-- - Dan Muthler K9SDW -->
+<!-- - Eric Prescott W3EDP -->
+<!-- - Brad Flubacher KC3BHI -->
+<!-- - Rick Gilmore W3TM -->
+<!-- - Gene Moore KM4AJ -->
 
 ## Publicity {#pub-comm}
 
-- Rick Gilmore W3TM
-- Gene Moore KM3AJ
-- Brad Flubacher KC3BHI
-- Tom Majewski WA3TM
-  - Called in to radio show
+- TBD
 
 ## Food & Drink {#food-comm}
 
-- Dan Muthler K9SDW
-- Rick Gilmore W3TM
-- Greg Miller K3GEM
-  - Sandwich tray pickup Saturday 11:30; ice
+- TBD
 
 ## Ed Activity {#ed-comm}
 
-- Woody Brem K3YV
-- Dan Muthler K9SDW
-- Brad Flubacher KC3BHI
+- TBD
 
 ## Set-up/Clean-up/Equipment {#set-up-comm}
 
-- Mike Coslo N3LI
-- Dan Muthler K9SDW
-- Brett Saylor W3SWL
-- Gene Moore KM3AJ
-- Brad Flubacher KC3BHI
-- Rick Gilmore W3TM
-- Mark Wharton K0LO
+- TBD

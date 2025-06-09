@@ -10,15 +10,13 @@ This document provides a list of the material items we need for Field Day.
 
 - [x] ICOM IC-7610.
 - [x] FlexRadio Flex 6400M. 
-- [ ] 2x Morse key/paddles.
-  - [ ] NARC has
-  - [ ] Borrow one
+- [x] 2x Morse key/paddles.
 
 ### Computers
 
-- [X] 2x HP all-in-ones. 
-- [X] 2x USB cables. 
-- [X] 2x wireless keyboards & mice. 
+- [x] 2x HP all-in-ones. 
+- [x] 2x USB cables. 
+- [x] 2x wireless keyboards & mice. 
 <!-- - [ ] 2x mousepads. -->
 
 ### Antennas
@@ -52,102 +50,101 @@ This document provides a list of the material items we need for Field Day.
 
 ### Cables
 
-- Use existing feedlines, except
-  - New feedline for EFHW
+- Use existing feedlines
 
-## Gear for field/portable station
+<!-- ## Gear for field/portable station -->
 
-W3TM finds the following acronym extremely useful for planning portable operations: SPARC-EY ('sparky').
+<!-- W3TM finds the following acronym extremely useful for planning portable operations: SPARC-EY ('sparky'). -->
 
-- **S**upport
-  - [ ] SotaBeams 10m mast. W3TM
-  - [ ] Drive on flagpole/mast mount. W3TM
-  - [ ] Military mast (5) + tripod. W3TM
-- **P**ower
-  - [ ] Solar panels. W3TM
-  - [ ] Charge controller. W3TM
-  - [ ] 40 Ah $LiFePO_3$ battery. W3TM
-  - [ ] 30 Ah $LiFePO_3$ battery. W3TM
-  - [ ] 40 Ah battery with 30O W pure sinewave inverter. KM4AJ
-  - [ ] Solar panel. KM4AJ
-- **A**ntennas
-  - [ ] Chameleon EMCOMM II dipole. K9SDW
-  - [ ] 40m/20m SotaBeams linked dipole. W3TM
-  - [ ] 40m-10m EFHW. W3TM
-  - [ ] 6m Moxon. W3SWL
-  - [ ] 2m/70cm eggbeaters (optional satellite). W3TM
-  - [ ] J-Pole 2m/70cm. KM4AJ
-- **R**adio/rig
-  - [ ] FT-991a. K9SDW
-  - [ ] ~~FT-891 (backup HF). W3TM~~
-  - [ ] IC-7100 VHF/UHF. W3SWL
-  - [ ] IC-7100 KM4AJ.
-  - [ ] IC-9700 (optional satellite). W3TM
-- **C**onnector(s)
-  - [ ] Coax
-    - [ ] 2x 50' LMR-400 (optional satellite). W3TM
-  - [ ] Adapters
-  - [ ] USB cables
-  - [ ] Network cables
-  - [ ] Power cabling and power strips. K9SDW
-- **-**
-- **E**xtra(s)
-  - [ ] Logging PC, keyboard, mouse. K9SDW
-      - [ ] AC Log Field Day logger loaded
-      - [ ] WSJT-X loaded and configured for AC Log
-      - [ ] fldigi loaded and configured for AC Log
-  - [ ] PC for optional satellite station. W3TM
-  - [ ] S.A.T for optional satellite station. W3TM
-- **Y**ou
-  - [ ] S.A.T for optional satellite station. W3TM
-  - [ ] Pop-up tent. W3TM
-  - [ ] Second pop-up tent. K9SDW
-  - [ ] 4 ft table. W3TM
-  - [ ] 6 ft table. K9SDW
-  - [ ] Chairs. K9SDW
-  - [ ] Public info table supplies. W3TM.
-    - [ ] Handouts/brochures
-    - [ ] Sign-in/up sheets
-    - [ ] QSL cards. W3TM
-  - [ ] Comfort
-    - [ ] Snacks
-    - [ ] Drinks
-    - [ ] Hand sanitizer
+<!-- - **S**upport -->
+<!--   - [ ] SotaBeams 10m mast. W3TM -->
+<!--   - [ ] Drive on flagpole/mast mount. W3TM -->
+<!--   - [ ] Military mast (5) + tripod. W3TM -->
+<!-- - **P**ower -->
+<!--   - [ ] Solar panels. W3TM -->
+<!--   - [ ] Charge controller. W3TM -->
+<!--   - [ ] 40 Ah $LiFePO_3$ battery. W3TM -->
+<!--   - [ ] 30 Ah $LiFePO_3$ battery. W3TM -->
+<!--   - [ ] 40 Ah battery with 30O W pure sinewave inverter. KM4AJ -->
+<!--   - [ ] Solar panel. KM4AJ -->
+<!-- - **A**ntennas -->
+<!--   - [ ] Chameleon EMCOMM II dipole. K9SDW -->
+<!--   - [ ] 40m/20m SotaBeams linked dipole. W3TM -->
+<!--   - [ ] 40m-10m EFHW. W3TM -->
+<!--   - [ ] 6m Moxon. W3SWL -->
+<!--   - [ ] 2m/70cm eggbeaters (optional satellite). W3TM -->
+<!--   - [ ] J-Pole 2m/70cm. KM4AJ -->
+<!-- - **R**adio/rig -->
+<!--   - [ ] FT-991a. K9SDW -->
+<!--   - [ ] ~~FT-891 (backup HF). W3TM~~ -->
+<!--   - [ ] IC-7100 VHF/UHF. W3SWL -->
+<!--   - [ ] IC-7100 KM4AJ. -->
+<!--   - [ ] IC-9700 (optional satellite). W3TM -->
+<!-- - **C**onnector(s) -->
+<!--   - [ ] Coax -->
+<!--     - [ ] 2x 50' LMR-400 (optional satellite). W3TM -->
+<!--   - [ ] Adapters -->
+<!--   - [ ] USB cables -->
+<!--   - [ ] Network cables -->
+<!--   - [ ] Power cabling and power strips. K9SDW -->
+<!-- - **-** -->
+<!-- - **E**xtra(s) -->
+<!--   - [ ] Logging PC, keyboard, mouse. K9SDW -->
+<!--       - [ ] AC Log Field Day logger loaded -->
+<!--       - [ ] WSJT-X loaded and configured for AC Log -->
+<!--       - [ ] fldigi loaded and configured for AC Log -->
+<!--   - [ ] PC for optional satellite station. W3TM -->
+<!--   - [ ] S.A.T for optional satellite station. W3TM -->
+<!-- - **Y**ou -->
+<!--   - [ ] S.A.T for optional satellite station. W3TM -->
+<!--   - [ ] Pop-up tent. W3TM -->
+<!--   - [ ] Second pop-up tent. K9SDW -->
+<!--   - [ ] 4 ft table. W3TM -->
+<!--   - [ ] 6 ft table. K9SDW -->
+<!--   - [ ] Chairs. K9SDW -->
+<!--   - [ ] Public info table supplies. W3TM. -->
+<!--     - [ ] Handouts/brochures -->
+<!--     - [ ] Sign-in/up sheets -->
+<!--     - [ ] QSL cards. W3TM -->
+<!--   - [ ] Comfort -->
+<!--     - [ ] Snacks -->
+<!--     - [ ] Drinks -->
+<!--     - [ ] Hand sanitizer -->
 
 ## Supplies
 
 ### Hygiene
 
-- [x] Garbage bags.
-- [x] Paper towels. 
-- [x] Hand sanitizer.
-- [x] Toilet paper. K9SDW bought
-- [x] Spray cleaner.
+- [ ] Garbage bags.
+- [ ] Paper towels. 
+- [ ] Hand sanitizer.
+- [ ] Toilet paper.
+- [ ] Spray cleaner.
 
 ### Safety/comfort
 
 - [ ] Bug spray.
-- [x] First aid kit.
+- [ ] First aid kit.
 
 ### Writing
 
-- [x] Legal pads.  
-- [x] Pens.
-- [x] Name tags.
-- [x] Clipboards.
+- [ ] Legal pads.  
+- [ ] Pens.
+- [ ] Name tags.
+- [ ] Clipboards.
 
 ## Nourishment
 
 ### Supplies
 
-- [x] Plates. 
-- [x] Napkins.
-- [x] Utensils.
-- [x] Cups (hot & cold). 
-- [x] Cooler.
+- [ ] Plates. 
+- [ ] Napkins.
+- [ ] Utensils.
+- [ ] Cups (hot & cold). 
+- [ ] Cooler.
 
 ### Drinks
 
-- [x] Water. K9SDW
-- [x] Soft drinks. K9SDW
-- [x] Coffee. K9SDW
+- [ ] Water.
+- [ ] Soft drinks.
+- [ ] Coffee.

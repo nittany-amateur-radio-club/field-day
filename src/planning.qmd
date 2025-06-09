@@ -7,8 +7,8 @@ format:
     toc: true
 params:
   update_data: true
-  survey_data_fn: narc-fd-2024-survey.csv
-  survey_sheet_fn: "Field Day 2024 volunteer sign-up (Responses)"
+  survey_data_fn: narc-fd-2025-survey.csv
+  survey_sheet_fn: "Field Day 2025 volunteer sign-up (Responses)"
 ---
 
 ## About
@@ -94,7 +94,7 @@ survey_resps <- survey_resps |>
     callsign = "Callsign",
     phone = "Phone",
     email = "Email",
-    attend = "Do you plan to attend NARC's Field Day 2024?",
+    attend = "Do you plan to attend NARC's Field Day 2025?",
     operate = "Do you plan to operate on Field Day?",
     overnight = "Are you a night owl and want to operate late into the night or camp out to snag some rare DX?",
 help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",
@@ -114,9 +114,10 @@ survey_resps <- survey_resps |>
   dplyr::mutate(
     attend = dplyr::recode(
       attend,
-        'Yes, on Saturday June 22' = "sat",
-        'Yes, on Sunday June 23' = "sun",
-        'Yes, on Saturday June 22, Yes, on Sunday June 23' = "sat_sun",
+        'Yes, on Saturday June 28' = "sat",
+        'Yes, on Sunday June 29' = "sun",
+        'Yes, on Saturday June 28, Yes, on Sunday June 29' = "sat_sun",
+        'Not sure yet' = "not_sure",
         'Not this year' = "no"
     )
   ) |>
@@ -512,7 +513,7 @@ volunteers |>
 
 ## Observations
 
-- We have about half a dozen attendees who want to operate on Saturday and a larger group on Sunday.
-- W3TM will have some company (W3EDP and KM4LAO) late at night or overnight.
-- We have a number of operators interested in digital (FT8, fldigi, and JS8Call) modes.
-- We should have 5-10 helpers to assist with strike/tear-down.
+<!-- - We have about half a dozen attendees who want to operate on Saturday and a larger group on Sunday. -->
+<!-- - W3TM will have some company (W3EDP and KM4LAO) late at night or overnight. -->
+<!-- - We have a number of operators interested in digital (FT8, fldigi, and JS8Call) modes. -->
+<!-- - We should have 5-10 helpers to assist with strike/tear-down. -->

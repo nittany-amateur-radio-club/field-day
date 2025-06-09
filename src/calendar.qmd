@@ -6,91 +6,62 @@ title: "Calendar"
 
 This page describes some of the specific actions that need to be taken leading up to and on Field Day.
 
-## Spring 2024
+## Spring 2025
 
-- [x] Add info to ARRL Field Day website. W3TM
+- [] Add info to ARRL Field Day website. W3TM
 
 ## May 2024
 
-- [ ] Create Field Day budget.
-    - [ ] Food & drink budget.
-    - [ ] Porta-Potty estimate.
-    - [ ] Equipment estimate.
-    - [ ] PR and supply estimate.
-- [ ] ~~Secure NARC BoD budget approval. W3TM & K3YV~~.
+<!-- - [ ] Create Field Day budget. -->
+<!--     - [ ] Food & drink budget. -->
+<!--     - [ ] Porta-Potty estimate. -->
+<!--     - [ ] Equipment estimate. -->
+<!--     - [ ] PR and supply estimate. -->
+<!-- - [ ] Secure NARC BoD budget approval. W3TM & K3YV. -->
 
 ## June 2024
 
 ### 4 weeks out
 
-- [x] Add event to web-based activity calendars.
-    - [x] WSPU activity calendar. KC3BHI.
-    - [x] State College dot com calendar.
+- [ ] Add event to web-based activity calendars.
+    - [ ] WSPU activity calendar.
+    - [ ] State College dot com calendar.
 - [ ] Send invitations to other groups
-    - [x] Pack 67 Cub Scouts. W3TM per email with Marissa Vicere.
+    - [ ] Pack 67 Cub Scouts. W3TM per email with Marissa Vicere.
     - [ ] Central PA Observers. W3TM.
-- [x] Draft and send invitations to elected officials. W3TM.
-- [x] Draft and send invitation to served agency official W3TM.
-- [x] Schedule Porta-Potty Cleaning. K3CWP
-- [x] Distribute [survey](planning.qmd). W3TM
+- [ ] Draft and send invitations to elected officials. W3TM.
+- [ ] Draft and send invitation to served agency official W3TM.
+- [x] ~~Schedule Porta-Potty Cleaning. K3CWP~~
+- [ ] Distribute [survey](planning.qmd). W3TM
 
 ### 3 weeks out 
 
 
 - [ ] Draft press release and send to media outlets. H3LP.
-- [x] Evaluate survey results; assign volunteers to teams. W3TM
-- [x] Send emails to specific volunteer teams. W3TM:
-    - [x] Food. W3TM; K3GEM
-    - [x] Field Site. W3TM; W3EDP; K9SDW; W3SWL
-    - [x] Ed Activity. K3YV; K9SDW
-    - [x] PR. W3TM; KM3AJ.
+- [ ] Evaluate survey results; assign volunteers to teams. W3TM
+- [ ] Send emails to specific volunteer teams. W3TM:
+    - [ ] Food. H3LP
+    - [ ] Ed Activity. H3LP
+    - [ ] PR. H3LP
 
 ### 2 weeks out
 
-- [x] Test 40m dipole. W3TM & K3YV 2024-06-15
-    - If can't tune, ~~install 40m/20m dipole~~
-- [x] Test 80m dipoles. W3TM & K3YV 2024-06-15
-    - If can't tune, 
-    - [x] install 80-10 EFHW in temporary location. W3TM, K3YV, W3EDP 2024-06-15.
-      - [x] Order UHF barrel connector and RG-213 coax to connect with shack interior. W3TM 2024-06-17.
-      - [ ] Install barrel connector, coax connection, and label coax.
-- [x] Install 900 Mhz wireless connection to NARC network. K9SDW 2024-06-15.
-- [ ] Test networked logging. N3LI 2024-06-15.
-    - [x] Phone
-    - [x] CW
-    - [x] WSJT-X
-    - [x] fldigi
+- [ ] Test networked logging. N3LI
+    - [ ] Phone
+    - [ ] CW
+    - [ ] WSJT-X
+    - [ ] fldigi
     - [ ] VarAC
     - [ ] JS8Call
-- [x] Test wifi from Jo Hays Vista. K9SDW & K0LO 2024-06-15
-    - [x] If it connects, test networked logging. K9SDW & N3LI 2024-06-15.
-        - [x] Phone
-        - [ ] CW
-        - [x] WSJT-X
-        - [x] fldigi
-        - [ ] VarAC
-        - [ ] JS8Call
-    - [ ] ~~If no wifi, set-up and test N3FJP logging locally~~
-        - [ ] Phone
-        - [ ] CW
-        - [ ] WSJT-X
-        - [ ] VarAC
-        - [ ] JS8Call
 
 ### Week of event 
 
-- [x] Confirm Porta-Potty cleaning. K3CWP.
-  - [ ] Check about cleaning date.
-- [x] Confirm mowing. W3TM. 2024-06-15.
-  - [ ] ~~If not mowed by Wed 6/19, let K9SDW know~~
-  - [ ] W3TM Confirmed mowing for Thu 6/20.
+- [x] Confirm mowing. W3TM.
+  - [ ] If not mowed by Wed 6/19, let K9SDW know
 - [ ] Order food
-  - [x] Order lunch for Saturday from Subway
-    - Pickup 11:30 am at South Atherton Subway. Pay on pickup. Order under Rick's name.
-  - [ ] Dinner Saturday from Papa Johns
+  - [] Order lunch for Saturday from Subway
+  - [ ] Dinner Saturday from TBD
   - [ ] Lunch Sunday from TBD
-    - Bagels & fixins from Toasted
-    - Plus leftovers
 - [ ] Buy food and drink
   - [ ] Water & soda
   - [ ] Coffee
@@ -99,23 +70,23 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Chips
   - [ ] Cookies
   - [ ] Fruit
-- [x] Assess supplies
-  - [x] Paper goods
-  - [x] Cups
-  - [x] Utencils
-  - [x] Napkins
-  - [x] Paper towels
-  - [x] Trash bags
+- [ ] Assess supplies
+  - [ ] Paper goods
+  - [ ] Cups
+  - [ ] Utencils
+  - [ ] Napkins
+  - [ ] Paper towels
+  - [ ] Trash bags
 - Buy needed supplies
-  - [x] Septic-safe toilet paper
+  - [ ] Septic-safe toilet paper
 - [ ] Clean-up station interior
   - [ ] Dust or vacuum all surfaces
   - [ ] Sweep, vacuum, & mop
   - [ ] Move excess gear from shack to shed
   - [ ] Clean cooler
-- [x] Set Yagi antenna orientations
-  - [x] 80 ft tower to the west. W3TM 2024-06-16.
-  - [x] 60 ft tower to the south. W3TM 2024-06-16.
+- [ ] Set Yagi antenna orientations
+  - [ ] 80 ft tower to the west. W3TM.
+  - [ ] 60 ft tower to the south. W3TM.
 - [ ] Add Field Day indicator to W3TM-11 APRS I-Gate. W3TM
 
 ### Field Day Weekend (June 21 - 23)
@@ -125,10 +96,8 @@ This page describes some of the specific actions that need to be taken leading u
 #### Saturday, June 22
 
 - [ ] Buy ice.
-  - [ ] K3GEM
-  - [ ] W3TM
 - [ ] Set up food & drink. [Set-up Committee](people.qmd#set-up-comm); [Food Committee](people.qmd#food.com).
-    - [ ] Pick up Subway. K3GEM
+    - [ ] Pick up Subway.
 - [ ] Set up info table. [Info Table Committee](people.qmd#field-comm)
 
 ::: {.callout-warning}
