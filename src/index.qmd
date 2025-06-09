@@ -1,5 +1,5 @@
 ---
-title: "Field Day 2024"
+title: "Field Day"
 number-sections: true
 ---
 
@@ -11,7 +11,7 @@ Please see separate pages that describe what Field Day is [about](about.qmd), th
 ![Antennas at sunset.](include/img/field-day-sunset-antenna-640-480.jpg){fig-align="center"}
 
 ::: {.callout-note}
-Field Day 2024 is on Saturday, June 28, 2025 to Sunday, June 29, 2025. 
+Field Day 2025 is on Saturday, June 28, 2025 to Sunday, June 29, 2025. 
 
 The event runs for 24 hours beginning at 2:00 PM EDT (1800 UTC) on Saturday to 2:00 PM EDT (1800 UTC) on Sunday.
 :::

@@ -106,6 +106,17 @@ w3ya |>
   geom_line()
 ```
 
+```{r}
+#| label: fig-bonus-proportionby-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day bonus points as a proportion of total score 2021-24"
+w3ya |>
+  dplyr::mutate(bonus_prop = bonus/score) |>
+  ggplot() +
+  aes(x = year, y = bonus_prop) +
+  geom_point() +
+  geom_line()
+```
+
 ### Attendees, operators, and volunteers
 
 ```{r}
