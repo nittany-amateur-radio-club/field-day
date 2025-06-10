@@ -22,10 +22,23 @@ This page provides some data about the club's activities and results on Field Da
 #| label: gather-priors
 #| warning: false
 #| message: false
-fd_2024 <- readr::read_csv("https://contests.arrl.org/ContestResults/2024/field-day-2024.csv", show_col_types = FALSE)
-fd_2023 <- readr::read_csv("https://contests.arrl.org/ContestResults/2023/field-day-2023.csv", show_col_types = FALSE)
-fd_2022 <- readr::read_csv("https://contests.arrl.org/ContestResults/2022/field-day-2022.csv", show_col_types = FALSE)
-fd_2021 <- readr::read_csv("https://contests.arrl.org/ContestResults/2021/field-day-2021.csv", show_col_types = FALSE)
+fd_2024 <- readr::read_csv("csv/field-day-2024.csv", show_col_types = FALSE)
+fd_2023 <- readr::read_csv("csv/field-day-2023.csv", show_col_types = FALSE)
+fd_2022 <- readr::read_csv("csv/field-day-2022.csv", show_col_types = FALSE)
+fd_2021 <- readr::read_csv("csv/field-day-2021.csv", show_col_types = FALSE)
+
+fd_2020 <- readr::read_csv("csv/field-day-2020.csv", show_col_types = FALSE)
+fd_2019 <- readr::read_csv("csv/field-day-2019.csv", show_col_types = FALSE)
+fd_2018 <- readr::read_csv("csv/field-day-2018.csv", show_col_types = FALSE)
+fd_2017 <- readr::read_csv("csv/field-day-2017.csv", show_col_types = FALSE)
+fd_2016 <- readr::read_csv("csv/field-day-2016.csv", show_col_types = FALSE)
+fd_2015 <- readr::read_csv("csv/field-day-2015.csv", show_col_types = FALSE)
+fd_2014 <- readr::read_csv("csv/field-day-2014.csv", show_col_types = FALSE)
+fd_2013 <- readr::read_csv("csv/field-day-2013.csv", show_col_types = FALSE)
+fd_2012 <- readr::read_csv("csv/field-day-2012.csv", show_col_types = FALSE)
+fd_2011 <- readr::read_csv("csv/field-day-2011.csv", show_col_types = FALSE)
+fd_2010 <- readr::read_csv("csv/field-day-2010.csv", show_col_types = FALSE)
+
 ```
 
 ```{r}
@@ -50,7 +63,99 @@ w3ya_21 <- fd_2021 |>
   dplyr::rename(Call = CALL, `Power Multiplier` = Pwr_Mult, 
                 `FINAL SCORE` = Score)
 
-w3ya <- purrr::list_rbind(list(w3ya_24, w3ya_23, w3ya_22, w3ya_21))
+w3ya_20 <- fd_2020 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2020) |>
+  dplyr::rename(Call = CALL, `Power Multiplier` = `Pwr- Mult`, 
+                `FINAL SCORE` = SCORE,
+                `Transmitters` = `Xmtrs`)
+
+w3ya_19 <- fd_2019 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2019) |>
+  dplyr::rename(Call = CALL,
+                `Transmitters` = `Xmtrs`)
+
+w3ya_18 <- fd_2018 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2018) |>
+  dplyr::rename(Call = CALL,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`,
+                `Transmitters` = `Number of Transmitters`)
+
+w3ya_17 <- fd_2017 |>
+  dplyr::filter(`CALL (does not include checklogs)` == "W3YA") |>
+  dplyr::mutate(year = 2017) |>
+  dplyr::rename(Call = `CALL (does not include checklogs)`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`,
+                `Transmitters` = `Number of Transmitters`)
+
+w3ya_16 <- fd_2016 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2016) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`,
+                `Transmitters` = `Number of Transmitters`)
+
+w3ya_15 <- fd_2015 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2015) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`)
+
+w3ya_14 <- fd_2014 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2014) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`)
+
+w3ya_13 <- fd_2013 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2013) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`)
+
+w3ya_12 <- fd_2012 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2012) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`)
+
+w3ya_11 <- fd_2011 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2011) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`)
+
+w3ya_10 <- fd_2010 |>
+  dplyr::filter(CALL == "W3YA") |>
+  dplyr::mutate(year = 2010) |>
+  dplyr::rename(Call = `CALL`,
+                `TOTAL QSOs` = `TOTAL QSOS`,
+                `Participants` = `Number of Participants`)
+
+w3ya <- purrr::list_rbind(list(w3ya_24, 
+                               w3ya_23, 
+                               w3ya_22, 
+                               w3ya_21, 
+                               w3ya_19,
+                               w3ya_18,
+                               w3ya_17,
+                               w3ya_16,
+                               w3ya_15,
+                               w3ya_14,
+                               w3ya_13,
+                               w3ya_12,
+                               w3ya_11,
+                               w3ya_10))
 
 w3ya <- w3ya |>
   dplyr::select(-c(`GOTA CALL`, `GOTA Call`, 
@@ -60,7 +165,9 @@ w3ya <- w3ya |>
                 dig_qsos = `TOTAL DIGITAL QSOs`,
                 ph_qsos = `TOTAL PHONE QSOs`,
                 tot_qsos = `TOTAL QSOs`,
-                bonus = `BONUS POINTS`)
+                bonus = `BONUS POINTS`,
+                n_particip = `Participants`,
+                n_xmtrs = `Transmitters`)
 ```
 
 ### Score
@@ -86,8 +193,19 @@ qsos <- w3ya |>
 
 ```{r}
 #| label: fig-qsos-by-year
-#| fig-cap: "Nittany ARC (W3YA) Field Day QSOs by mode 2021-24"
+#| fig-cap: "Nittany ARC (W3YA) Field Day QSOs by mode 2010-24"
 qsos |>
+  ggplot() +
+  aes(x = year, y = n_qsos, color = type) +
+  geom_point() +
+  geom_line() 
+```
+
+```{r}
+#| label: fig-qsos-by-year-recent
+#| fig-cap: "Nittany ARC (W3YA) Field Day QSOs by mode 2022-24"
+qsos |>
+  dplyr::filter(year >= 2021) |>
   ggplot() +
   aes(x = year, y = n_qsos, color = type) +
   geom_point() +
@@ -107,14 +225,42 @@ w3ya |>
 ```
 
 ```{r}
-#| label: fig-bonus-proportionby-year
-#| fig-cap: "Nittany ARC (W3YA) Field Day bonus points as a proportion of total score 2021-24"
+#| label: fig-bonus-proportion-by-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day bonus points as a proportion of total score 2016-24"
 w3ya |>
+  dplyr::filter(!is.na(bonus)) |>
   dplyr::mutate(bonus_prop = bonus/score) |>
   ggplot() +
   aes(x = year, y = bonus_prop) +
   geom_point() +
   geom_line()
+```
+
+### Transmitters
+
+```{r}
+#| label: fig-transmitters-by-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day transmitters 2016-24"
+w3ya |>
+  dplyr::filter(!is.na(n_xmtrs)) |>
+  ggplot() +
+  aes(x = year, y = n_xmtrs) +
+  geom_point() +
+  geom_line() +
+  ylim(0, 5)
+```
+
+### Participants
+
+```{r}
+#| label: fig-particip-by-year
+#| fig-cap: "Nittany ARC (W3YA) Field Day participants by year"
+w3ya |>
+  dplyr::filter(!is.na(n_particip)) |>
+  ggplot() +
+  aes(x = year, y = n_particip) +
+  geom_point() +
+  geom_smooth(se = FALSE)
 ```
 
 ### Attendees, operators, and volunteers

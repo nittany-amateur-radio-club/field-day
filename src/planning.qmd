@@ -7,6 +7,7 @@ format:
     toc: true
 params:
   update_data: true
+  data_path: include/csv
   survey_data_fn: narc-fd-2025-survey.csv
   survey_sheet_fn: "Field Day 2025 volunteer sign-up (Responses)"
 ---
