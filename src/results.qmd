@@ -218,6 +218,7 @@ qsos |>
 #| label: fig-bonus-by-year
 #| fig-cap: "Nittany ARC (W3YA) Field Day bonus points 2021-24"
 w3ya |>
+  dplyr::filter(!is.na(bonus)) |>
   ggplot() +
   aes(x = year, y = bonus) +
   geom_point() +
