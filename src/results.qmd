@@ -6,17 +6,13 @@ params:
   survey_data_2024_fn: csv/clean_narc-fd-2024-survey.csv
 ---
 
-::: {.callout-warning}
-## Under construction
-
-Since Field Day is still a few weeks away, this page is under construction.
-:::
-
 ## About
 
 This page provides some data about the club's activities and results on Field Day.
 
 ## Prior years
+
+ARRL has made CSVs of many prior year's results available to anyone.
 
 ```{r}
 #| label: gather-priors
@@ -40,6 +36,8 @@ fd_2011 <- readr::read_csv("csv/field-day-2011.csv", show_col_types = FALSE)
 fd_2010 <- readr::read_csv("csv/field-day-2010.csv", show_col_types = FALSE)
 
 ```
+
+These require some tidying so that they can be combined.
 
 ```{r}
 #| label: filter-merge
@@ -174,13 +172,14 @@ w3ya <- w3ya |>
 
 ```{r}
 #| label: fig-score-by-year
-#| fig-cap: "Nittany ARC (W3YA) Field Day score 2021-24"
+#| fig-cap: "Nittany ARC (W3YA) Field Day score 2010-24"
 library(ggplot2)
 w3ya |>
   ggplot() +
   aes(x = year, y = score) +
   geom_point() +
-  geom_line()
+  geom_line() +
+  ylim(0, 9000)
 ```
 
 ### QSOs
@@ -195,6 +194,7 @@ qsos <- w3ya |>
 #| label: fig-qsos-by-year
 #| fig-cap: "Nittany ARC (W3YA) Field Day QSOs by mode 2010-24"
 qsos |>
+  dplyr::filter(!is.na(n_qsos)) |>
   ggplot() +
   aes(x = year, y = n_qsos, color = type) +
   geom_point() +
@@ -234,7 +234,8 @@ w3ya |>
   ggplot() +
   aes(x = year, y = bonus_prop) +
   geom_point() +
-  geom_line()
+  geom_line() +
+  ylab("Bonus points as a proportion of total points")
 ```
 
 ### Transmitters
@@ -261,10 +262,11 @@ w3ya |>
   ggplot() +
   aes(x = year, y = n_particip) +
   geom_point() +
-  geom_smooth(se = FALSE)
+  geom_smooth(se = FALSE) +
+  ylim(0,60)
 ```
 
-### Attendees, operators, and volunteers
+### 2024 attendees, operators, and volunteers
 
 ```{r}
 library(readr)
