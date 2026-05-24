@@ -1,0 +1,108 @@
+# Recent Years
+
+## About
+
+This page summarizes data about club member participation in 2024-25.
+
+## Setup
+
+```{r}
+library(readr)
+```
+
+## Gather data
+
+```{r}
+fd_24 <- readr::read_csv(
+  "csv/narc-fd-2024-participation.csv",
+  show_col_types = FALSE,
+  col_types = cols(
+    callsign = "c",
+    attended_sat = "l",
+    attended_sun = "l",
+    operated_fd = "l",
+    helped_out = "l"
+  )
+)
+
+fd_24 <- fd_24 |>
+  dplyr::mutate(attended = attended_sat | attended_sun)
+```
+
+```{r}
+#| label: load-2025-data
+fd_25 <- readr::read_csv(
+  "csv/narc-field-day-2025-participation.csv",
+  show_col_types = FALSE,
+  col_types = cols(
+    callsign = "c",
+    member = "l",
+    operated_fd = "l",
+    setup_cleanup = "l",
+    late_overnight = "l",
+    pr = "l",
+    food_drink = "l",
+    education = "l",
+    attended_sat = "l",
+    attended_sun = "l",
+    operated_fd = "l"
+  )
+)
+
+fd_25 <- fd_25 |>
+  dplyr::mutate(helped_out = setup_cleanup | pr | food_drink | education )
+```
+
+```{r}
+fd_24 <- fd_24 |>
+  dplyr::select(callsign, attended_sat, attended_sun, operated_fd, helped_out) |>
+  dplyr::mutate(year = 2024,
+                callsign = toupper(callsign))
+
+fd_25 <- fd_25 |>
+  dplyr::select(callsign, attended_sat, attended_sun, operated_fd, helped_out) |>
+  dplyr::mutate(year = 2025,
+                callsign = toupper(callsign))
+
+fd_24_25 <- rbind(fd_24, fd_25) |>
+  dplyr::mutate(attended = attended_sat | attended_sun)
+
+fd_24_25_ns <- fd_24_25 |>
+  dplyr::group_by(year) |>
+  dplyr::summarise(n_attended = sum(attended),
+                   n_operated = sum(operated_fd),
+                   n_helped = sum(helped_out, na.rm = TRUE))
+```
+
+## Summarize 
+
+::: {.panel-tabset}
+
+### Attendees
+
+```{r}
+fd_24_25_ns |>
+  dplyr::mutate(year = forcats::as_factor(year)) |>
+  ggplot() +
+  geom_col(aes(x = year, y = n_attended, fill = year))
+```
+
+### Operators
+
+```{r}
+fd_24_25_ns |>
+  dplyr::mutate(year = forcats::as_factor(year)) |>
+  ggplot() +
+  geom_col(aes(x = year, y = n_operated, fill = year))
+```
+
+### Volunteers
+
+```{r}
+fd_24_25_ns |>
+  dplyr::mutate(year = forcats::as_factor(year)) |>
+  ggplot() +
+  geom_col(aes(x = year, y = n_helped, fill = year))
+```
+
+:::

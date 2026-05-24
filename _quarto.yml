@@ -1,0 +1,43 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "NARC Field Day"
+  author: "Rick Gilmore, W3TM"
+  chapters:
+    - index.qmd
+    - about.qmd
+    - part: Results
+      chapters:
+      - results.qmd
+      - recent-years.qmd
+    - part: "Field Day 2026"
+      chapters:
+      - calendar.qmd
+      - stations.qmd
+      - people.qmd
+      - things.qmd
+      # - planning.qmd
+  repo-url: https://github.com/nittany-amateur-radio-club/field-day/
+  repo-actions: [edit, issue]
+  page-footer:
+    left:
+      - text: "© 2026 by Rick Gilmore under CC BY 4.0"
+        href: https://creativecommons.org/licenses/by/4.0/
+    center: 
+      - text: "Built with Quarto"
+        href: https://quarto.org   
+
+format:
+  html:
+    theme: cosmo
+    css: include/css/styles.css
+    number-sections: false
+
+knitr:
+  opts_chunk:
+    fig.path: include/fig/ 
+
+editor: source
+

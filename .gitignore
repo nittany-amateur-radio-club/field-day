@@ -6,3 +6,6 @@
 field-day.Rproj
 .DS_Store
 csv/
+.positai
+
+**/*.quarto_ipynb

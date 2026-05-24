@@ -1,0 +1,114 @@
+---
+title: "Calendar"
+---
+
+## About
+
+This page describes some of the specific actions that need to be taken leading up to and on Field Day.
+
+## May 2026
+
+- [ ] Add info to ARRL Field Day website.
+- [ ] Create Field Day budget.
+    - [ ] Food & drink budget.
+    - [ ] Porta-Potty estimate.
+    - [ ] Equipment estimate.
+    - [ ] PR and supply estimate.
+- [ ] Secure NARC BoD budget approval. W3TM & K3YV.
+
+## June 2024
+
+### 4 weeks out
+
+- [ ] Add event to web-based activity calendars.
+    - [ ] WSPU activity calendar.
+    - [ ] State College dot com calendar.
+- [ ] Send invitations to other groups
+    - [ ] Pack 67 Cub Scouts. 
+    - [ ] Central PA Observers. 
+- [ ] Draft and send invitations to elected officials. 
+- [ ] Draft and send invitation to served agency official
+- [ ] Schedule Porta-Potty Cleaning.
+- [ ] Distribute [survey](planning.qmd).
+
+### 3 weeks out 
+
+
+- [ ] Draft press release and send to media outlets. H3LP.
+- [ ] Evaluate survey results; assign volunteers to teams.
+- [ ] Send emails to specific volunteer teams.
+    - [ ] Food. H3LP
+    - [ ] Ed Activity. H3LP
+    - [ ] PR. H3LP
+
+### 2 weeks out
+
+- [ ] Test networked logging. 
+    - [ ] Phone
+    - [ ] CW
+    - [ ] WSJT-X
+    - [ ] fldigi
+    - [ ] VarAC
+    - [ ] JS8Call
+
+### Week of event 
+
+- [ ] Order food
+  - [] Order lunch for Saturday from Subway
+  - [ ] Dinner Saturday from TBD
+  - [ ] Lunch Sunday from TBD
+- [ ] Buy food and drink
+  - [ ] Water & soda
+  - [ ] Coffee
+    - [ ] Bag/ground
+    - [ ] Pods
+  - [ ] Chips
+  - [ ] Cookies
+  - [ ] Fruit
+- [ ] Assess supplies
+  - [ ] Paper goods
+  - [ ] Cups
+  - [ ] Utencils
+  - [ ] Napkins
+  - [ ] Paper towels
+  - [ ] Trash bags
+- Buy needed supplies
+  - [ ] Septic-safe toilet paper
+- [ ] Clean-up station interior
+  - [ ] Dust or vacuum all surfaces
+  - [ ] Sweep, vacuum, & mop
+  - [ ] Move excess gear from shack to shed
+  - [ ] Clean cooler
+- [ ] Add Field Day indicator to W3TM-10 APRS I-Gate.
+
+### Field Day Weekend (June 24 - 26)
+
+#### Friday, June 24
+
+#### Saturday, June 25
+
+- [ ] Buy ice.
+- [ ] Set up food & drink. [Set-up Committee](people.qmd#set-up-comm); [Food Committee](people.qmd#food.com).
+    - [ ] Pick up Subway.
+- [ ] Set up info table. [Info Table Committee](people.qmd#field-comm)
+
+::: {.callout-warning}
+**2:00 PM EDT (1800 UTC) Field Day begins**
+
+Staff Field Station/Info Table 2:00 pm - 5:00 pm. [Field Station Committee](people.qmd#field-comm)
+:::
+
+- [ ] Host educational activity. Time TBD. [Ed Committee](people.qmd#ed-comm)
+- [ ] Pick-up pizza. Time TBD. (people.qmd#food-comm)
+
+#### Sunday, June 26
+
+::: {.callout-warning}
+Staff Field Station/Info Table 11:00 am - 2:00 pm. [Field Station Committee](people.qmd#field-comm)
+
+**2:00 PM EDT (1800 UTC) Field Day ends**
+:::
+
+### Week after
+
+- [ ] Clean logs and submit to ARRL.
