@@ -8,20 +8,21 @@ This page describes some details about our Field Day stations.
 
 ## Class
 
-Based on the results of the [survey](planning.qmd#visualizing), we plan to operate three (2) transmitters from the clubhouse.
-Because we are operating from a fixed location on mains power, we are class D.
+Based on the results of the [survey](planning.qmd#visualizing), we plan to operate two (2) transmitters, one will be a Get on the Air (GOTA) station.
+We will operate class A..
 
-We will operate at 100 W or 500 W and use W3YA as our callsign.
+We will operate at 100 W and use W3YA as our callsign.
 
-## NARC Mountaintop
+## Radios
 
-Both NARC1 and NARC2 will be ready for use on Field Day.
+Our plan is to configure separate radios for phone, digital modes, and CW.
+Radios configured for CW and digital modes have some special characteristics that make it more difficult to switch in the field.
 
 ### NARC1
 
 - ICOM IC-7610 transceiver
-- HP All-in-one PC with 2nd Display
-- KPA-1500 amplifier/ATU
+- New mini-PC with external display
+- Halibut Electronics audio interface
 - ICOM SM-50 mic
 
 ### NARC2
@@ -32,7 +33,27 @@ Both NARC1 and NARC2 will be ready for use on Field Day.
 - Halibut Electronics audio interface
 - Inrad mic
 
-### Antennas
+The NARC2 Flex 6400 may not be the best field radio.
+The Flex is not familiar to most club members, and can pose challenges to configure properly.
 
-- 2x Mosley Triband Yagis, one pointed south, the other pointed west. These antennas will be for 20m, 15m, and 10m.
-- 1 80m-10m EFHW antenna. This antenna is primarily for 40m and 75m/80m operation.
+It may be more productive to bring a member's personal rig or purchase a radio for Field Day.
+
+## Filters
+
+The club owns bandpass filters for 75m/80m, 40m, 20m, 15m, and 10m.
+All radios will use bandpass filters on Field Day.
+
+## Antennas
+
+::: {.callout-note}
+## Work-in-progress
+The antenna plan is still under discussion.
+
+One possibility is to use W3TM's self-supporting 40m/75m NVIS antenna for 40m and 75m/80m.
+For 20m, 15m, and 10m, we'd use an end-fed-half-wave (EFHW) loaned by a member.
+
+W3TM, W3EDP, and K3YV have various masts, and tripods to enable Field Day attendees to erect antennas of their choosing.
+:::
+
+<!-- - 2x Mosley Triband Yagis, one pointed south, the other pointed west. These antennas will be for 20m, 15m, and 10m. -->
+<!-- - 1 80m-10m EFHW antenna. This antenna is primarily for 40m and 75m/80m operation. -->
