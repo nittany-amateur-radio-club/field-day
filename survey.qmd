@@ -1,28 +1,31 @@
 ---
-title: "Survey"
+title: "Member Survey"
 format:
   html:
     code-fold: true
     code-tools: true
     toc: true
 params:
-  update_data: true
+  update_data: false
   data_path: include/csv
-  survey_data_fn: narc-fd-2025-survey.csv
-  survey_sheet_fn: "Field Day 2025 volunteer sign-up (Responses)"
+  survey_data_fn: narc-fd-2026-survey.csv
+  survey_sheet_fn: "Field Day 2026 volunteer sign-up (Responses)"
+  survey_sheet_id: "15oLSzFPye2Cku6QkqsrxZ1c61SbjrDVrekQK0z55vTE"
 ---
 
 ## About
 
 This page documents some of the steps in our planning process.
 
-W3TM drafted and distributed on 2024-05-28 a member survey using a Google Form.
+W3TM drafted and distributed on <DATE> a member survey using a Google Form.
 Here are some of the preliminary results.
 
 ::: {.callout-note}
-
 To reveal the code that generates the following outputs, select the 'Show All Code' item from the '</> Code' dropdown menu at upper right.
+:::
 
+::: {.callout-important}
+Thank you to <hamqth.com> for providing a free and open callsign lookup API.
 :::
 
 ## Set-up
@@ -31,16 +34,29 @@ We source some packages to make calls to their functions more convenient.
 
 ```{r}
 library(ggplot2)
+library(tibble)
+library(dplyr)
 knitr::opts_chunk$set(tidy = "styler")
+```
+
+```{r}
+#| label: helper-functions
+#| 
+generate_callsign_url <- function(callsign="W3TM") {
+  assertthat::is.string(callsign)
+  paste0("<a href='https://www.hamqth.com/s.php?callsign=", callsign, "'>", callsign, "</a>")
+}
 ```
 
 ## Gathering
 
 The Google Form application saves the survey responses as a Google Sheet:
 
-https://docs.google.com/spreadsheets/d/1Rr2kPK16v0tG-c8dm03gl3jqBNqB_DGyQtVcCVmFadg/edit?resourcekey#gid=283208367
+https://docs.google.com/forms/d/e/1FAIpQLScAu-pfcYEfVoUwy_xHOlA3KDA3ZfFuiYYJRorVdLNXfahjSQ/viewform?usp=header
 
 ```{r}
+#| label: gather-data
+#| 
 if (!dir.exists('csv')) {
   message("Creating missing `csv/`.")
   dir.create("csv")
@@ -54,14 +70,13 @@ if (params$update_data) {
   options(gargle_oauth_email = Sys.getenv("GMAIL_ROG"))
   googledrive::drive_auth()
   
-  new_fn <- file.path("csv", paste0("_", params$survey_data_fn))
-  googledrive::drive_download(
-    params$survey_sheet_fn,
-    path = full_survey_data_fn,
-    type = "csv",
-    overwrite = TRUE
-  )
+  new_fn <- file.path("csv", paste0(params$survey_data_fn))
+  fd26 <- googlesheets4::gs4_find() |> dplyr::filter(stringr::str_detect(name, "Field Day 2026"))
+
+  fd_2026 <- googlesheets4::read_sheet(ss = fd26$id, sheet = "Form Responses 1")
+  x <- assertthat::assert_that(is_tibble(fd_2026))
   message("Data updated.")
+  readr::write_csv(fd_2026, file = new_fn)
 } else {
   if (!file.exists(full_survey_data_fn)) {
     warning("File not found: '", full_survey_data_fn, "'.")
@@ -98,8 +113,8 @@ survey_resps <- survey_resps |>
     attend = "Do you plan to attend NARC's Field Day 2025?",
     operate = "Do you plan to operate on Field Day?",
     overnight = "Are you a night owl and want to operate late into the night or camp out to snag some rare DX?",
-help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",
-comments = "Comments or suggestions"
+    help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",
+    comments = "Comments or suggestions"
   )
 
 names(survey_resps)[9] <- "modes"
@@ -110,18 +125,18 @@ Then we parse variables with multiple values, and conforming some values so that
 ```{r recode-variables, tidy = "styler"}
 survey_resps <- survey_resps |>
   # Change timestamp to proper date and time
-  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp, tz = "America/New_York")) |>
+  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp,
+                                               tz = "America/New_York")) |>
   # Change values for 'attend' to make them more easily readable
+  dplyr::mutate(when = attend) |>
   dplyr::mutate(
-    attend = dplyr::recode(
-      attend,
-        'Yes, on Saturday June 28' = "sat",
-        'Yes, on Sunday June 29' = "sun",
-        'Yes, on Saturday June 28, Yes, on Sunday June 29' = "sat_sun",
-        'Not sure yet' = "not_sure",
-        'Not this year' = "no"
-    )
-  ) |>
+    when = case_when(
+      when == "Yes, on Saturday June 27" ~ "sat",
+      when == "Yes, on Sunday June 28" ~ "sun",
+      when == "Yes, on Saturday June 27, Yes, on Sunday June 28" ~ "sat_sun",
+      when == "Not sure yet" ~ "not_sure",
+      when == "Sorry, not this year" ~ "not_coming"
+    )) |>
   # Change values for 'operate' to make them lower case
   dplyr::mutate(operate = tolower(operate)) |>
   # Change values for 'overnight'
@@ -164,7 +179,6 @@ survey_resps$youth[is.na(survey_resps$youth)] <- FALSE
 survey_resps$food[is.na(survey_resps$food)] <- FALSE
 survey_resps$clean_up[is.na(survey_resps$clean_up)] <- FALSE
 survey_resps$test_equipment[is.na(survey_resps$test_equipment)] <- FALSE
-
 ```
 
 It will be easier if we make separate variables for attendance on Sat and Sun, so we do that now.
@@ -172,8 +186,8 @@ It will be easier if we make separate variables for attendance on Sat and Sun, s
 ```{r}
 survey_resps <- survey_resps |>
   dplyr::mutate(
-    attend_sat = stringr::str_detect(attend, "sat"),
-    attend_sun = stringr::str_detect(attend, "sun")
+    attend_sat = stringr::str_detect(when, "sat"),
+    attend_sun = stringr::str_detect(when, "sun")
   ) |>
   dplyr::mutate(attend_any = (attend_sat | attend_sun))
 ```
@@ -200,21 +214,23 @@ readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_d
 Here are the number of respondents who plan to attend and their plans to operate.
 
 ```{r}
-xtabs(formula = ~ attend + operate, data = survey_resps)
+xtabs(formula = ~ when + operate, data = survey_resps)
 ```
 
 ```{r}
+#| label: attendance
+survey_resps <- survey_resps |>
+  dplyr::mutate(callsign_url = generate_callsign_url(callsign))
+
 survey_resps |>
-  dplyr::select(callsign, attend_sat, overnight, attend_sun) |>
+  dplyr::mutate(callsign_url = generate_callsign_url(callsign)) |>
+  dplyr::select(callsign_url, attend_sat, overnight, attend_sun) |>
   dplyr::filter(!is.na(attend_sat), !is.na(overnight), !is.na(attend_sun)) |>
-  kableExtra::kbl(format = "html") |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
   kableExtra::kable_classic() |>
-  kableExtra::column_spec(2, 
-    color = ifelse(survey_resps$attend_sat == TRUE, "green", "red")) |>
-  kableExtra::column_spec(4, 
-    color = ifelse(survey_resps$attend_sun == TRUE, "green", "red")) |>
-  kableExtra::column_spec(3, 
-    color = ifelse(survey_resps$overnight == TRUE, "green", "red"))
+  kableExtra::column_spec(2, color = ifelse(survey_resps$attend_sat == TRUE, "green", "red")) |>
+  kableExtra::column_spec(4, color = ifelse(survey_resps$attend_sun == TRUE, "green", "red")) |>
+  kableExtra::column_spec(3, color = ifelse(survey_resps$overnight == TRUE, "green", "red"))
 ```
 
 ### Modes
@@ -222,6 +238,8 @@ survey_resps |>
 Here are respondents' interests by mode:
 
 ```{r}
+#| label: modes
+#| 
 attendees <- survey_resps |>
   dplyr::filter(attend_any == TRUE)
 
@@ -236,10 +254,10 @@ modes <- attendees |>
     !is.na(js8call),
     !is.na(sstv)
   ) |>
-  dplyr::select(callsign, phone, cw, ft8, varac, fldigi, js8call, sstv)
+  dplyr::select(callsign_url, phone, cw, ft8, varac, fldigi, js8call, sstv)
 
 modes |>
-  kableExtra::kbl(format = "html") |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
   kableExtra::kable_classic() |>
   kableExtra::column_spec(column = 2, color = ifelse(modes$phone == TRUE, "green", "red")) |>
   kableExtra::column_spec(column = 3, color = ifelse(modes$cw == TRUE, "green", "red")) |>
@@ -248,46 +266,63 @@ modes |>
   kableExtra::column_spec(column = 6, color = ifelse(modes$fldigi == TRUE, "green", "red")) |>
   kableExtra::column_spec(column = 7, color = ifelse(modes$js8call == TRUE, "green", "red")) |>
   kableExtra::column_spec(column = 8, color = ifelse(modes$sstv == TRUE, "green", "red")) 
-
 ```
 
 ### Volunteering
 
-And here are respondents' interests in volunteering:
-
 ```{r}
-volunteers <- survey_resps |>
-  dplyr::select(callsign, pr, info_table, satellite, mode_expert,
-    ed_activity, invite_elected, youth, food, clean_up, test_equipment)
+#| label: volunteers
+#| 
+survey_resps <- survey_resps |>
+  dplyr::mutate(
+    help_with_pr = stringr::str_detect(help_with, "PR/publicity"),
+    help_with_public_info = stringr::str_detect(help_with, "Public information table"),
+    help_with_satellite_qso = stringr::str_detect(help_with, "Satellite QSO"),
+    help_with_mode_elmer = stringr::str_detect(help_with, "expert"),
+    help_with_ed_activity = stringr::str_detect(help_with, "Educational activity"),
+    help_with_elected_officials = stringr::str_detect(help_with, "Inviting elected officials or agency reps to visit"),
+    help_with_youth = stringr::str_detect(help_with, "Coordinating youth participation or visits by Scout troops or other individuals"),
+    help_with_food_drink = stringr::str_detect(help_with, "Planning and/or buying/preparing food and drink"),
+    help_with_setup_cleanup = stringr::str_detect(help_with, "Set-up or clean-up"),
+    help_with_testing_gear = stringr::str_detect(help_with, "Testing equipment")
+  )
+
+attendees <- survey_resps |>
+  dplyr::filter(attend_any == TRUE)
+
+volunteers <- attendees |>
+  dplyr::filter(
+    !is.na(help_with_pr),
+    !is.na(help_with_public_info),
+    !is.na(help_with_satellite_qso),
+    !is.na(help_with_mode_elmer),
+    !is.na(help_with_ed_activity),
+    !is.na(help_with_elected_officials),
+    !is.na(help_with_youth),
+    !is.na(help_with_setup_cleanup),
+    !is.na(help_with_testing_gear)
+  ) |>
+  dplyr::select(callsign_url, help_with_pr, help_with_public_info, help_with_satellite_qso, 
+                help_with_mode_elmer, help_with_ed_activity, help_with_elected_officials, 
+                help_with_youth, help_with_setup_cleanup,
+                help_with_testing_gear)
+
+names(volunteers) <- stringr::str_remove(names(volunteers), "help_with_")
 
 volunteers |>
-  kableExtra::kbl(format = "html") |>
+  kableExtra::kbl(format = "html", escape = FALSE) |>
   kableExtra::kable_classic() |>
-  kableExtra::column_spec(2, 
-    color = ifelse(volunteers$pr == TRUE, "green", "red")) |>
-  kableExtra::column_spec(3,
-    color = ifelse(volunteers$info_table == TRUE, "green", "red")) |>
-  kableExtra::column_spec(4,
-    color = ifelse(volunteers$satellite == TRUE, "green", "red")) |>
-  kableExtra::column_spec(5,
-    color = ifelse(volunteers$mode_expert == TRUE, "green", "red")) |>
-  kableExtra::column_spec(6,
-    color = ifelse(volunteers$ed_activity == TRUE, "green", "red")) |>
-  kableExtra::column_spec(7,
-    color = ifelse(volunteers$invite_elected == TRUE, "green", "red")) |>
-  kableExtra::column_spec(8,
-    color = ifelse(volunteers$youth == TRUE, "green", "red")) |>
-  kableExtra::column_spec(9,
-    color = ifelse(volunteers$food == TRUE, "green", "red")) |>
-  kableExtra::column_spec(10,
-    color = ifelse(volunteers$clean_up == TRUE, "green", "red")) |>
-  kableExtra::column_spec(11,
-    color = ifelse(volunteers$test_equipment == TRUE, "green", "red"))
-
+  kableExtra::column_spec(column = 2, color = ifelse(volunteers$pr == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 3, color = ifelse(volunteers$public_info == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 4, color = ifelse(volunteers$satellite_qso == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 5, color = ifelse(volunteers$mode_elmer == TRUE, "green", "red")) |>  
+  kableExtra::column_spec(column = 6, color = ifelse(volunteers$ed_activity == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 7, color = ifelse(volunteers$elected_officials == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 8, color = ifelse(volunteers$youth == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 9, color = ifelse(volunteers$setup_cleanup == TRUE, "green", "red")) |>
+  kableExtra::column_spec(column = 10, color = ifelse(volunteers$testing_gear == TRUE, "green", "red"))
 ```
 
-<!-- ## Observations -->
-<!-- - We have about half a dozen attendees who want to operate on Saturday and a larger group on Sunday. -->
-<!-- - W3TM will have some company (W3EDP and KM4LAO) late at night or overnight. -->
-<!-- - We have a number of operators interested in digital (FT8, fldigi, and JS8Call) modes. -->
-<!-- - We should have 5-10 helpers to assist with strike/tear-down. -->
+
+
+

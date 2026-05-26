@@ -8,6 +8,7 @@ This page summarizes data about club member participation in 2024-25.
 
 ```{r}
 library(readr)
+library(ggplot2)
 ```
 
 ## Gather data

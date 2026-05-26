@@ -8,38 +8,39 @@ This page describes some of the specific actions that need to be taken leading u
 
 ## May 2026
 
-- [ ] Add info to ARRL Field Day website.
+- [X] Add info to ARRL Field Day website. (W3TM)
 - [ ] Create Field Day budget.
     - [ ] Food & drink budget.
     - [ ] Porta-Potty estimate.
     - [ ] Equipment estimate.
     - [ ] PR and supply estimate.
-- [ ] Secure NARC BoD budget approval. W3TM & K3YV.
+- [ ] Secure NARC BoD budget approval. (W3TM & K3YV).
 
-## June 2024
+## June 2026
 
 ### 4 weeks out
 
 - [ ] Add event to web-based activity calendars.
-    - [ ] WSPU activity calendar.
-    - [ ] State College dot com calendar.
+    - [ ] WSPU activity calendar. (H3LP)
+    - [ ] State College dot com calendar. (H3LP)
 - [ ] Send invitations to other groups
-    - [ ] Pack 67 Cub Scouts. 
-    - [ ] Central PA Observers. 
-- [ ] Draft and send invitations to elected officials. 
-- [ ] Draft and send invitation to served agency official
-- [ ] Schedule Porta-Potty Cleaning.
-- [ ] Distribute [survey](planning.qmd).
+    - [ ] Pack 67 Cub Scouts. (H3LP)
+    - [ ] Central PA Observers. (H3LP)
+    - [ ] Announce on ARES net (H3LP)
+- [ ] Draft and send invitations to elected officials. (H3LP)
+- [ ] Draft and send invitation to served agency official. (H3LP)
+- [ ] Schedule Porta-Potty Cleaning (K3CWP).
+- [X] Distribute [member survey](survey.qmd) (W3TM).
 
 ### 3 weeks out 
 
 
-- [ ] Draft press release and send to media outlets. H3LP.
-- [ ] Evaluate survey results; assign volunteers to teams.
+- [ ] Draft press release and send to media outlets. (H3LP)
+- [ ] Evaluate survey results; assign volunteers to teams. (W3TM)
 - [ ] Send emails to specific volunteer teams.
-    - [ ] Food. H3LP
-    - [ ] Ed Activity. H3LP
-    - [ ] PR. H3LP
+    - [ ] Food. (H3LP)
+    - [ ] Ed Activity. (H3LP)
+    - [ ] PR. (H3LP)
 
 ### 2 weeks out
 
@@ -81,11 +82,11 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Clean cooler
 - [ ] Add Field Day indicator to W3TM-10 APRS I-Gate.
 
-### Field Day Weekend (June 24 - 26)
+### Field Day Weekend (June 26 - 28)
 
-#### Friday, June 24
+#### Friday, June 26
 
-#### Saturday, June 25
+#### Saturday, June 27
 
 - [ ] Buy ice.
 - [ ] Set up food & drink. [Set-up Committee](people.qmd#set-up-comm); [Food Committee](people.qmd#food.com).
@@ -101,7 +102,7 @@ Staff Field Station/Info Table 2:00 pm - 5:00 pm. [Field Station Committee](peop
 - [ ] Host educational activity. Time TBD. [Ed Committee](people.qmd#ed-comm)
 - [ ] Pick-up pizza. Time TBD. (people.qmd#food-comm)
 
-#### Sunday, June 26
+#### Sunday, June 28
 
 ::: {.callout-warning}
 Staff Field Station/Info Table 11:00 am - 2:00 pm. [Field Station Committee](people.qmd#field-comm)
@@ -111,4 +112,4 @@ Staff Field Station/Info Table 11:00 am - 2:00 pm. [Field Station Committee](peo
 
 ### Week after
 
-- [ ] Clean logs and submit to ARRL.
+- [ ] Clean logs and submit to ARRL. (N3LI?)

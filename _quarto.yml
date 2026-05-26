@@ -14,10 +14,11 @@ book:
       - recent-years.qmd
     - part: "Field Day 2026"
       chapters:
+      - survey.qmd
       - calendar.qmd
-      - stations.qmd
-      - people.qmd
-      - things.qmd
+      # - stations.qmd
+      # - people.qmd
+      # - things.qmd
       # - planning.qmd
   repo-url: https://github.com/nittany-amateur-radio-club/field-day/
   repo-actions: [edit, issue]
