@@ -9,9 +9,9 @@ This page describes some of the specific actions that need to be taken leading u
 ## May 2026
 
 - [X] Add info to ARRL Field Day website. (W3TM)
-- [ ] Create Field Day budget.
-    - [ ] Food & drink budget.
-    - [ ] Porta-Potty estimate.
+- [ ] Create Field Day [budget](https://docs.google.com/spreadsheets/d/19nvy50xuPFYsw2WEzRyj7bWH7aAacUKBGc_DS8plzqY/edit?usp=sharing).
+    - [ ] Food & drink budget. 
+    - [ ] Porta-Potty estimate. (K3CWP)
     - [ ] Equipment estimate.
     - [ ] PR and supply estimate.
 - [ ] Secure NARC BoD budget approval. (W3TM & K3YV).
@@ -55,9 +55,9 @@ This page describes some of the specific actions that need to be taken leading u
 ### Week of event 
 
 - [ ] Order food
-  - [] Order lunch for Saturday from Subway
-  - [ ] Dinner Saturday from TBD
-  - [ ] Lunch Sunday from TBD
+  - [] Order lunch for Saturday from Mike's
+  - [ ] Dinner Saturday from Papa John's
+  - [ ] Breakfast Sunday from Rick & Michelle
 - [ ] Buy food and drink
   - [ ] Water & soda
   - [ ] Coffee
