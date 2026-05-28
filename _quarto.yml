@@ -16,10 +16,9 @@ book:
       chapters:
       - survey.qmd
       - calendar.qmd
-      # - stations.qmd
-      # - people.qmd
-      # - things.qmd
-      # - planning.qmd
+      - people.qmd
+      - things.qmd
+      - stations.qmd
   repo-url: https://github.com/nittany-amateur-radio-club/field-day/
   repo-actions: [edit, issue]
   page-footer:

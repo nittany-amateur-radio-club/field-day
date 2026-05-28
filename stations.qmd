@@ -8,8 +8,14 @@ This page describes some details about our Field Day stations.
 
 ## Class
 
-Based on the results of the [survey](planning.qmd#visualizing), we plan to operate two (2) transmitters, one will be a Get on the Air (GOTA) station.
-We will operate class A..
+Based on the results of the [survey](survey.qmd#visualizing), we plan to operate two (2) transmitters.
+
+::: {.callout-note}
+## Get on the Air (GOTA) station
+
+On 2026-05-26 the Board discussed whether to mount a GOTA station this year.
+We decided to use one of our transmitters specifically for helping new operators or inactive operators get on the air.
+:::
 
 We will operate at 100 W and use W3YA as our callsign.
 
@@ -37,6 +43,12 @@ The NARC2 Flex 6400 may not be the best field radio.
 The Flex is not familiar to most club members, and can pose challenges to configure properly.
 
 It may be more productive to bring a member's personal rig or purchase a radio for Field Day.
+
+::: {.callout-note}
+## Yaesu FT-710 Field
+
+K3JHG has offered to loan the club a Yaesu FT-710 Field for use at Field Day.
+:::
 
 ## Filters
 

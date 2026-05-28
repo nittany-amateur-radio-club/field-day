@@ -17,7 +17,7 @@ params:
 
 This page documents some of the steps in our planning process.
 
-W3TM drafted and distributed on <DATE> a member survey using a Google Form.
+W3TM drafted and distributed on May 18, 2026 a member survey using a Google Form.
 Here are some of the preliminary results.
 
 ::: {.callout-note}
@@ -111,7 +111,7 @@ survey_resps <- survey_resps |>
     phone = "Phone",
     email = "Email",
     attend = "Do you plan to attend NARC's Field Day 2025?",
-    operate = "Do you plan to operate on Field Day?",
+    operating = "Do you plan to operate on Field Day?",
     overnight = "Are you a night owl and want to operate late into the night or camp out to snag some rare DX?",
     help_with = "I'm interested in helping with the following activities to promote Field Day and amateur radio to the public...",
     comments = "Comments or suggestions"
@@ -125,8 +125,7 @@ Then we parse variables with multiple values, and conforming some values so that
 ```{r recode-variables, tidy = "styler"}
 survey_resps <- survey_resps |>
   # Change timestamp to proper date and time
-  dplyr::mutate(timestamp = lubridate::mdy_hms(timestamp,
-                                               tz = "America/New_York")) |>
+  dplyr::mutate(timestamp = lubridate::ymd_hms(survey_resps$timestamp, tz="America/New_York")) |>
   # Change values for 'attend' to make them more easily readable
   dplyr::mutate(when = attend) |>
   dplyr::mutate(
@@ -138,7 +137,7 @@ survey_resps <- survey_resps |>
       when == "Sorry, not this year" ~ "not_coming"
     )) |>
   # Change values for 'operate' to make them lower case
-  dplyr::mutate(operate = tolower(operate)) |>
+  dplyr::mutate(operate = tolower(operating)) |>
   # Change values for 'overnight'
   dplyr::mutate(overnight = dplyr::recode(
     overnight,
@@ -207,7 +206,23 @@ readr::write_csv(survey_resps, file.path("csv", paste0("clean_", params$survey_d
 
 ## Visualizing
 
-<!-- As of `{r} Sys.time()`, we've had `{r} dim(survey_resps)[1]` responses. -->
+As of `{r} Sys.time()`, we've had `{r} dim(survey_resps)[1]` responses.
+
+### Time series
+
+```{r}
+#| label: response-time-series
+
+survey_resps |>
+  dplyr::select(timestamp, attend_any) |>
+  dplyr::mutate(order = seq_along(timestamp)) |>
+  ggplot() +
+  geom_point(mapping = aes(x = timestamp, y = order, color = attend_any)) +
+  geom_line(mapping = aes(x = timestamp, y = order)) +
+  ylab("n") +
+  xlab("Response date")
+```
+
 
 ### Attending and operating
 
@@ -287,8 +302,7 @@ survey_resps <- survey_resps |>
     help_with_testing_gear = stringr::str_detect(help_with, "Testing equipment")
   )
 
-attendees <- survey_resps |>
-  dplyr::filter(attend_any == TRUE)
+attendees <- survey_resps
 
 volunteers <- attendees |>
   dplyr::filter(

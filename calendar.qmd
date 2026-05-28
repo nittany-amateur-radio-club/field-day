@@ -9,12 +9,12 @@ This page describes some of the specific actions that need to be taken leading u
 ## May 2026
 
 - [X] Add info to ARRL Field Day website. (W3TM)
-- [ ] Create Field Day [budget](https://docs.google.com/spreadsheets/d/19nvy50xuPFYsw2WEzRyj7bWH7aAacUKBGc_DS8plzqY/edit?usp=sharing).
-    - [ ] Food & drink budget. 
+- [X] Create Field Day [budget](https://docs.google.com/spreadsheets/d/19nvy50xuPFYsw2WEzRyj7bWH7aAacUKBGc_DS8plzqY/edit?usp=sharing).
+    - [X] Food & drink budget. 
     - [ ] Porta-Potty estimate. (K3CWP)
     - [ ] Equipment estimate.
-    - [ ] PR and supply estimate.
-- [ ] Secure NARC BoD budget approval. (W3TM & K3YV).
+    - [X] PR and supply estimate.
+- [X] Secure NARC BoD budget approval. (W3TM & K3YV).
 
 
 ## June 2026
@@ -35,7 +35,7 @@ This page describes some of the specific actions that need to be taken leading u
 
 ### 3 weeks out 
 
-
+- [ ] Get budget approval from membership at 2026-06-09 meeting
 - [ ] Draft press release and send to media outlets. (H3LP)
 - [ ] Evaluate survey results; assign volunteers to teams. (W3TM)
 - [ ] Send emails to specific volunteer teams.
