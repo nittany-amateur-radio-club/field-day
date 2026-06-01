@@ -6,7 +6,7 @@ format:
     code-tools: true
     toc: true
 params:
-  update_data: false
+  update_data: true
   data_path: include/csv
   survey_data_fn: narc-fd-2026-survey.csv
   survey_sheet_fn: "Field Day 2026 volunteer sign-up (Responses)"
@@ -87,7 +87,7 @@ if (params$update_data) {
 }
 ```
 
-Now, we load the downloaded CSV
+Now, we load the downloaded CSV.
 
 ```{r load-survey-data}
 if (update_figs) {
@@ -97,6 +97,14 @@ if (update_figs) {
 
 names(survey_resps)
 ```
+
+::: {.callout-important}
+## Response rate
+
+We had *n*=`r dim(survey_resps)[1]` responses to the survey.
+Two other members reached out directly via email.
+
+:::
 
 ## Cleaning
 
@@ -211,8 +219,9 @@ As of `{r} Sys.time()`, we've had `{r} dim(survey_resps)[1]` responses.
 ### Time series
 
 ```{r}
-#| label: response-time-series
-
+#| label: fig-response-time-series
+#| fig-cap: "Time series of responses to the Field Day survey with an indication about whether the respondents intend to attend either of the two operating days indicated by color code: [Red/FALSE]{style='color: red;'} indicating no and [Green/TRUE]{style='color: green;'} indicating yes."
+#| 
 survey_resps |>
   dplyr::select(timestamp, attend_any) |>
   dplyr::mutate(order = seq_along(timestamp)) |>
@@ -248,6 +257,9 @@ survey_resps |>
   kableExtra::column_spec(3, color = ifelse(survey_resps$overnight == TRUE, "green", "red"))
 ```
 
+We can expect *n*=`r sum(survey_resps$attend_sat)` to attend Saturday, *n*=`r sum(survey_resps$overnight)` to operate into the night, and *n*=`r sum(survey_resps$attend_sun)` to attend Sunday.
+
+
 ### Modes
 
 Here are respondents' interests by mode:
@@ -282,6 +294,8 @@ modes |>
   kableExtra::column_spec(column = 7, color = ifelse(modes$js8call == TRUE, "green", "red")) |>
   kableExtra::column_spec(column = 8, color = ifelse(modes$sstv == TRUE, "green", "red")) 
 ```
+
+
 
 ### Volunteering
 

@@ -24,48 +24,96 @@ We will operate at 100 W and use W3YA as our callsign.
 Our plan is to configure separate radios for phone, digital modes, and CW.
 Radios configured for CW and digital modes have some special characteristics that make it more difficult to switch in the field.
 
-### NARC1
+### Station-1
 
 - ICOM IC-7610 transceiver
-- New mini-PC with external display
+- Mini PC with external display, keyboard, mouse
 - Halibut Electronics audio interface
 - ICOM SM-50 mic
+- Headset(s)
+- Footswitch
+- Power supply
 
-### NARC2
+### Station-2
 
-- FlexRadio Flex 6400M
-- HP All-in-one PC with 2nd Display
-- KPA-1500 amplifier/ATU
-- Halibut Electronics audio interface
-- Inrad mic
-
-The NARC2 Flex 6400 may not be the best field radio.
-The Flex is not familiar to most club members, and can pose challenges to configure properly.
-
-It may be more productive to bring a member's personal rig or purchase a radio for Field Day.
-
-::: {.callout-note}
-## Yaesu FT-710 Field
-
-K3JHG has offered to loan the club a Yaesu FT-710 Field for use at Field Day.
-:::
+- Yaesu FT-710 (loaned by K3JHG)
+- Mini PC with external display, keyboard, mouse
+- Mic?
+- Headset(s)
+- Footswitch
+- Power supply
 
 ## Filters
 
 The club owns bandpass filters for 75m/80m, 40m, 20m, 15m, and 10m.
 All radios will use bandpass filters on Field Day.
 
-## Antennas
+## Primary Antennas
 
-::: {.callout-note}
-## Work-in-progress
-The antenna plan is still under discussion.
+![Field Day main antennas. Primary EW (Green); Primary NS (Aqua)](include/img/field-day-site-1.png){#fig-field-day-site}
 
-One possibility is to use W3TM's self-supporting 40m/75m NVIS antenna for 40m and 75m/80m.
-For 20m, 15m, and 10m, we'd use an end-fed-half-wave (EFHW) loaned by a member.
+### Primary EW ([green]{style="color: #00FF00;"}): 75/10m EFHW (loaned by K3YV)
 
-W3TM, W3EDP, and K3YV have various masts, and tripods to enable Field Day attendees to erect antennas of their choosing.
-:::
+- "Far" end mounted to top of flagpole
+- "Near" (feedpoint) end connected to tree
+- Support mast (loaned by W3EDP) in the middle
+  - Military mast tripod
+  - 3x (base) + 3-4 mast poles (12-16')
+  - 3x sandbags
+  - Paracord
+- 50' RG-213 coax (UHF male/male)
+  
+### Primary NS ([cyan]{style="color: #00FFFF;"}): 40/10m EFHW (loaned by K3YV)
 
-<!-- - 2x Mosley Triband Yagis, one pointed south, the other pointed west. These antennas will be for 20m, 15m, and 10m. -->
-<!-- - 1 80m-10m EFHW antenna. This antenna is primarily for 40m and 75m/80m operation. -->
+- "Far" end mounted to top of tree to the south
+- "Near" (feedpoint) end connected to tree near the pavilion
+- Support mast (loaned by K3YV or WA8MTZ) in the middle
+  - Military mast tripod
+  - 3x (base) + 3-4 mast poles (12-16')
+  - 3x sandbags
+  - Paracord
+- 75' RG-213 coax (UHF male/male)
+
+## Backup/Experimental antennas
+
+![Locations for temporary, receive, or experimental antennas.](include/img/field-day-antennas-backup.png){#fig-field-day-antennas-backup}
+
+### 6m Moxon (loaned by W3SWL)
+
+- Mast/mount (TBD)
+- Coax (TBD)
+
+### Receive loop (loaned by W3TM)
+
+- Mount
+  - Military mast tripod (W3TM)
+  - 3x (base) + 3-4 mast poles (12-16')
+- Coax TBD
+
+### Backup 40m/80m (loaned by W3TM)
+
+- Mount
+  - Military mast tripod (W3TM)
+  - 3x (base) + 3-4 mast poles (12-16') 
+- Coax TBD
+
+### Kite 160m EFHW (KD3CCO)
+
+### Portable antennas 
+
+- Antennas
+  - K3YV 10m vertical (loaned by W3TM)
+- Coax TBD
+- Mounts
+  - Drive-on mount
+  - Flagpole/trailer hitch mount
+  
+## Satellite antenna 1: Egg beaters (loaned by W3TM)
+
+- Mount
+  - Military mast tripod (W3TM)
+  - 3x (base) + 2-3 mast poles (8-12')
+- Coax
+  - 2x RG-400
+  - 2x patch cables
+  

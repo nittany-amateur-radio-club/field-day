@@ -18,15 +18,7 @@ This page describes the people who are involved with Field Day.
 
 ### Served Agency Official
 
-- TBD. Brett Saylor W3SWL, Red Cross has served in this capacity in previous years
-
-<!-- ## Field/Portable/Info table {#field-comm} -->
-
-<!-- - Dan Muthler K9SDW -->
-<!-- - Eric Prescott W3EDP -->
-<!-- - Brad Flubacher KC3BHI -->
-<!-- - Rick Gilmore W3TM -->
-<!-- - Gene Moore KM4AJ -->
+- Brett Saylor W3SWL, Red Cross will be our official visitor.
 
 ## Publicity {#pub-comm}
 
@@ -42,4 +34,9 @@ This page describes the people who are involved with Field Day.
 
 ## Set-up/Clean-up/Equipment {#set-up-comm}
 
-- TBD
+- W3TM
+- K3OOL
+- W3EDP
+- KC3MVL
+- KM3AJ
+- KF0JZM
