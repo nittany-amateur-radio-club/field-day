@@ -28,7 +28,7 @@ Radios configured for CW and digital modes have some special characteristics tha
 
 - ICOM IC-7610 transceiver
 - Mini PC with external display, keyboard, mouse
-- Halibut Electronics audio interface
+- Halibut Electronics audio interface?
 - ICOM SM-50 mic
 - Headset(s)
 - Footswitch
@@ -36,9 +36,10 @@ Radios configured for CW and digital modes have some special characteristics tha
 
 ### Station-2
 
-- Yaesu FT-710 (loaned by K3JHG)
-- Mini PC with external display, keyboard, mouse
-- Mic?
+- Yaesu FT-710 (loaned by K3JHG; W3TM has been testing)
+- NARC2 Mini PC with external display, keyboard, mouse
+- Mic
+  - Yaesu hand mic
 - Headset(s)
 - Footswitch
 - Power supply
@@ -74,14 +75,24 @@ All radios will use bandpass filters on Field Day.
   - Paracord
 - 75' RG-213 coax (UHF male/male)
 
+### Extra VHF/UHF
+
+- Radio
+  - IC-7100 (loaned by W3SWL)
+- Antenna
+  - Moxon (loaned by W3SWL)
+- PC
+  - W3TM mini-PC (loaned by W3TM)
+    - Use NARC3 user account
+
 ## Backup/Experimental antennas
 
 ![Locations for temporary, receive, or experimental antennas.](include/img/field-day-antennas-backup.png){#fig-field-day-antennas-backup}
 
 ### 6m Moxon (loaned by W3SWL)
 
-- Mast/mount (TBD)
-- Coax (TBD)
+- Mast/mount (W3SWL)
+- Coax (W3SWL)
 
 ### Receive loop (loaned by W3TM)
 

@@ -12,13 +12,17 @@ This page describes the people who are involved with Field Day.
 
 ## Special Roles
 
+### Computers, networking, submitting logs
+
+- Mike Coslo N3LI
+
 ### Safety Officer
 
 - John Guss N3GU has served in this role in the past, but we need to have a second for when he is not on-site.
 
 ### Served Agency Official
 
-- Brett Saylor W3SWL, Red Cross will be our official visitor.
+- Brett Saylor W3SWL, Red Cross will be our official visitor (confirmed 2026-06-04)
 
 ## Publicity {#pub-comm}
 
@@ -33,6 +37,8 @@ This page describes the people who are involved with Field Day.
 - TBD
 
 ## Set-up/Clean-up/Equipment {#set-up-comm}
+
+As indicated by results from the [survey](survey.qmd).
 
 - W3TM
 - K3OOL
