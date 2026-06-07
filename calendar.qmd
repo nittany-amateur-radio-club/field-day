@@ -21,7 +21,7 @@ This page describes some of the specific actions that need to be taken leading u
 
 ### 4 weeks out
 
-- [ ] Add event to web-based activity calendars.
+- [X] Add event to web-based activity calendars.
     - [x] WSPU activity calendar. (W3TM)
     - [x] State College dot com calendar. (H3LP)
 - [ ] Send invitations to other groups
@@ -68,6 +68,7 @@ This page describes some of the specific actions that need to be taken leading u
     - [ ] Ed Activity. (H3LP)
     - [ ] PR. (H3LP)
     - [ ] Set-up (W3TM)
+- [X] Capture & save to removable HD installers & manuals (W3TM)
 
 ### 2 weeks out
 
@@ -82,8 +83,8 @@ This page describes some of the specific actions that need to be taken leading u
 ### Week of event 
 
 - [ ] Order food
-  - [] Order lunch for Saturday from Mike's
-  - [ ] Dinner Saturday from Papa John's
+  - [ ] Order lunch for Saturday from Mike's
+  - [ ] Order dinner Saturday from Papa John's or Pizza Mia
   - [ ] Breakfast Sunday from Rick & Michelle
 - [ ] Buy food and drink
   - [ ] Water & soda
@@ -108,35 +109,43 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Move excess gear from shack to shed
   - [ ] Clean cooler
 - [ ] Add Field Day indicator to W3TM-10 APRS I-Gate.
+- [ ] Confirm Friday & Saturday set-up times
 
 ### Field Day Weekend (June 26 - 28)
 
 #### Friday, June 26
 
-- [ ] Set-up antennas (W3EDP, K3YV, W3TM, WA8MTZ?)
+- [ ] Set-up antennas (W3EDP, K3YV, W3TM, KC3MVL)
 - [ ] Bring tables and chairs from mountain (W3EDP)
   - [ ] Set-up tables
 
 #### Saturday, June 27
 
-- [ ] Buy ice.
-- [ ] Set up food & drink. [Set-up Committee](people.qmd#set-up-comm); [Food Committee](people.qmd#food.com).
-    - [ ] Pick up Subway.
-- [ ] Set up info table. [Info Table Committee](people.qmd#field-comm)
+- [ ] Buy ice
+- [ ] Set up food & drink
+  - [ ] Pick up lunch (Mike's Shiloh Road)
+- [ ] Set up pop-up tents
+- [ ] Set up tarps
+- [ ] Set up info table
+- [ ] Set up radios
+  - [ ] Station 1
+  - [ ] Station 2
+  - [ ] Station 3 (VHF/UHF) (W3SWL)
+  - [ ] Network (N3LI)
 
 ::: {.callout-warning}
 **2:00 PM EDT (1800 UTC) Field Day begins**
 
-Staff Field Station/Info Table 2:00 pm - 5:00 pm. [Field Station Committee](people.qmd#field-comm)
+Staff Field Station/Info Table 2:00 pm - 5:00 pm.
 :::
 
-- [ ] Host educational activity. Time TBD. [Ed Committee](people.qmd#ed-comm)
-- [ ] Pick-up pizza. Time TBD. (people.qmd#food-comm)
+- [ ] Host educational activity. Time TBD. 
+- [ ] Pick-up pizza. Time TBD.
 
 #### Sunday, June 28
 
 ::: {.callout-warning}
-Staff Field Station/Info Table 11:00 am - 2:00 pm. [Field Station Committee](people.qmd#field-comm)
+Staff Field Station/Info Table 11:00 am - 2:00 pm.
 
 **2:00 PM EDT (1800 UTC) Field Day ends**
 :::
