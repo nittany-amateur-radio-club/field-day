@@ -15,6 +15,15 @@ We will operate from the Pleasant Gap Fire Company Carnival Grounds at 375 Robin
 
 [![W3YA @ Field Day](include/img/w3ya-field-day-map.png)](https://www.google.com/maps/@40.8663687,-77.7568403,17z?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D)
 
+::: {.callout-important}
+## Important details
+
+Field Day 2026 runs from 2:00 pm (EDT) on Saturday, June 27 to 2:00 pm on Sunday, June 28, 2026.
+
+Please visit!
+
+:::
+
 <!-- We will operate from our clubhouse location on top of Pine Grove Mountain off of State Route 26, making this a class 2D (two delta) operation. -->
 
 <!-- ![NARC Clubhouse](include/img/narc-clubhouse-map.png){fig-align="center"} -->
