@@ -1,0 +1,125 @@
+---
+title: "Power estimation"
+format: html
+params:
+  sheet_url: "https://docs.google.com/spreadsheets/d/10F2JfQ3A6oFc3VFz_GTDg_t_ZwVtrC2EGjVt0kopYQU/edit?gid=0#gid=0"
+  google_email: "nittany.amateur.radio.club@gmail.com"
+  update_data: false
+---
+
+## About
+
+This page documents estimations about power usage for Field Day.
+
+## Setup
+
+```{r}
+library(googlesheets4)
+```
+
+```{r}
+gs4_auth(email = params$google_email)
+```
+
+## Import
+
+W3TM generated a Google Sheet with data for these estimates:
+
+<https://docs.google.com/spreadsheets/d/10F2JfQ3A6oFc3VFz_GTDg_t_ZwVtrC2EGjVt0kopYQU/edit?gid=0#gid=0>
+
+```{r}
+#| label: import-google-sheet
+
+if (params$update_data) {
+  gs4_auth(email = params$google_email)
+  power <- read_sheet(params$sheet_url)
+  
+  readr::write_csv(power, file = "csv/power-estimation.csv")
+} else {
+  message("Data not updated. Using stored copy")
+}
+```
+
+```{r}
+power <- readr::read_csv(file = "csv/power-estimation.csv", show_col_types = TRUE)
+```
+
+## Summarize
+
+The modes summarized here include: `r unique(power$mode)`.
+
+Power levels estimated for the modes are as follows:
+
+```{r}
+xtabs(~ mode + xmit_watts, data = power)
+```
+
+We're more likely to run 40W on FT8.
+
+Duty cycles for these modes are as follows:
+
+```{r}
+xtabs(~ mode + duty_cycle, data = power)
+```
+
+The 0.5 duty cycle for FT8 and 0.3 duty cycle for phone assume pretty aggressive running on a frequency.
+More realistic duty cycles are 0.25 for phone FT8.
+
+Operating hours are estimated as follows:
+
+```{r}
+xtabs(~ op_hrs_ham, data = power)
+```
+
+
+## Scenario: Modest duty cycles + 12 hour operating
+
+```{r}
+power |>
+  dplyr::filter(op_hrs_ham == 12,
+                duty_cycle == .25) |>
+  dplyr::select(mode, battery_Ah, op_hrs_battery, batt_24hrs)
+```
+
+This implies that we would need 1 30 Ah battery to run FT8 for the entire 24 hr period, and 1.7 (round to 2) 40 Ah batteries to run phone the entire 24 hour period.
+
+## Scenario: Modest duty cycles + 18 hour operating
+
+```{r}
+power |>
+  dplyr::filter(op_hrs_ham == 18,
+                duty_cycle == .25) |>
+  dplyr::select(mode, battery_Ah, op_hrs_battery, batt_24hrs)
+```
+We would need 2 40 Ah batteries for FT8 and 3 40 Ah batteries to run phone.
+
+## Scenario: Aggressive duty cycles + 24 hour operating
+
+```{r}
+power |>
+  dplyr::filter(op_hrs_ham == 24,
+                duty_cycle > .25) |>
+  dplyr::select(mode, duty_cycle, battery_Ah, op_hrs_battery, batt_24hrs)
+```
+Under an aggressive operating and duty cycle schedule, we'd need 3 40 Ah batteries to run FT8 and 5 40 Ah batteries to operate.
+
+::: {.callout-important}
+These scenarios do *not* estimate any impact of solar recharging.
+
+However, since recharging really only helps beginning Sunday morning, the impact is only on the daylight hours on Sunday. 
+:::
+
+## Batteries available
+
+The club does not own any batteries.
+
+W3TM has the following:
+
+- 1x 30 Ah
+- 2x 40 Ah
+
+So, W3TM could cover an FT8 and a phone station for Field Day under the modest operating scenario.
+
+For more active operating scenarios, we would need to rely on recharging batteries Sunday morning, more batteries, or larger batteries than W3TM has available.
+
+

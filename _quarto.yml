@@ -19,6 +19,7 @@ book:
       - people.qmd
       # - things.qmd
       - stations.qmd
+      - power.qmd
   repo-url: https://github.com/nittany-amateur-radio-club/field-day/
   repo-actions: [edit, issue]
   page-footer:

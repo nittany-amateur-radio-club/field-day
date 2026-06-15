@@ -61,9 +61,9 @@ This page describes some of the specific actions that need to be taken leading u
       
 ### 3 weeks out 
 
-- [ ] Get budget approval from membership at 2026-06-09 meeting (W3TM)
+- [x] Get budget approval from membership at 2026-06-09 meeting (W3TM)
 - [ ] Draft press release and send to media outlets. (H3LP)
-- [ ] Evaluate survey results; assign volunteers to teams. (W3TM)
+- [ ] ~~Evaluate survey results; assign volunteers to teams. (W3TM)~~
 - [ ] Send emails to specific volunteer teams.
     - [ ] Food. (H3LP)
     - [ ] Ed Activity. (H3LP)
@@ -73,13 +73,21 @@ This page describes some of the specific actions that need to be taken leading u
 
 ### 2 weeks out
 
-- [ ] Test networked logging (N3LI)
-    - [ ] Phone
+- [x] Test networked logging on NARC1 (N3LI)
+    - [x] Phone
     - [ ] CW
-    - [ ] WSJT-X
-    - [ ] fldigi
-    - [ ] VarAC
-    - [ ] JS8Call
+    - [x] WSJT-X
+    - [x] fldigi
+    - [ ] VarAC (optional)
+    - [ ] JS8Call (optional)
+- [ ] Test networked logging on NARC2 (N3LI)
+    - [x] Phone
+    - [ ] CW
+    - [x] WSJT-X
+    - [x] fldigi
+    - [ ] VarAC (optional)
+    - [ ] JS8Call (optional)
+
 
 ### Week of event 
 
@@ -104,13 +112,14 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Trash bags
 - Buy needed supplies
   - [ ] Septic-safe toilet paper
-- [ ] Clean-up station interior
-  - [ ] Dust or vacuum all surfaces
-  - [ ] Sweep, vacuum, & mop
-  - [ ] Move excess gear from shack to shed
-  - [ ] Clean cooler
-- [ ] Add Field Day indicator to W3TM-10 APRS I-Gate.
-- [ ] Confirm Friday & Saturday set-up times
+  - [ ] Cleaning wipes (mics, keyboards, mice, headsets, CW paddles)
+<!-- - [ ] Clean-up station interior -->
+<!--   - [ ] Dust or vacuum all surfaces -->
+<!--   - [ ] Sweep, vacuum, & mop -->
+<!--   - [ ] Move excess gear from shack to shed -->
+<!--   - [ ] Clean cooler -->
+- [ ] Add Field Day indicator to W3TM-10 APRS I-Gate
+- [ ] Confirm Friday (optional) & Saturday set-up times
 
 ### Field Day Weekend (June 26 - 28)
 
@@ -133,6 +142,11 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Station 1
   - [ ] Station 2
   - [ ] Station 3 (VHF/UHF) (W3SWL)
+    - [ ] Test networked logging on NARC3 (N3LI)
+      - [ ] Phone
+      - [ ] CW
+      - [ ] WSJT-X
+      - [ ] fldigi
   - [ ] Network (N3LI)
 
 ::: {.callout-warning}
