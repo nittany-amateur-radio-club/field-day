@@ -26,8 +26,10 @@ This page describes some of the specific actions that need to be taken leading u
     - [x] State College dot com calendar. (H3LP)
 - [ ] Send invitations to other groups
     - [x] Pack 67 Cub Scouts. (W3TM)
+    - [x] Troop 375 (KD3CCP)
     - [ ] Central PA Observers. (W3TM)
-    - [ ] Announce on ARES net (W3TM)
+    - [x] Announce on ARES net (W3EDP)
+    - [ ] new-faculty-l (W3TM)
 - [ ] Draft and send invitations to elected officials. (H3LP)
 - [x] Draft and send invitation to served agency official. (W3TM)
 - [x] Schedule Porta-Potty delivery (K3CWP).
@@ -63,12 +65,12 @@ This page describes some of the specific actions that need to be taken leading u
 
 - [x] Get budget approval from membership at 2026-06-09 meeting (W3TM)
 - [ ] Draft press release and send to media outlets. (H3LP)
-- [ ] ~~Evaluate survey results; assign volunteers to teams. (W3TM)~~
+- [x] Evaluate survey results; assign volunteers to teams. (W3TM)
 - [ ] Send emails to specific volunteer teams.
-    - [ ] Food. (H3LP)
+    - [x] Food. (W3TM; 2026-06-16)
     - [ ] Ed Activity. (H3LP)
     - [ ] PR. (H3LP)
-    - [ ] Set-up (W3TM)
+    - [x] Set-up (W3TM; 2026-06-16)
 - [X] Capture & save to removable HD installers & manuals (W3TM)
 
 ### 2 weeks out
@@ -92,7 +94,7 @@ This page describes some of the specific actions that need to be taken leading u
 ### Week of event 
 
 - [ ] Order food
-  - [ ] Order lunch for Saturday from Mike's
+  - [ ] Order lunch for Saturday from Jersey Mike's
   - [ ] Order dinner Saturday from Papa John's or Pizza Mia
   - [ ] Breakfast Sunday from Rick & Michelle
 - [ ] Buy food and drink
@@ -103,6 +105,7 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Chips
   - [ ] Cookies
   - [ ] Fruit
+  - [ ] Dogs, buns, fixins
 - [ ] Assess supplies
   - [ ] Paper goods
   - [ ] Cups
@@ -119,35 +122,73 @@ This page describes some of the specific actions that need to be taken leading u
 <!--   - [ ] Move excess gear from shack to shed -->
 <!--   - [ ] Clean cooler -->
 - [ ] Add Field Day indicator to W3TM-10 APRS I-Gate
-- [ ] Confirm Friday (optional) & Saturday set-up times
+- [ ] Confirm Friday & Saturday set-up times
 
 ### Field Day Weekend (June 26 - 28)
 
 #### Friday, June 26
 
-- [ ] Set-up antennas (W3EDP, K3YV, W3TM, KC3MVL)
-- [ ] Bring tables and chairs from mountain (W3EDP)
-  - [ ] Set-up tables
+- [ ] Retrieve tables and chairs from mountain (KC3MVL; W3EDP)
 - [ ] Supervise porta-john placement (K3CWP)
 
 #### Saturday, June 27
 
+- [ ] Set-up antennas (W3EDP, K3YV, W3TM, KC3MVL)
 - [ ] Buy ice
-- [ ] Set up food & drink
-  - [ ] Pick up lunch (Mike's Shiloh Road)
 - [ ] Set up pop-up tents
 - [ ] Set up tarps
 - [ ] Set up info table
+- [ ] Bring tables & chairs to Pleasant Gap site (KC3MVL)
+- [ ] Set up power
+  - AC power strips
 - [ ] Set up radios
   - [ ] Station 1
+    - Computer (NARC1)
+      - Monitor
+      - Mouse
+      - Mouse pad
+      - Keyboard
+      - Power
+      - Networking cable
+    - Radio
+      - IC-7610
+      - Power supply
+      - Mic
+      - Paddles
+      - USB cable to computer
+      - Headset
   - [ ] Station 2
+      - Computer (NARC2)
+        - Monitor
+        - Mouse
+        - Mouse pad
+        - Keyboard
+        - Power
+        - Networking cable
+      - Radio
+        - FT-710
+        - Power supply
+        - Mic
+        - Paddles
+        - USB cable to computer
+        - Headset
   - [ ] Station 3 (VHF/UHF) (W3SWL)
     - [ ] Test networked logging on NARC3 (N3LI)
       - [ ] Phone
       - [ ] CW
       - [ ] WSJT-X
       - [ ] fldigi
-  - [ ] Network (N3LI)
+- Connections to antennas
+  - Bandpass filters
+    - 2x patch cables
+    - 2x barrel connectors
+  - Coax to antenna
+- [ ] Network (N3LI)
+  - Switch
+  - Power supply
+  - Cables
+- [ ] Set up lunch
+  - [ ] Pick up lunch (Mike's Shiloh Road)
 
 ::: {.callout-warning}
 **2:00 PM EDT (1800 UTC) Field Day begins**
