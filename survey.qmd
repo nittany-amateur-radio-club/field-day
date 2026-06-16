@@ -337,6 +337,8 @@ volunteers <- attendees |>
 
 names(volunteers) <- stringr::str_remove(names(volunteers), "help_with_")
 
+# Hand-modify data frame
+
 volunteers |>
   kableExtra::kbl(format = "html", escape = FALSE) |>
   kableExtra::kable_classic() |>

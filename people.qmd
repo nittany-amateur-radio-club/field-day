@@ -12,6 +12,39 @@ This page describes the people who are involved with Field Day.
 
 ## Special Roles
 
+```{r}
+#| echo: false
+survey <- readr::read_csv(file.path("csv", "clean_narc-fd-2026-survey.csv"), show_col_types = FALSE)
+```
+
+Modify file based on email conversations that aren't captured in the data.
+
+```{r}
+survey <- dplyr::mutate(survey, stations = NA)
+survey <- dplyr::add_row(
+  survey,
+  callsign = "N3LI",
+  name = "Mike Coslo",
+  clean_up = TRUE,
+  stations = TRUE
+)
+survey <- dplyr::add_row(
+  survey,
+  callsign = "W3SWL",
+  name = "Brett Saylor",
+  clean_up = TRUE,
+  stations = TRUE
+)
+
+survey$stations[survey$callsign == "K3YV"] <- TRUE
+survey$stations[survey$callsign == "W3EDP"] <- TRUE
+survey$stations[survey$callsign == "W3TM"] <- TRUE
+
+survey$clean_up[survey$callsign == "KD3CCO"] <- TRUE
+survey$clean_up[survey$callsign == "K3YV"] <- TRUE
+survey$youth[survey$callsign == "KD3CCP"] <- TRUE
+```
+
 ### Computers, networking, submitting logs
 
 - Mike Coslo N3LI
@@ -24,25 +57,64 @@ This page describes the people who are involved with Field Day.
 
 - Brett Saylor W3SWL, Red Cross will be our official visitor (confirmed 2026-06-04)
 
-## Publicity {#pub-comm}
+## Teams
 
-- TBD
+### Stations {#stations}
 
-## Food & Drink {#food-comm}
+```{r}
+stations <- survey |>
+  dplyr::filter(stations == TRUE) |>
+  dplyr::select(name, callsign)
 
-- TBD
+stations |>
+  kableExtra::kbl(format = "html")
+```
 
-## Ed Activity {#ed-comm}
 
-- TBD
+### Publicity {#pub-comm}
 
-## Set-up/Clean-up/Equipment {#set-up-comm}
+```{r}
+publicity <- survey |>
+  dplyr::filter(info_table == TRUE |
+                  invite_elected == TRUE |
+                  youth == TRUE) |>
+  dplyr::select(name, callsign)
+
+publicity |>
+  kableExtra::kbl(format = "html")
+```
+
+### Food & Drink {#food-comm}
+
+```{r}
+food <- survey |>
+  dplyr::filter(food == TRUE) |>
+  dplyr::select(name, callsign)
+
+food |>
+  kableExtra::kbl(format = "html")
+```
+
+### Ed Activity {#ed-comm}
+
+```{r}
+ed_activity <- survey |>
+  dplyr::filter(ed_activity == TRUE) |>
+  dplyr::select(name, callsign)
+
+ed_activity |>
+  kableExtra::kbl(format = "html")
+```
+
+### Set-up/Clean-up/Equipment {#set-up-comm}
 
 As indicated by results from the [survey](survey.qmd).
 
-- W3TM
-- K3OOL
-- W3EDP
-- KC3MVL
-- KM3AJ
-- KF0JZM
+```{r}
+setup_cleanup <- survey |>
+  dplyr::filter(clean_up == TRUE) |>
+  dplyr::select(name, callsign)
+
+setup_cleanup |>
+  kableExtra::kbl(format = "html")
+```
