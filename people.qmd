@@ -39,10 +39,16 @@ survey <- dplyr::add_row(
 survey$stations[survey$callsign == "K3YV"] <- TRUE
 survey$stations[survey$callsign == "W3EDP"] <- TRUE
 survey$stations[survey$callsign == "W3TM"] <- TRUE
+survey$stations[survey$callsign == "KD3CCO"] <- TRUE
+survey$stations[survey$callsign == "KC3MVL"] <- TRUE
 
 survey$clean_up[survey$callsign == "KD3CCO"] <- TRUE
 survey$clean_up[survey$callsign == "K3YV"] <- TRUE
 survey$youth[survey$callsign == "KD3CCP"] <- TRUE
+survey$food[survey$callsign == "KD3AQC"] <- TRUE
+
+survey$name[survey$callsign == "KM3AJ"] <- "Gene Moore"
+survey$name[survey$callsign == "K3YV"] <- "Woody Brem"
 ```
 
 ### Computers, networking, submitting logs
@@ -69,7 +75,6 @@ stations <- survey |>
 stations |>
   kableExtra::kbl(format = "html")
 ```
-
 
 ### Publicity {#pub-comm}
 

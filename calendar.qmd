@@ -128,13 +128,14 @@ This page describes some of the specific actions that need to be taken leading u
 
 #### Friday, June 26
 
-- [ ] Retrieve tables and chairs from mountain (KC3MVL; W3EDP)
+- [ ] Retrieve tables and chairs from mountain (KC3MVL, W3EDP, W3TM)
 - [ ] Supervise porta-john placement (K3CWP)
 
 #### Saturday, June 27
 
 - [ ] Set-up antennas (W3EDP, K3YV, W3TM, KC3MVL)
-- [ ] Buy ice
+  - [ ] Air cannon (N3LI)
+- [ ] Buy ice (KD3AQC)
 - [ ] Set up pop-up tents
 - [ ] Set up tarps
 - [ ] Set up info table
