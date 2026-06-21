@@ -26,7 +26,8 @@ This page describes some of the specific actions that need to be taken leading u
     - [x] State College dot com calendar. (H3LP)
 - [ ] Send invitations to other groups
     - [x] Pack 67 Cub Scouts. (W3TM)
-    - [x] Troop 375 (KD3CCP)
+    - [ ] Troop XX Scouts (K3IWI per 2026-06-19 text)
+    - [x] Troop 375 (KD3CCP per email)
     - [ ] Central PA Observers. (W3TM)
     - [x] Announce on ARES net (W3EDP)
     - [ ] new-faculty-l (W3TM)
@@ -106,7 +107,7 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Cookies
   - [ ] Fruit
   - [ ] Dogs, buns, fixins
-- [ ] Assess supplies
+- [ ] Assess supplies (W3TM)
   - [ ] Paper goods
   - [ ] Cups
   - [ ] Utencils
@@ -114,7 +115,7 @@ This page describes some of the specific actions that need to be taken leading u
   - [ ] Paper towels
   - [ ] Trash bags
 - Buy needed supplies
-  - [ ] Septic-safe toilet paper
+  - [ ] Septic-safe toilet paper (Bring from mountaintop)
   - [ ] Cleaning wipes (mics, keyboards, mice, headsets, CW paddles)
 <!-- - [ ] Clean-up station interior -->
 <!--   - [ ] Dust or vacuum all surfaces -->
@@ -123,78 +124,145 @@ This page describes some of the specific actions that need to be taken leading u
 <!--   - [ ] Clean cooler -->
 - [ ] Add Field Day indicator to W3TM-10 APRS I-Gate
 - [ ] Confirm Friday & Saturday set-up times
+- [x] Pull/pack gear at mountaintop (W3TM; W3EDP on 2026-06-20)
+  - [x] Bin 1 (teal): Station 1
+    - Radio & power cable
+    - Hand mic, desk mic, foot switch
+    - CW paddles
+    - 2x headsets, adapter
+    - USB cable
+    - NARC1 PC, power supply
+      - Keyboards (BT & USB)
+      - Mice (BT & USB)
+    - Audio splitter, power supply
+    - Radio stand
+  - [x] Bin 2 (teal): Station 2
+    - Radio & power cable
+    - Hand mic, foot switch, adapter
+    - CW paddles
+    - 2x headsets, adapter (W3TM has)
+    - Audio splitter, power supply
+    - NARC2 PC, power supply
+      - Keyboards (BT & USB)
+      - Mice (BT & USB)
+  - [x] Bin 3 (black): PC monitors
+    - 3x monitors
+    - 2x arms, monitor power supply, HDMI
+    - 2x stands
+    - 1x power supply
+  - [x] 4x folding tables (W3EDP to his house to hose down)
+  - [x] 4-5x folding chairs (W3EDP to his house to hose down)
+  - [x] Coax
+    - New in bag 75' and 50' RG-213/8U
+    - New in bag 75' and 50` RG-8x (W3EDP loan)
+    - Bin with patch cables
+  - [x] Bandpass filters
+  - [x] Bin 4 (black): Club memorabilia
+    - Banner
+    - Plaques
+  - [x] Office supplies
+  - [x] Cleaning supplies
+  - [x] Food & drink supplies
+  - [x] Trash barrel
+  - [x] Paracord spool
 
 ### Field Day Weekend (June 26 - 28)
 
 #### Friday, June 26
 
-- [ ] Retrieve tables and chairs from mountain (KC3MVL, W3EDP, W3TM)
 - [ ] Supervise porta-john placement (K3CWP)
 
 #### Saturday, June 27
 
-- [ ] Set-up antennas (W3EDP, K3YV, W3TM, KC3MVL)
-  - [ ] Air cannon (N3LI)
-- [ ] Buy ice (KD3AQC)
-- [ ] Set up pop-up tents
-- [ ] Set up tarps
-- [ ] Set up info table
-- [ ] Bring tables & chairs to Pleasant Gap site (KC3MVL)
-- [ ] Set up power
-  - AC power strips
-- [ ] Set up radios
-  - [ ] Station 1
-    - Computer (NARC1)
-      - Monitor
-      - Mouse
-      - Mouse pad
-      - Keyboard
-      - Power
-      - Networking cable
-    - Radio
-      - IC-7610
-      - Power supply
-      - Mic
-      - Paddles
-      - USB cable to computer
-      - Headset
-  - [ ] Station 2
-      - Computer (NARC2)
-        - Monitor
+- 08:30a EDT
+  - Meet at mountaintop, load-in (W3TM, KC3MVL, KD3CCO)
+    - 6x rolling chairs
+    - Bins, trashcan
+- 09:00a EDT (approx)
+  - Leave mountaintop for Pleasant Gap
+- 09:30a EDT (approx)
+  - Arrive Pleasant Gap (W3TM, KC3MVL, KD3CCO, W3EDP, K3YV, N3LI)
+  - [ ] Set-up antennas (W3EDP, K3YV, W3TM, KC3MVL, N3LI)
+    - Air cannon (N3LI)
+    - Antennas & support masts (W3EDP, K3YV)
+    - Coax from mountain
+  - [ ] Set-up station
+    - Tables
+    - Set up power
+      - AC power strips
+      - Extension cords as needed
+- 10:00 EDT (approx)
+  - Set up radios (W3TM, N3LI)
+    - [ ] Station 1
+      - Computer (NARC1)
+        - Monitor + power + HDMI
         - Mouse
         - Mouse pad
         - Keyboard
         - Power
         - Networking cable
       - Radio
-        - FT-710
+        - IC-7610
         - Power supply
         - Mic
         - Paddles
         - USB cable to computer
-        - Headset
-  - [ ] Station 3 (VHF/UHF) (W3SWL)
-    - [ ] Test networked logging on NARC3 (N3LI)
-      - [ ] Phone
-      - [ ] CW
-      - [ ] WSJT-X
-      - [ ] fldigi
-- Connections to antennas
-  - Bandpass filters
-    - 2x patch cables
-    - 2x barrel connectors
+        - Headset/audio
+        - Footswitch
+      - [ ] Station 2
+        - Computer (NARC2)
+          - Monitor
+          - Mouse
+          - Mouse pad
+          - Keyboard
+          - Power
+          - Networking cable
+        - Radio
+          - FT-710
+          - Power supply
+          - Mic
+          - Paddles
+          - USB cable to computer
+          - Headset/audio
+      - [ ] Station 3 (VHF/UHF) (W3SWL)
+        - Computer (NARC3 loaned by W3TM)
+          - Monitor + power + HDMI
+          - Mouse (W3TM)
+          - Mouse pad
+          - Keyboard (W3TM)
+          - Power
+          - Networking cable (W3EDP or N3LI)
+        - Radio (W3SWL)
+          - IC-7100
+          - Power supply
+          - USB cable to computer
+          - Mic
+  - [ ] Setup network (N3LI)
+    - Switch
+    - Power supply
+    - Cables
+- 10:30 EDT
+  - [ ] Set up food/info-table pop-up tents
+  - [ ] Set up tarps
+  - [ ] Set up info table
+  - [ ] Buy ice (KD3AQC)
+- 11:00 EDT (approx)
+  - [ ] Test networked logging on NARC3 (N3LI)
+    - [ ] Phone
+    - [ ] CW
+    - [ ] WSJT-X
+    - [ ] fldigi
+  - Connections to antennas
+    - Bandpass filters
+      - 2x patch cables
+      - 2x barrel connectors
   - Coax to antenna
-- [ ] Network (N3LI)
-  - Switch
-  - Power supply
-  - Cables
-- [ ] Set up lunch
-  - [ ] Pick up lunch (Mike's Shiloh Road)
+- 11:30 am (approx)
+  - [ ] Set up lunch
+    - [ ] Pick up lunch (Mike's Shiloh Road)
 
 ::: {.callout-warning}
 **2:00 PM EDT (1800 UTC) Field Day begins**
-
-Staff Field Station/Info Table 2:00 pm - 5:00 pm.
 :::
 
 - [ ] Host educational activity. Time TBD. 
@@ -203,8 +271,6 @@ Staff Field Station/Info Table 2:00 pm - 5:00 pm.
 #### Sunday, June 28
 
 ::: {.callout-warning}
-Staff Field Station/Info Table 11:00 am - 2:00 pm.
-
 **2:00 PM EDT (1800 UTC) Field Day ends**
 :::
 
