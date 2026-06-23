@@ -20,6 +20,7 @@ survey <- readr::read_csv(file.path("csv", "clean_narc-fd-2026-survey.csv"), sho
 Modify file based on email conversations that aren't captured in the data.
 
 ```{r}
+#| echo: false
 survey <- dplyr::mutate(survey, stations = NA)
 survey <- dplyr::add_row(
   survey,
@@ -68,6 +69,7 @@ survey$name[survey$callsign == "K3YV"] <- "Woody Brem"
 ### Stations {#stations}
 
 ```{r}
+#| echo: false
 stations <- survey |>
   dplyr::filter(stations == TRUE) |>
   dplyr::select(name, callsign)
@@ -79,6 +81,7 @@ stations |>
 ### Publicity {#pub-comm}
 
 ```{r}
+#| echo: false
 publicity <- survey |>
   dplyr::filter(info_table == TRUE |
                   invite_elected == TRUE |
@@ -92,6 +95,7 @@ publicity |>
 ### Food & Drink {#food-comm}
 
 ```{r}
+#| echo: false
 food <- survey |>
   dplyr::filter(food == TRUE) |>
   dplyr::select(name, callsign)
@@ -103,6 +107,7 @@ food |>
 ### Ed Activity {#ed-comm}
 
 ```{r}
+#| echo: false
 ed_activity <- survey |>
   dplyr::filter(ed_activity == TRUE) |>
   dplyr::select(name, callsign)
@@ -116,6 +121,7 @@ ed_activity |>
 As indicated by results from the [survey](survey.qmd).
 
 ```{r}
+#| echo: false
 setup_cleanup <- survey |>
   dplyr::filter(clean_up == TRUE) |>
   dplyr::select(name, callsign)
