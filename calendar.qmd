@@ -24,14 +24,14 @@ This page describes some of the specific actions that need to be taken leading u
 - [X] Add event to web-based activity calendars.
     - [x] WSPU activity calendar. (W3TM)
     - [x] State College dot com calendar. (H3LP)
-- [ ] Send invitations to other groups
+- [x] Send invitations to other groups
     - [x] Pack 67 Cub Scouts. (W3TM)
-    - [ ] Troop XX Scouts (K3IWI per 2026-06-19 text)
+    - [x] Troop XXX Scouts (K3IWI per 2026-06-19 text)
     - [x] Troop 375 (KD3CCP per email)
-    - [ ] Central PA Observers. (W3TM)
+    - [x] Central PA Observers. (W3TM; 2026-06-23)
     - [x] Announce on ARES net (W3EDP)
-    - [ ] new-faculty-l (W3TM)
-- [ ] Draft and send invitations to elected officials. (H3LP)
+    - [x] new-faculty-l (W3TM; 2026-06-23)
+- [x] Draft and send invitations to elected officials. (W3TM; 2026-06-23)
 - [x] Draft and send invitation to served agency official. (W3TM)
 - [x] Schedule Porta-Potty delivery (K3CWP).
   - [x] Robinson booked 2026-06-08 (K3CWP).
@@ -209,6 +209,7 @@ This page describes some of the specific actions that need to be taken leading u
         - USB cable to computer
         - Headset/audio
         - Footswitch
+      - ARRL/RAC section map + exchange script
       - [ ] Station 2
         - Computer (NARC2)
           - Monitor
@@ -224,23 +225,25 @@ This page describes some of the specific actions that need to be taken leading u
           - Paddles
           - USB cable to computer
           - Headset/audio
+        - ARRL/RAC section map + exchange script
       - [ ] Station 3 (VHF/UHF) (W3SWL)
         - Computer (NARC3 loaned by W3TM)
-          - Monitor + power + HDMI
+          - Monitor + power + HDMI (in Bin 3)
           - Mouse (W3TM)
-          - Mouse pad
+          - Mouse pad (W3TM)
           - Keyboard (W3TM)
-          - Power
+          - Power (W3TM)
           - Networking cable (W3EDP or N3LI)
         - Radio (W3SWL)
-          - IC-7100
-          - Power supply
-          - USB cable to computer
-          - Mic
+          - IC-7100 (W3SWL)
+          - Power supply (W3SWL)
+          - USB cable to computer (W3TM)
+          - Mic (W3SWL)
+        - ARRL/RAC section map + exchange script
   - [ ] Setup network (N3LI)
-    - Switch
-    - Power supply
-    - Cables
+    - Switch (N3LI)
+    - Power supply (N3LI)
+    - Cables (N3LI)
 - 10:30 EDT
   - [ ] Set up food/info-table pop-up tents
   - [ ] Set up tarps
@@ -258,8 +261,11 @@ This page describes some of the specific actions that need to be taken leading u
       - 2x barrel connectors
   - Coax to antenna
 - 11:30 am (approx)
-  - [ ] Set up lunch
-    - [ ] Pick up lunch (Mike's Shiloh Road)
+  - [ ] Set up lunch (H3LP)
+    - [ ] Pick up lunch (Mike's Shiloh Road; H3LP)
+    
+- Other items
+  - Solar panels and battery (KD3CCP, N3LI possibly)
 
 ::: {.callout-warning}
 **2:00 PM EDT (1800 UTC) Field Day begins**
