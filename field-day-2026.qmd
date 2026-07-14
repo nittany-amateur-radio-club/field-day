@@ -76,7 +76,28 @@ subtitle: "Report"
 
 ## It takes a village...
 
-- W3EDP, K3YV, K3CWP, W3TM, W3SWL, KD3CPR, KC3MVL, K3JEG, KD3AQC, KD3CCO, KD3BHE, WA7HUB, KC3VMJ, K3ABR, K3IWI, KD3AQC, KD3CCP, KF0JZM, N3IW, KB1BH, Michelle, & Murray
+```{r}
+#| echo: false
+
+generate_callsign_url <- function(callsign="W3TM") {
+  assertthat::is.string(callsign)
+  paste0("<a href='https://www.hamqth.com/s.php?callsign=", callsign, "'>", callsign, "</a>")
+}
+
+setup <- c("W3TM", "W3EDP", "K3YV", "KD3CCO", "WA8MTZ", "N3LI", "KC3MVL", "KM3AJ", "KD3CCP", "K3CWP", "W3SWL")
+food <- c("KD3AQC", "K3JEG", "KF0JZM", "KD3CPR")
+bonus <- c("KB1BH", "N3IW")
+ops <- c("WA7HUB", "KD3BHE")
+visitors <- c("WB3AEI", "KC3JRV", "AC3V", "W3RPA", "KB3CTG", "K3ABR", "K3IWI")
+
+hams <- c(setup, food, bonus, ops, visitors) |> 
+  unique() |> 
+  sort()
+
+data.frame(hams)|>
+  dplyr::mutate(hams = generate_callsign_url(hams)) |>
+  kableExtra::kbl(format = "html", escape = FALSE)
+```
 
 ## Next year
 
