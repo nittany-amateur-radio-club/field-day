@@ -20,6 +20,8 @@ book:
       # - things.qmd
       - stations.qmd
       - power.qmd
+      - text: "Report"
+        href: field-day-2026.qmd
   repo-url: https://github.com/nittany-amateur-radio-club/field-day/
   repo-actions: [edit, issue]
   page-footer:

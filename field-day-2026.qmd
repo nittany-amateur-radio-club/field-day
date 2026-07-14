@@ -1,0 +1,84 @@
+---
+title: "Field Day 2026"
+subtitle: "Report"
+---
+
+## 
+
+![](include/img/w3ya-field-day-map.png)
+
+##
+
+![](include/img/w3ya-field-day-2026-map.png)
+
+## 
+
+![](include/img/field-day-site-1.png)
+
+##
+
+![<https://aprs.fi/#!z=11&call=a%2FW3YA-12&timerange=3600&tail=3600>](include/img/field-day-w3ya-12-apris.fi.png)
+
+## 
+
+![K3CWP, K3JEG, KC3MVL, W3SWL](include/img/field-day-2026-1.jpg)
+
+##
+
+![W3TM](include/img/field-day-2026-2.jpg)
+
+## 
+
+![](include/img/field-day-2026-info-table.jpeg)
+
+##
+
+![KD3CCO](include/img/field-day-2026-kd3cco.jpeg)
+
+## 
+
+![](include/fig/fig-score-by-year-1.png)
+
+##
+
+![](include/fig/fig-qsos-by-year-1.png)
+
+## 
+
+![](include/fig/fig-qsos-by-year-recent-1.png)
+
+## 
+
+![](include/fig/fig-bonus-by-year-1.png)
+
+##
+
+![](include/fig/fig-bonus-proportion-by-year-1.png)
+
+## Bonus points
+
+:::: {.columns}
+::: {.column width=50%}
+- Winlink message to ARRL Section Manager
+- 10 Winlink messages
+- Safety Officer
+- Elected Official visit; agency official visit
+- Social media
+:::
+::: {.column width=50%}
+- Youth operator
+- Web submission
+- Info table
+- Public location
+- Educational activity
+:::
+::::
+
+## It takes a village...
+
+- W3EDP, K3YV, K3CWP, W3TM, W3SWL, KD3CPR, KC3MVL, K3JEG, KD3AQC, KD3CCO, KD3BHE, WA7HUB, KC3VMJ, K3ABR, K3IWI, KD3AQC, KD3CCP, KF0JZM, N3IW, KB1BH, Michelle, & Murray
+
+## Next year
+
+- [Winter Field Day](https://winterfieldday.org), January 23-24, 2027
+- ARRL Field Day, June 26-27, 2027.

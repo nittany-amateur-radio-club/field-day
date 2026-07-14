@@ -186,14 +186,30 @@ w3ya <- w3ya |>
                 tot_qsos = `TOTAL QSOs`,
                 bonus = `BONUS POINTS`,
                 n_particip = `Participants`,
-                n_xmtrs = `Transmitters`)
+                n_xmtrs = `Transmitters`) |>
+  dplyr::select(score, cw_qsos, dig_qsos, ph_qsos, tot_qsos, bonus, n_particip, n_xmtrs, year)
+```
+
+
+```{r}
+w3ya_26 <- tibble::tibble(score = 1722,
+                          cw_qsos = 0,
+                          dig_qsos = 45,
+                          ph_qsos = 186,
+                          tot_qsos = 231,
+                          bonus = 1170,
+                          n_particip = 36,
+                          n_xmtrs = 2,
+                          year = 2026)
+
+w3ya <- rbind(w3ya, w3ya_26)
 ```
 
 ### Score
 
 ```{r}
 #| label: fig-score-by-year
-#| fig-cap: "Nittany ARC (W3YA) Field Day score 2010-25"
+#| fig-cap: "Nittany ARC (W3YA) Field Day score 2010-26"
 library(ggplot2)
 w3ya |>
   ggplot() +
@@ -244,7 +260,7 @@ w3ya |>
   aes(x = year, y = bonus) +
   geom_point() +
   geom_line() +
-  scale_x_continuous(breaks = seq(2016, 2025, by = 1))
+  scale_x_continuous(breaks = seq(2016, 2026, by = 1))
 ```
 
 ```{r}
@@ -257,7 +273,7 @@ w3ya |>
   aes(x = year, y = bonus_pct) +
   geom_point() +
   geom_line() +
-  scale_x_continuous(breaks = seq(2016, 2025, by = 1)) +
+  scale_x_continuous(breaks = seq(2016, 2026, by = 1)) +
   ylab("Bonus points as a proportion of total points")
 ```
 
@@ -272,7 +288,7 @@ w3ya |>
   aes(x = year, y = n_xmtrs) +
   geom_point() +
   geom_line() +
-  scale_x_continuous(breaks = seq(2010, 2025, by = 1)) +
+  scale_x_continuous(breaks = seq(2010, 2026, by = 1)) +
   ylim(0, 5)
 ```
 
@@ -285,7 +301,7 @@ w3ya |>
   aes(x = year, y = qs_per_xmtr) +
   geom_point() +
   geom_line() +
-  scale_x_continuous(breaks = seq(2012, 2025, by = 1))
+  scale_x_continuous(breaks = seq(2012, 2026, by = 1))
 ```
 
 ### Participants
@@ -299,7 +315,7 @@ w3ya |>
   aes(x = year, y = n_particip) +
   geom_point() +
   geom_smooth(se = FALSE) +
-  scale_x_continuous(breaks = seq(2012, 2025, by = 1))
+  scale_x_continuous(breaks = seq(2012, 2026, by = 1))
   ylim(0,60)
 ```
 
@@ -312,6 +328,6 @@ w3ya |>
   aes(x = year, y = qs_per_person) +
   geom_point() +
   geom_line() +
-  scale_x_continuous(breaks = seq(2012, 2025, by = 1))
+  scale_x_continuous(breaks = seq(2012, 2026, by = 1))
 ```
 
